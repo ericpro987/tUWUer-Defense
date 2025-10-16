@@ -10,7 +10,16 @@ public class Range : MonoBehaviour
    
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        OnEnter?.Invoke(collision.gameObject);
+        Debug.Log($"El enemigo: {collision.gameObject.name}");
+        if (collision.TryGetComponent<MagoOscuro>(out MagoOscuro magoOscuro))
+        {
+            if (!magoOscuro.CompareTag(magoOscuro.tag)) 
+             OnEnter?.Invoke(collision.gameObject);
+        }
+        else
+        {
+            OnEnter?.Invoke(collision.gameObject);
+        }
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -19,6 +28,15 @@ public class Range : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        OnExit?.Invoke(collision.gameObject);
+        Debug.Log($"El enemigo: {collision.gameObject.name}");
+        if (collision.TryGetComponent<MagoOscuro>(out MagoOscuro magoOscuro))
+        {
+            if (!magoOscuro.CompareTag(magoOscuro.tag))
+                OnEnter?.Invoke(collision.gameObject);
+        }
+        else
+        {
+            OnEnter?.Invoke(collision.gameObject);
+        }
     }
 }

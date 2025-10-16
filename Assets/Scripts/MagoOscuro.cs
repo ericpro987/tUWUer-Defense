@@ -14,59 +14,88 @@ public class MagoOscuro : MonoBehaviour
     private List<Bullet> ammo;
     [SerializeField]
     private List<Transform> pos;
-
+    Rigidbody2D rb;
+    [SerializeField]
+    private GameObject tower;
+    [SerializeField]
+    private string tagEnemy;
     private void Awake()
     {
+        rb = GetComponent<Rigidbody2D>();
         rangeAttack.OnEnter += Attack;
         rangeAttack.OnStay += Attack;
+        rangeDetection.OnEnter += StopMovement;
+        rangeDetection.OnExit += ResumeMovement;
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        
     }
-
+    bool isStopped = false;
     // Update is called once per frame
     void Update()
     {
-        
+        if(!isStopped)
+            Move();
+    }
+    void Move()
+    {
+        Vector3 dir = (tower.transform.position - this.transform.position).normalized;
+        rb.linearVelocity = dir*2;
+    }
+    void ResumeMovement(GameObject go)
+    {
+        isStopped = false;
+       // Move();
+    }
+    void StopMovement(GameObject enemy)
+    {
+    /*    if (enemy.CompareTag(tagEnemy))
+        {*/
+            isStopped = true;
+            rb.linearVelocity = Vector2.zero;
+       // }
     }
 
     bool cooldown = false;
     bool isReloading = false;
     private void Attack(GameObject enemy)
     {
-        Debug.Log("Entro a Attack");
-        if (!cooldown)
+        if (enemy.tag == tagEnemy)
         {
-            cooldown = true;
-            Bullet bullet = null;
-            for (int i = 0; i < ammo.Count; i++)
+            Debug.Log("Entro a Attack");
+            if (!cooldown)
             {
-                if (ammo[i].available)
+                cooldown = true;
+                Bullet bullet = null;
+                for (int i = 0; i < ammo.Count; i++)
                 {
-                    Debug.Log("Entro en bullet y asigno");
-                    bullet = ammo[i];
-                    bullet.available = false;
-                    break;
+                    if (ammo[i].available)
+                    {
+                        Debug.Log("Entro en bullet y asigno");
+                        bullet = ammo[i];
+                        bullet.available = false;
+                        break;
+                    }
                 }
-            }
-            if (bullet != null)
-            {
-                bullet.transform.parent = null;
-                Debug.Log("Bullet no es null");
-                Vector2 dir = (enemy.transform.position - bullet.transform.position).normalized;
-                bullet.rigidbody2d.linearVelocity = dir * 6;       
-                bullet.Die();
-                StartCoroutine(ResetCooldown());
-            }
-            else
-            {
-                Debug.Log("Bullet es null");
-                if(AllReload() || !isReloading)
-                    StartCoroutine(Reload());
-            }
+                if (bullet != null)
+                {
+                    bullet.transform.parent = null;
+                    Debug.Log("Bullet no es null");
+                    Vector2 dir = (enemy.transform.position - bullet.transform.position).normalized;
+                    bullet.rigidbody2d.linearVelocity = dir * 6;
+                    bullet.Die();
+                    StartCoroutine(ResetCooldown());
+                }
+                else
+                {
+                    Debug.Log("Bullet es null");
+                    if (AllReload() || !isReloading)
+                        StartCoroutine(Reload());
+                }
 
+            }
         }
     }
     IEnumerator ResetCooldown()
