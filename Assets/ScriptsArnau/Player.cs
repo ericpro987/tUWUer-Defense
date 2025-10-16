@@ -16,6 +16,10 @@ public class Player : MonoBehaviour
     public int coins;
     public int coinsB;
 
+
+    public int selectedTroop;
+    public int selectedTroopB;
+
     public GameObject generator;
     public GameObject generatorB;
     public int generatorLevel;
@@ -42,6 +46,14 @@ public class Player : MonoBehaviour
     public int JugadorMoney;
 
     public GameObject bola;
+    public GameObject bola2;
+    public GameObject bola3;
+    public GameObject bola4;
+
+    public GameObject bola5;
+    public GameObject bola6;
+    public GameObject bola7;
+    public GameObject bola8;
 
     private void Awake()
     {
@@ -111,39 +123,173 @@ public class Player : MonoBehaviour
         actions.Torre.Num8B.started += num8B;
         actions.Torre.Enable();
 
+
+        actions.Torre.W.started += W;
+        actions.Torre.Enable();
+
+        actions.Torre.A.started += A;
+        actions.Torre.Enable();
+
+        actions.Torre.S.started += S;
+        actions.Torre.Enable();
+
+        actions.Torre.D.started += D;
+        actions.Torre.Enable();
+
+        actions.Torre.Up.started += Up;
+        actions.Torre.Enable();
+
+        actions.Torre.Down.started += Down;
+        actions.Torre.Enable();
+
+        actions.Torre.Left.started += Left;
+        actions.Torre.Enable();
+
+        actions.Torre.Right.started += Right;
+        actions.Torre.Enable();
+
+
     }
 
     public void num1(InputAction.CallbackContext context)
     {
-    Instantiate(bola, spawnPoints[0].position, spawnPoints[0].rotation);
+
+        if (selectedTroop == 1)
+        {
+            Instantiate(bola, spawnPoints[0].position, spawnPoints[0].rotation);
+        } else if (selectedTroop == 2)
+        {
+            Instantiate(bola2, spawnPoints[0].position, spawnPoints[0].rotation);
+        }
+        else if (selectedTroop == 3)
+        {
+            Instantiate(bola3, spawnPoints[0].position, spawnPoints[0].rotation);
+        }
+        else if (selectedTroop == 4)
+        {
+            Instantiate(bola4, spawnPoints[0].position, spawnPoints[0].rotation);
+        }
+        
+
+
     }
 
     public void num1B(InputAction.CallbackContext context)
     {
-        Instantiate(bola, spawnPointsB[0].position, spawnPointsB[0].rotation);
+        
+
+
+        if (selectedTroopB == 1)
+        {
+            Instantiate(bola5, spawnPointsB[0].position, spawnPointsB[0].rotation);
+        }
+        else if (selectedTroopB == 2)
+        {
+            Instantiate(bola6, spawnPointsB[0].position, spawnPointsB[0].rotation);
+        }
+        else if (selectedTroopB == 3)
+        {
+            Instantiate(bola7, spawnPointsB[0].position, spawnPointsB[0].rotation);
+        }
+        else if (selectedTroopB == 4)
+        {
+            Instantiate(bola8, spawnPointsB[0].position, spawnPointsB[0].rotation);
+        }
     }
 
     public void num2(InputAction.CallbackContext context)
     {
-        Instantiate(bola, spawnPoints[1].position, spawnPoints[1].rotation);
+        
+
+
+        if (selectedTroop == 1)
+        {
+            Instantiate(bola, spawnPoints[1].position, spawnPoints[1].rotation);
+        }
+        else if (selectedTroop == 2)
+        {
+            Instantiate(bola2, spawnPoints[1].position, spawnPoints[1].rotation);
+        }
+        else if (selectedTroop == 3)
+        {
+            Instantiate(bola3, spawnPoints[1].position, spawnPoints[1].rotation);
+        }
+        else if (selectedTroop == 4)
+        {
+            Instantiate(bola4, spawnPoints[1].position, spawnPoints[1].rotation);
+        }
     }
 
 
     public void num2B(InputAction.CallbackContext context)
     {
-        Instantiate(bola, spawnPointsB[1].position, spawnPointsB[1].rotation);
+        
+
+
+        if (selectedTroopB == 1)
+        {
+            Instantiate(bola5, spawnPointsB[1].position, spawnPointsB[1].rotation);
+        }
+        else if (selectedTroopB == 2)
+        {
+            Instantiate(bola6, spawnPointsB[1].position, spawnPointsB[1].rotation);
+        }
+        else if (selectedTroopB == 3)
+        {
+            Instantiate(bola7, spawnPointsB[1].position, spawnPointsB[1].rotation);
+        }
+        else if (selectedTroopB == 4)
+        {
+            Instantiate(bola8, spawnPointsB[1].position, spawnPointsB[1].rotation);
+        }
     }
 
 
     public void num3(InputAction.CallbackContext context)
     {
-        Instantiate(bola, spawnPoints[2].position, spawnPoints[2].rotation);
+       
+
+
+        if (selectedTroop == 1)
+        {
+            Instantiate(bola, spawnPoints[2].position, spawnPoints[2].rotation);
+        }
+        else if (selectedTroop == 2)
+        {
+            Instantiate(bola2, spawnPoints[2].position, spawnPoints[2].rotation);
+        }
+        else if (selectedTroop == 3)
+        {
+            Instantiate(bola3, spawnPoints[2].position, spawnPoints[2].rotation);
+        }
+        else if (selectedTroop == 4)
+        {
+            Instantiate(bola4, spawnPoints[2].position, spawnPoints[2].rotation);
+        }
     }
 
 
     public void num3B(InputAction.CallbackContext context)
     {
-        Instantiate(bola, spawnPointsB[2].position, spawnPointsB[2].rotation);
+       
+
+
+        if (selectedTroopB == 1)
+        {
+            Instantiate(bola5, spawnPointsB[2].position, spawnPointsB[2].rotation);
+        }
+        else if (selectedTroopB == 2)
+        {
+            Instantiate(bola6, spawnPointsB[2].position, spawnPointsB[2].rotation);
+        }
+        else if (selectedTroopB == 3)
+        {
+            Instantiate(bola7, spawnPointsB[2].position, spawnPointsB[2].rotation);
+        }
+        else if (selectedTroopB == 4)
+        {
+            Instantiate(bola8, spawnPointsB[2].position, spawnPointsB[2].rotation);
+        }
     }
 
 
@@ -208,18 +354,67 @@ public class Player : MonoBehaviour
     }
 
 
+    public void W(InputAction.CallbackContext context)
+    {
+        selectedTroop = 1;
+    }
+
+    public void A(InputAction.CallbackContext context)
+    {
+        selectedTroop = 2;
+    }
+
+    public void S(InputAction.CallbackContext context)
+    {
+        selectedTroop = 3;
+    }
+
+    public void D(InputAction.CallbackContext context)
+    {
+        selectedTroop = 4;
+    }
+
+    public void Up(InputAction.CallbackContext context)
+    {
+        selectedTroopB = 1;
+    }
+
+    public void Left(InputAction.CallbackContext context)
+    {
+        selectedTroopB = 2;
+    }
+
+    public void Down(InputAction.CallbackContext context)
+    {
+        selectedTroopB = 3;
+    }
+
+    public void Right(InputAction.CallbackContext context)
+    {
+        selectedTroopB = 4;
+    }
+
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        generatorLevel = 0;
-        generatorLevelB = 0;
+        generatorLevel = 1;
+        generatorLevelB = 1;
         ATKBoosterLevel = 0;
         ATKBoosterLevelB = 0;
         SPDBoosterLevel = 0;
         SPDBoosterLevelB = 0;
         HPBoosterLevel = 0;
         HPBoosterLevelB = 0;
+
+
+        coins = 20;
+        coinsB = 20;
+
+
+        selectedTroop = 2;
+        selectedTroopB = 2;
 
     }
 

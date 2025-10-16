@@ -1224,6 +1224,78 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""W"",
+                    ""type"": ""Button"",
+                    ""id"": ""55f7ff0e-33e1-4955-9e34-b473e659b6c9"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""A"",
+                    ""type"": ""Button"",
+                    ""id"": ""b424bd03-531b-4fb4-a1ab-3410701fd0de"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""S"",
+                    ""type"": ""Button"",
+                    ""id"": ""207624eb-4d94-4aa8-9501-72d3d00c876b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""D"",
+                    ""type"": ""Button"",
+                    ""id"": ""0d8d8791-2568-4ee6-9f47-fd6d98ff1253"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Up"",
+                    ""type"": ""Button"",
+                    ""id"": ""da2ca288-ec06-4d02-acd1-ccebe5db728b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Down"",
+                    ""type"": ""Button"",
+                    ""id"": ""21bcd850-776d-4fcd-a43d-9acc2bd5b1ef"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Left"",
+                    ""type"": ""Button"",
+                    ""id"": ""1782b359-ea6c-4595-88c0-72005aecc307"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Right"",
+                    ""type"": ""Button"",
+                    ""id"": ""03470c1c-5cc3-488d-b184-31bac29c1f4c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -1402,6 +1474,94 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""action"": ""Num8B"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""81274ce9-3aea-4410-b659-e87b8b49b30d"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""W"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""76e24052-da6a-4de7-888b-5fcd3d67a56a"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""A"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f5b34842-e343-473a-b740-6fc288f1cab9"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""S"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2f36590c-58ad-40f3-9d7b-5e6c1a13169a"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""D"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""acd7d4ab-b555-44d1-9ce1-2148295903f5"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""daa056fc-00e1-44e8-b276-88e49f949e32"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bf56dade-527b-4455-b933-d6fa9d1876fc"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ef11ae27-8e86-446d-a0d0-55cbfc3e2b35"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1510,6 +1670,14 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_Torre_Num7B = m_Torre.FindAction("Num7B", throwIfNotFound: true);
         m_Torre_Num8 = m_Torre.FindAction("Num8", throwIfNotFound: true);
         m_Torre_Num8B = m_Torre.FindAction("Num8B", throwIfNotFound: true);
+        m_Torre_W = m_Torre.FindAction("W", throwIfNotFound: true);
+        m_Torre_A = m_Torre.FindAction("A", throwIfNotFound: true);
+        m_Torre_S = m_Torre.FindAction("S", throwIfNotFound: true);
+        m_Torre_D = m_Torre.FindAction("D", throwIfNotFound: true);
+        m_Torre_Up = m_Torre.FindAction("Up", throwIfNotFound: true);
+        m_Torre_Down = m_Torre.FindAction("Down", throwIfNotFound: true);
+        m_Torre_Left = m_Torre.FindAction("Left", throwIfNotFound: true);
+        m_Torre_Right = m_Torre.FindAction("Right", throwIfNotFound: true);
     }
 
     ~@InputSystem_Actions()
@@ -1987,6 +2155,14 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Torre_Num7B;
     private readonly InputAction m_Torre_Num8;
     private readonly InputAction m_Torre_Num8B;
+    private readonly InputAction m_Torre_W;
+    private readonly InputAction m_Torre_A;
+    private readonly InputAction m_Torre_S;
+    private readonly InputAction m_Torre_D;
+    private readonly InputAction m_Torre_Up;
+    private readonly InputAction m_Torre_Down;
+    private readonly InputAction m_Torre_Left;
+    private readonly InputAction m_Torre_Right;
     /// <summary>
     /// Provides access to input actions defined in input action map "Torre".
     /// </summary>
@@ -2063,6 +2239,38 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @Num8B => m_Wrapper.m_Torre_Num8B;
         /// <summary>
+        /// Provides access to the underlying input action "Torre/W".
+        /// </summary>
+        public InputAction @W => m_Wrapper.m_Torre_W;
+        /// <summary>
+        /// Provides access to the underlying input action "Torre/A".
+        /// </summary>
+        public InputAction @A => m_Wrapper.m_Torre_A;
+        /// <summary>
+        /// Provides access to the underlying input action "Torre/S".
+        /// </summary>
+        public InputAction @S => m_Wrapper.m_Torre_S;
+        /// <summary>
+        /// Provides access to the underlying input action "Torre/D".
+        /// </summary>
+        public InputAction @D => m_Wrapper.m_Torre_D;
+        /// <summary>
+        /// Provides access to the underlying input action "Torre/Up".
+        /// </summary>
+        public InputAction @Up => m_Wrapper.m_Torre_Up;
+        /// <summary>
+        /// Provides access to the underlying input action "Torre/Down".
+        /// </summary>
+        public InputAction @Down => m_Wrapper.m_Torre_Down;
+        /// <summary>
+        /// Provides access to the underlying input action "Torre/Left".
+        /// </summary>
+        public InputAction @Left => m_Wrapper.m_Torre_Left;
+        /// <summary>
+        /// Provides access to the underlying input action "Torre/Right".
+        /// </summary>
+        public InputAction @Right => m_Wrapper.m_Torre_Right;
+        /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
         public InputActionMap Get() { return m_Wrapper.m_Torre; }
@@ -2136,6 +2344,30 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Num8B.started += instance.OnNum8B;
             @Num8B.performed += instance.OnNum8B;
             @Num8B.canceled += instance.OnNum8B;
+            @W.started += instance.OnW;
+            @W.performed += instance.OnW;
+            @W.canceled += instance.OnW;
+            @A.started += instance.OnA;
+            @A.performed += instance.OnA;
+            @A.canceled += instance.OnA;
+            @S.started += instance.OnS;
+            @S.performed += instance.OnS;
+            @S.canceled += instance.OnS;
+            @D.started += instance.OnD;
+            @D.performed += instance.OnD;
+            @D.canceled += instance.OnD;
+            @Up.started += instance.OnUp;
+            @Up.performed += instance.OnUp;
+            @Up.canceled += instance.OnUp;
+            @Down.started += instance.OnDown;
+            @Down.performed += instance.OnDown;
+            @Down.canceled += instance.OnDown;
+            @Left.started += instance.OnLeft;
+            @Left.performed += instance.OnLeft;
+            @Left.canceled += instance.OnLeft;
+            @Right.started += instance.OnRight;
+            @Right.performed += instance.OnRight;
+            @Right.canceled += instance.OnRight;
         }
 
         /// <summary>
@@ -2195,6 +2427,30 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Num8B.started -= instance.OnNum8B;
             @Num8B.performed -= instance.OnNum8B;
             @Num8B.canceled -= instance.OnNum8B;
+            @W.started -= instance.OnW;
+            @W.performed -= instance.OnW;
+            @W.canceled -= instance.OnW;
+            @A.started -= instance.OnA;
+            @A.performed -= instance.OnA;
+            @A.canceled -= instance.OnA;
+            @S.started -= instance.OnS;
+            @S.performed -= instance.OnS;
+            @S.canceled -= instance.OnS;
+            @D.started -= instance.OnD;
+            @D.performed -= instance.OnD;
+            @D.canceled -= instance.OnD;
+            @Up.started -= instance.OnUp;
+            @Up.performed -= instance.OnUp;
+            @Up.canceled -= instance.OnUp;
+            @Down.started -= instance.OnDown;
+            @Down.performed -= instance.OnDown;
+            @Down.canceled -= instance.OnDown;
+            @Left.started -= instance.OnLeft;
+            @Left.performed -= instance.OnLeft;
+            @Left.canceled -= instance.OnLeft;
+            @Right.started -= instance.OnRight;
+            @Right.performed -= instance.OnRight;
+            @Right.canceled -= instance.OnRight;
         }
 
         /// <summary>
@@ -2561,5 +2817,61 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnNum8B(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "W" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnW(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "A" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnA(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "S" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnS(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "D" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnD(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Up" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnUp(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Down" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnDown(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Left" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnLeft(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Right" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnRight(InputAction.CallbackContext context);
     }
 }
