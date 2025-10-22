@@ -21,6 +21,13 @@ public class MagoOscuro : MonoBehaviour
     private string tagEnemy;
     private void Awake()
     {
+        for (int i = 0; i < ammo.Count; i++)
+        {
+            if (!ammo[i].available)
+            {
+                ammo[i].SetTagEnemy(tagEnemy);
+            }
+        }
         rb = GetComponent<Rigidbody2D>();
         rangeAttack.OnEnter += Attack;
         rangeAttack.OnStay += Attack;

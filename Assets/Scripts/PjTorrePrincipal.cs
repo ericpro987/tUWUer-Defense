@@ -14,9 +14,18 @@ public class PjTorrePrincipal : MonoBehaviour
     private List<GameObject> enemies;
     [SerializeField]
     private List<Bullet> ammo;
+    [SerializeField]
+    private string tagEnemy;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
+        for (int i = 0; i < ammo.Count; i++)
+        {
+            if (!ammo[i].available)
+            {
+                ammo[i].SetTagEnemy(tagEnemy);
+            }
+        }
         rangeDetection.OnEnter += PushEnemiesInList;
         rangeAttack.OnEnter += Attack;
         rangeAttack.OnStay += Attack;
