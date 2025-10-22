@@ -1,4 +1,7 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -54,6 +57,27 @@ public class Player : MonoBehaviour
     public GameObject bola6;
     public GameObject bola7;
     public GameObject bola8;
+
+
+    public GameObject carta1;
+    public GameObject carta2;
+    public GameObject carta3;
+    public GameObject carta4;
+
+    public GameObject carta5;
+    public GameObject carta6;
+    public GameObject carta7;
+    public GameObject carta8;
+
+    public int CartaPreuA;
+    public int CartaPreuB;
+    public int CartaPreuC;
+    public int CartaPreuD;
+
+
+
+    public TextMeshProUGUI MONEDES;
+    public TextMeshProUGUI MONEDESB;
 
     private void Awake()
     {
@@ -151,7 +175,7 @@ public class Player : MonoBehaviour
 
     }
 
-    public void num1(InputAction.CallbackContext context)
+    public void A(InputAction.CallbackContext context)
     {
 
         if (selectedTroop == 1)
@@ -169,12 +193,16 @@ public class Player : MonoBehaviour
         {
             Instantiate(bola4, spawnPoints[0].position, spawnPoints[0].rotation);
         }
+        else
+        {
+            Debug.Log("Cap tropa seleccionada");
+        }
         
 
 
     }
 
-    public void num1B(InputAction.CallbackContext context)
+    public void Left(InputAction.CallbackContext context)
     {
         
 
@@ -195,9 +223,13 @@ public class Player : MonoBehaviour
         {
             Instantiate(bola8, spawnPointsB[0].position, spawnPointsB[0].rotation);
         }
+        else
+        {
+            Debug.Log("Cap tropa seleccionada");
+        }
     }
 
-    public void num2(InputAction.CallbackContext context)
+    public void S(InputAction.CallbackContext context)
     {
         
 
@@ -218,10 +250,14 @@ public class Player : MonoBehaviour
         {
             Instantiate(bola4, spawnPoints[1].position, spawnPoints[1].rotation);
         }
+        else
+        {
+            Debug.Log("Cap tropa seleccionada");
+        }
     }
 
 
-    public void num2B(InputAction.CallbackContext context)
+    public void Down(InputAction.CallbackContext context)
     {
         
 
@@ -242,10 +278,14 @@ public class Player : MonoBehaviour
         {
             Instantiate(bola8, spawnPointsB[1].position, spawnPointsB[1].rotation);
         }
+        else
+        {
+            Debug.Log("Cap tropa seleccionada");
+        }
     }
 
 
-    public void num3(InputAction.CallbackContext context)
+    public void D(InputAction.CallbackContext context)
     {
        
 
@@ -266,10 +306,14 @@ public class Player : MonoBehaviour
         {
             Instantiate(bola4, spawnPoints[2].position, spawnPoints[2].rotation);
         }
+        else
+        {
+            Debug.Log("Cap tropa seleccionada");
+        }
     }
 
 
-    public void num3B(InputAction.CallbackContext context)
+    public void Right(InputAction.CallbackContext context)
     {
        
 
@@ -290,20 +334,68 @@ public class Player : MonoBehaviour
         {
             Instantiate(bola8, spawnPointsB[2].position, spawnPointsB[2].rotation);
         }
+        else
+        {
+            Debug.Log("Cap tropa seleccionada");
+        }
     }
 
 
 
 
 
-    public void num4(InputAction.CallbackContext context)
+    public void Up(InputAction.CallbackContext context)
+
     {
-        Instantiate(bola, spawnPoints[0].position, spawnPoints[0].rotation);
+        if (selectedTroopB == 1)
+        {
+            Instantiate(bola5, spawnPointsB[3].position, spawnPointsB[3].rotation);
+        }
+        else if (selectedTroopB == 2)
+        {
+            Instantiate(bola6, spawnPointsB[3].position, spawnPointsB[3].rotation);
+        }
+        else if (selectedTroopB == 3)
+        {
+            Instantiate(bola7, spawnPointsB[3].position, spawnPointsB[3].rotation);
+        }
+        else if (selectedTroopB == 4)
+        {
+            Instantiate(bola8, spawnPointsB[3].position, spawnPointsB[3].rotation);
+        }
+        else
+        {
+            Debug.Log("Cap tropa seleccionada");
+        }
+        
     }
 
-    public void num4B(InputAction.CallbackContext context)
+   public void W(InputAction.CallbackContext context)
     {
-        Instantiate(bola, spawnPointsB[0].position, spawnPointsB[0].rotation);
+
+        if (selectedTroopB == 1)
+        {
+            Instantiate(bola, spawnPoints[3].position, spawnPoints[3].rotation);
+        }
+        else if (selectedTroopB == 2)
+        {
+            Instantiate(bola2, spawnPoints[3].position, spawnPoints[3].rotation);
+        }
+        else if (selectedTroopB == 3)
+        {
+            Instantiate(bola3, spawnPoints[3].position, spawnPoints[3].rotation);
+        }
+        else if (selectedTroopB == 4)
+        {
+            Instantiate(bola4, spawnPoints[3].position, spawnPoints[3].rotation);
+        }
+        else
+        {
+            Debug.Log("Cap tropa seleccionada");
+        }
+
+
+        
     }
 
     public void num5(InputAction.CallbackContext context)
@@ -352,46 +444,212 @@ public class Player : MonoBehaviour
     {
         HPBoosterLevelB++;
     }
+    //   square1.GetComponent<Renderer>().material.color = Color.red;
+    //el quadrat concret puja o baixa
 
-
-    public void W(InputAction.CallbackContext context)
+    public void num1(InputAction.CallbackContext context)
     {
+        if (selectedTroop == 1)
+        {
+            Debug.Log("Troop already selected");
+            return;
+        } if (selectedTroop == 2)
+        {
+            carta2.transform.position += new Vector3(0, 0.2f, 0);
+        } if (selectedTroop == 3)
+        {
+            carta3.transform.position += new Vector3(0, 0.2f, 0);
+        } if (selectedTroop == 4)
+        {
+            carta4.transform.position += new Vector3(0, 0.2f, 0);
+        }
+
         selectedTroop = 1;
+    
+
+        carta1.transform.position += new Vector3(0, -0.2f, 0);
     }
 
-    public void A(InputAction.CallbackContext context)
+    public void num2(InputAction.CallbackContext context)
     {
+        if (selectedTroop == 2)
+        {
+            Debug.Log("Troop already selected");
+            return;
+        }
+        if (selectedTroop == 1)
+        {
+            carta1.transform.position += new Vector3(0, 0.2f, 0);
+        }
+        if (selectedTroop == 3)
+        {
+            carta3.transform.position += new Vector3(0, 0.2f, 0);
+        }
+        if (selectedTroop == 4)
+        {
+            carta4.transform.position += new Vector3(0, 0.2f, 0);
+        }
+
         selectedTroop = 2;
+
+
+        carta2.transform.position += new Vector3(0, -0.2f, 0);
     }
 
-    public void S(InputAction.CallbackContext context)
+    public void num3(InputAction.CallbackContext context)
     {
+        if (selectedTroop == 3)
+        {
+            Debug.Log("Troop already selected");
+            return;
+        }
+        if (selectedTroop == 2)
+        {
+            carta2.transform.position += new Vector3(0, 0.2f, 0);
+        }
+        if (selectedTroop == 1)
+        {
+            carta1.transform.position += new Vector3(0, 0.2f, 0);
+        }
+        if (selectedTroop == 4)
+        {
+            carta4.transform.position += new Vector3(0, 0.2f, 0);
+        }
+
         selectedTroop = 3;
+
+
+        carta3.transform.position += new Vector3(0, -0.2f, 0);
     }
 
-    public void D(InputAction.CallbackContext context)
+    public void num4(InputAction.CallbackContext context)
     {
+        if (selectedTroop == 4)
+        {
+            Debug.Log("Troop already selected");
+            return;
+        }
+        if (selectedTroop == 2)
+        {
+            carta2.transform.position += new Vector3(0, 0.2f, 0);
+        }
+        if (selectedTroop == 3)
+        {
+            carta3.transform.position += new Vector3(0, 0.2f, 0);
+        }
+        if (selectedTroop == 1)
+        {
+            carta1.transform.position += new Vector3(0, 0.2f, 0);
+        }
+
         selectedTroop = 4;
+
+
+        carta4.transform.position += new Vector3(0, -0.2f, 0);
     }
 
-    public void Up(InputAction.CallbackContext context)
+    public void num1B(InputAction.CallbackContext context)
     {
+        if (selectedTroopB == 1)
+        {
+            Debug.Log("Troop already selected");
+            return;
+        }
+        if (selectedTroopB == 2)
+        {
+            carta6.transform.position += new Vector3(0, -0.2f, 0);
+        }
+        if (selectedTroopB == 3)
+        {
+            carta7.transform.position += new Vector3(0, -0.2f, 0);
+        }
+        if (selectedTroopB == 4)
+        {
+            carta8.transform.position += new Vector3(0, -0.2f, 0);
+        }
+
         selectedTroopB = 1;
+
+
+        carta5.transform.position += new Vector3(0, 0.2f, 0);
     }
 
-    public void Left(InputAction.CallbackContext context)
+    public void num2B(InputAction.CallbackContext context)
     {
+        if (selectedTroopB == 2)
+        {
+            Debug.Log("Troop already selected");
+            return;
+        }
+        if (selectedTroopB == 1)
+        {
+            carta5.transform.position += new Vector3(0, -0.2f, 0);
+        }
+        if (selectedTroopB == 3)
+        {
+            carta7.transform.position += new Vector3(0, -0.2f, 0);
+        }
+        if (selectedTroopB == 4)
+        {
+            carta8.transform.position += new Vector3(0, -0.2f, 0);
+        }
+
         selectedTroopB = 2;
+
+
+        carta6.transform.position += new Vector3(0, 0.2f, 0);
     }
 
-    public void Down(InputAction.CallbackContext context)
+    public void num3B(InputAction.CallbackContext context)
     {
+        if (selectedTroopB == 3)
+        {
+            Debug.Log("Troop already selected");
+            return;
+        }
+        if (selectedTroopB == 1)
+        {
+            carta5.transform.position += new Vector3(0, -0.2f, 0);
+        }
+        if (selectedTroopB == 2)
+        {
+            carta6.transform.position += new Vector3(0, -0.2f, 0);
+        }
+        if (selectedTroopB == 4)
+        {
+            carta8.transform.position += new Vector3(0, -0.2f, 0);
+        }
+
         selectedTroopB = 3;
+
+
+        carta7.transform.position += new Vector3(0, 0.2f, 0);
     }
 
-    public void Right(InputAction.CallbackContext context)
+    public void num4B(InputAction.CallbackContext context)
     {
+        if (selectedTroopB == 4)
+        {
+            Debug.Log("Troop already selected");
+            return;
+        }
+        if (selectedTroopB == 1)
+        {
+            carta5.transform.position += new Vector3(0, -0.2f, 0);
+        }
+        if (selectedTroopB == 3)
+        {
+            carta7.transform.position += new Vector3(0, -0.2f, 0);
+        }
+        if (selectedTroopB == 2)
+        {
+            carta6.transform.position += new Vector3(0, -0.2f, 0);
+        }
+
         selectedTroopB = 4;
+
+
+        carta8.transform.position += new Vector3(0, 0.2f, 0);
     }
 
 
@@ -413,16 +671,143 @@ public class Player : MonoBehaviour
         coinsB = 20;
 
 
-        selectedTroop = 2;
-        selectedTroopB = 2;
+        selectedTroop = 0;
+        selectedTroopB = 0;
 
+        CartaPreuA = 2;
+        CartaPreuB = 4;
+        CartaPreuC = 6;
+        CartaPreuD = 8;
+
+
+        StartCoroutine(generate());
+    }
+
+
+
+
+    IEnumerator generate()
+    {
+        while (true)
+        {
+            coins++;
+            Debug.Log("Coins: " + coins);
+
+            if (generatorLevel == 1)
+            {
+                yield return new WaitForSeconds(3);
+            }
+            else if (generatorLevel == 2)
+            {
+                yield return new WaitForSeconds(2);
+            }
+            else if (generatorLevel == 3)
+            {
+                yield return new WaitForSeconds(1);
+            }
+            else
+            {
+                Debug.Log("you hacker");
+            }
+
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-    
-     if (generatorLevel == 0)
+
+        
+            
+        
+
+        if (coins >= CartaPreuA)
+        {
+            carta1.GetComponent<Renderer>().material.color = Color.red;
+
+        }
+        else
+        {
+            carta1.GetComponent<Renderer>().material.color = Color.gray;
+        }
+
+        if (coins >= CartaPreuB)
+        {
+            carta2.GetComponent<Renderer>().material.color = Color.red;
+
+        }
+        else
+        {
+            carta2.GetComponent<Renderer>().material.color = Color.gray;
+        }
+
+        if (coins >= CartaPreuC)
+        {
+            carta3.GetComponent<Renderer>().material.color = Color.red;
+
+        }
+        else
+        {
+            carta3.GetComponent<Renderer>().material.color = Color.gray;
+        }
+
+        if (coins >= CartaPreuD)
+        {
+            carta4.GetComponent<Renderer>().material.color = Color.red;
+
+        }
+        else
+        {
+            carta4.GetComponent<Renderer>().material.color = Color.gray;
+        }
+
+
+
+        if (coinsB >= CartaPreuA)
+        {
+            carta5.GetComponent<Renderer>().material.color = Color.blue;
+
+        }
+        else
+        {
+            carta5.GetComponent<Renderer>().material.color = Color.gray;
+        }
+
+        if (coinsB >= CartaPreuB)
+        {
+            carta6.GetComponent<Renderer>().material.color = Color.blue;
+
+        }
+        else
+        {
+            carta6.GetComponent<Renderer>().material.color = Color.gray;
+        }
+
+        if (coinsB >= CartaPreuC)
+        {
+            carta7.GetComponent<Renderer>().material.color = Color.blue;
+
+        }
+        else
+        {
+            carta7.GetComponent<Renderer>().material.color = Color.gray;
+        }
+
+        if (coinsB >= CartaPreuD)
+        {
+            carta8.GetComponent<Renderer>().material.color = Color.blue;
+
+        }
+        else
+        {
+            carta8.GetComponent<Renderer>().material.color = Color.gray;
+        }
+
+
+        MONEDES.text = coins + " coins";
+        MONEDESB.text = coinsB + " coins";
+
+        if (generatorLevel == 0)
         {
             generator.GetComponent<Renderer>().material.color = Color.gray;
         }
