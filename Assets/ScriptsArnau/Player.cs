@@ -79,6 +79,9 @@ public class Player : MonoBehaviour
     public TextMeshProUGUI MONEDES;
     public TextMeshProUGUI MONEDESB;
 
+    public ParticleSystem coinEffect;
+    public ParticleSystem ATKEffect;
+
     private void Awake()
     {
         actions = new InputSystem_Actions();
@@ -180,18 +183,56 @@ public class Player : MonoBehaviour
 
         if (selectedTroop == 1)
         {
-            Instantiate(bola, spawnPoints[0].position, spawnPoints[0].rotation);
+            if (coins >= CartaPreuA)
+            {
+                Instantiate(bola, spawnPoints[0].position, spawnPoints[0].rotation);
+                coins -= CartaPreuA;
+            }
+            else
+            {
+                Debug.Log("not enough pasta");
+            }
+            
         } else if (selectedTroop == 2)
         {
-            Instantiate(bola2, spawnPoints[0].position, spawnPoints[0].rotation);
+            if (coins >= CartaPreuB)
+            {
+                Instantiate(bola2, spawnPoints[0].position, spawnPoints[0].rotation);
+                coins -= CartaPreuB;
+            }
+            else
+            {
+                Debug.Log("not enough pasta");
+            }
+           
         }
         else if (selectedTroop == 3)
         {
-            Instantiate(bola3, spawnPoints[0].position, spawnPoints[0].rotation);
+
+            if (coins >= CartaPreuC)
+            {
+                Instantiate(bola3, spawnPoints[0].position, spawnPoints[0].rotation);
+                coins -= CartaPreuC;
+            }
+            else
+            {
+                Debug.Log("not enough pasta");
+            }
+            
         }
         else if (selectedTroop == 4)
         {
-            Instantiate(bola4, spawnPoints[0].position, spawnPoints[0].rotation);
+            if (coins >= CartaPreuD)
+            {
+                Instantiate(bola4, spawnPoints[0].position, spawnPoints[0].rotation);
+                coins -= CartaPreuD;
+            }
+            else
+            {
+                Debug.Log("not enough pasta");
+            }
+
+            
         }
         else
         {
@@ -209,19 +250,62 @@ public class Player : MonoBehaviour
 
         if (selectedTroopB == 1)
         {
-            Instantiate(bola5, spawnPointsB[0].position, spawnPointsB[0].rotation);
+            if (coinsB >= CartaPreuA)
+            {
+                Instantiate(bola5, spawnPointsB[0].position, spawnPointsB[0].rotation);
+                coinsB -= CartaPreuA;
+            }
+            else
+            {
+                Debug.Log("not enough pasta");
+            }
+            
         }
         else if (selectedTroopB == 2)
         {
-            Instantiate(bola6, spawnPointsB[0].position, spawnPointsB[0].rotation);
+            if (coinsB >= CartaPreuB)
+            {
+                Instantiate(bola6, spawnPointsB[0].position, spawnPointsB[0].rotation);
+                coinsB -= CartaPreuB;
+            }
+            else
+            {
+                Debug.Log("not enough pasta");
+            }
+
+            
         }
         else if (selectedTroopB == 3)
         {
-            Instantiate(bola7, spawnPointsB[0].position, spawnPointsB[0].rotation);
+
+            if (coinsB >= CartaPreuC)
+            {
+                Instantiate(bola7, spawnPointsB[0].position, spawnPointsB[0].rotation);
+                coinsB -= CartaPreuC;
+            }
+            else
+            {
+                Debug.Log("not enough pasta");
+            }
+
+
+           
         }
         else if (selectedTroopB == 4)
         {
-            Instantiate(bola8, spawnPointsB[0].position, spawnPointsB[0].rotation);
+
+            if (coinsB >= CartaPreuD)
+            {
+                Instantiate(bola8, spawnPointsB[0].position, spawnPointsB[0].rotation);
+                coinsB -= CartaPreuD;
+            }
+            else
+            {
+                Debug.Log("not enough pasta");
+            }
+
+
+            
         }
         else
         {
@@ -236,19 +320,66 @@ public class Player : MonoBehaviour
 
         if (selectedTroop == 1)
         {
-            Instantiate(bola, spawnPoints[1].position, spawnPoints[1].rotation);
+
+            if (coins >= CartaPreuA)
+            {
+                Instantiate(bola, spawnPoints[1].position, spawnPoints[1].rotation);
+                coins -= CartaPreuA;
+            }
+            else
+            {
+                Debug.Log("not enough pasta");
+            }
+
+           
         }
         else if (selectedTroop == 2)
         {
-            Instantiate(bola2, spawnPoints[1].position, spawnPoints[1].rotation);
+
+            if (coins >= CartaPreuB)
+            {
+                Instantiate(bola2, spawnPoints[1].position, spawnPoints[1].rotation);
+                coins -= CartaPreuB;
+            }
+            else
+            {
+                Debug.Log("not enough pasta");
+            }
+
+
+            
         }
         else if (selectedTroop == 3)
         {
-            Instantiate(bola3, spawnPoints[1].position, spawnPoints[1].rotation);
+
+            if (coins >= CartaPreuC)
+            {
+                Instantiate(bola3, spawnPoints[1].position, spawnPoints[1].rotation);
+                coins -= CartaPreuC;
+            }
+            else
+            {
+                Debug.Log("not enough pasta");
+            }
+
+
+           
         }
         else if (selectedTroop == 4)
         {
-            Instantiate(bola4, spawnPoints[1].position, spawnPoints[1].rotation);
+
+            if (coins >= CartaPreuD)
+            {
+                Instantiate(bola4, spawnPoints[1].position, spawnPoints[1].rotation);
+                coins -= CartaPreuD;
+            }
+            else
+            {
+                Debug.Log("not enough pasta");
+            }
+
+
+           
         }
         else
         {
@@ -264,19 +395,67 @@ public class Player : MonoBehaviour
 
         if (selectedTroopB == 1)
         {
-            Instantiate(bola5, spawnPointsB[1].position, spawnPointsB[1].rotation);
+
+            if (coinsB >= CartaPreuA)
+            {
+                Instantiate(bola5, spawnPointsB[1].position, spawnPointsB[1].rotation);
+                coinsB -= CartaPreuA;
+            }
+            else
+            {
+                Debug.Log("not enough pasta");
+            }
+
+
+            
         }
         else if (selectedTroopB == 2)
         {
-            Instantiate(bola6, spawnPointsB[1].position, spawnPointsB[1].rotation);
+
+            if (coinsB >= CartaPreuB)
+            {
+                Instantiate(bola6, spawnPointsB[1].position, spawnPointsB[1].rotation);
+                coinsB -= CartaPreuB;
+            }
+            else
+            {
+                Debug.Log("not enough pasta");
+            }
+
+
+            
         }
         else if (selectedTroopB == 3)
         {
-            Instantiate(bola7, spawnPointsB[1].position, spawnPointsB[1].rotation);
+
+            if (coinsB >= CartaPreuC)
+            {
+                Instantiate(bola7, spawnPointsB[1].position, spawnPointsB[1].rotation);
+                coinsB -= CartaPreuC;
+            }
+            else
+            {
+                Debug.Log("not enough pasta");
+            }
+
+
+            
         }
         else if (selectedTroopB == 4)
         {
-            Instantiate(bola8, spawnPointsB[1].position, spawnPointsB[1].rotation);
+
+            if (coinsB >= CartaPreuD)
+            {
+                Instantiate(bola8, spawnPointsB[1].position, spawnPointsB[1].rotation);
+                coinsB -= CartaPreuD;
+            }
+            else
+            {
+                Debug.Log("not enough pasta");
+            }
+
+
+            
         }
         else
         {
@@ -292,19 +471,67 @@ public class Player : MonoBehaviour
 
         if (selectedTroop == 1)
         {
-            Instantiate(bola, spawnPoints[2].position, spawnPoints[2].rotation);
+
+            if (coins >= CartaPreuA)
+            {
+                Instantiate(bola, spawnPoints[2].position, spawnPoints[2].rotation);
+                coins -= CartaPreuA;
+            }
+            else
+            {
+                Debug.Log("not enough pasta");
+            }
+
+
+            
         }
         else if (selectedTroop == 2)
         {
-            Instantiate(bola2, spawnPoints[2].position, spawnPoints[2].rotation);
+
+            if (coins >= CartaPreuB)
+            {
+                Instantiate(bola2, spawnPoints[2].position, spawnPoints[2].rotation);
+                coins -= CartaPreuB;
+            }
+            else
+            {
+                Debug.Log("not enough pasta");
+            }
+
+
+            
         }
         else if (selectedTroop == 3)
         {
-            Instantiate(bola3, spawnPoints[2].position, spawnPoints[2].rotation);
+
+            if (coins >= CartaPreuC)
+            {
+                Instantiate(bola3, spawnPoints[2].position, spawnPoints[2].rotation);
+                coins -= CartaPreuC;
+            }
+            else
+            {
+                Debug.Log("not enough pasta");
+            }
+
+
+            
         }
         else if (selectedTroop == 4)
         {
-            Instantiate(bola4, spawnPoints[2].position, spawnPoints[2].rotation);
+
+            if (coins >= CartaPreuD)
+            {
+                Instantiate(bola4, spawnPoints[2].position, spawnPoints[2].rotation);
+                coins -= CartaPreuD;
+            }
+            else
+            {
+                Debug.Log("not enough pasta");
+            }
+
+
+            
         }
         else
         {
@@ -320,19 +547,67 @@ public class Player : MonoBehaviour
 
         if (selectedTroopB == 1)
         {
-            Instantiate(bola5, spawnPointsB[2].position, spawnPointsB[2].rotation);
+
+            if (coinsB >= CartaPreuA)
+            {
+                Instantiate(bola5, spawnPointsB[2].position, spawnPointsB[2].rotation);
+                coinsB -= CartaPreuA;
+            }
+            else
+            {
+                Debug.Log("not enough pasta");
+            }
+
+
+           
         }
         else if (selectedTroopB == 2)
         {
-            Instantiate(bola6, spawnPointsB[2].position, spawnPointsB[2].rotation);
+
+            if (coinsB >= CartaPreuB)
+            {
+                Instantiate(bola6, spawnPointsB[2].position, spawnPointsB[2].rotation);
+                coinsB -= CartaPreuB;
+            }
+            else
+            {
+                Debug.Log("not enough pasta");
+            }
+
+
+            
         }
         else if (selectedTroopB == 3)
         {
-            Instantiate(bola7, spawnPointsB[2].position, spawnPointsB[2].rotation);
+
+            if (coinsB >= CartaPreuC)
+            {
+                Instantiate(bola7, spawnPointsB[2].position, spawnPointsB[2].rotation);
+                coinsB -= CartaPreuC;
+            }
+            else
+            {
+                Debug.Log("not enough pasta");
+            }
+
+
+            
         }
         else if (selectedTroopB == 4)
         {
-            Instantiate(bola8, spawnPointsB[2].position, spawnPointsB[2].rotation);
+
+            if (coinsB >= CartaPreuD)
+            {
+                Instantiate(bola8, spawnPointsB[2].position, spawnPointsB[2].rotation);
+                coinsB -= CartaPreuD;
+            }
+            else
+            {
+                Debug.Log("not enough pasta");
+            }
+
+
+           
         }
         else
         {
@@ -349,19 +624,68 @@ public class Player : MonoBehaviour
     {
         if (selectedTroopB == 1)
         {
-            Instantiate(bola5, spawnPointsB[3].position, spawnPointsB[3].rotation);
+
+
+            if (coinsB >= CartaPreuA)
+            {
+                Instantiate(bola5, spawnPointsB[3].position, spawnPointsB[3].rotation);
+                coinsB -= CartaPreuA;
+            }
+            else
+            {
+                Debug.Log("not enough pasta");
+            }
+
+
+           
         }
         else if (selectedTroopB == 2)
         {
-            Instantiate(bola6, spawnPointsB[3].position, spawnPointsB[3].rotation);
+
+            if (coinsB >= CartaPreuB)
+            {
+                Instantiate(bola6, spawnPointsB[3].position, spawnPointsB[3].rotation);
+                coinsB -= CartaPreuB;
+            }
+            else
+            {
+                Debug.Log("not enough pasta");
+            }
+
+
+            
         }
         else if (selectedTroopB == 3)
         {
-            Instantiate(bola7, spawnPointsB[3].position, spawnPointsB[3].rotation);
+
+            if (coinsB >= CartaPreuC)
+            {
+                Instantiate(bola7, spawnPointsB[3].position, spawnPointsB[3].rotation);
+                coinsB -= CartaPreuC;
+            }
+            else
+            {
+                Debug.Log("not enough pasta");
+            }
+
+
+            
         }
         else if (selectedTroopB == 4)
         {
-            Instantiate(bola8, spawnPointsB[3].position, spawnPointsB[3].rotation);
+
+            if (coinsB >= CartaPreuD)
+            {
+                Instantiate(bola8, spawnPointsB[3].position, spawnPointsB[3].rotation);
+                coinsB -= CartaPreuD;
+            }
+            else
+            {
+                Debug.Log("not enough pasta");
+            }
+
+
+            
         }
         else
         {
@@ -373,21 +697,69 @@ public class Player : MonoBehaviour
    public void W(InputAction.CallbackContext context)
     {
 
-        if (selectedTroopB == 1)
+        if (selectedTroop == 1)
         {
-            Instantiate(bola, spawnPoints[3].position, spawnPoints[3].rotation);
+
+            if (coins >= CartaPreuA)
+            {
+                Instantiate(bola, spawnPoints[3].position, spawnPoints[3].rotation);
+                coins -= CartaPreuA;
+            }
+            else
+            {
+                Debug.Log("not enough pasta");
+            }
+
+
+            
         }
-        else if (selectedTroopB == 2)
+        else if (selectedTroop == 2)
         {
-            Instantiate(bola2, spawnPoints[3].position, spawnPoints[3].rotation);
+
+            if (coins >= CartaPreuB)
+            {
+                Instantiate(bola2, spawnPoints[3].position, spawnPoints[3].rotation);
+                coins -= CartaPreuB;
+            }
+            else
+            {
+                Debug.Log("not enough pasta");
+            }
+
+
+           
         }
-        else if (selectedTroopB == 3)
+        else if (selectedTroop == 3)
         {
-            Instantiate(bola3, spawnPoints[3].position, spawnPoints[3].rotation);
+
+            if (coins >= CartaPreuC)
+            {
+                Instantiate(bola3, spawnPoints[3].position, spawnPoints[3].rotation);
+                coins -= CartaPreuC;
+            }
+            else
+            {
+                Debug.Log("not enough pasta");
+            }
+
+
+            
         }
-        else if (selectedTroopB == 4)
+        else if (selectedTroop == 4)
         {
-            Instantiate(bola4, spawnPoints[3].position, spawnPoints[3].rotation);
+
+            if (coins >= CartaPreuD)
+            {
+                Instantiate(bola4, spawnPoints[3].position, spawnPoints[3].rotation);
+                coins -= CartaPreuD;
+            }
+            else
+            {
+                Debug.Log("not enough pasta");
+            }
+
+
+            
         }
         else
         {
@@ -413,36 +785,60 @@ public class Player : MonoBehaviour
     public void num6(InputAction.CallbackContext context)
     {
         ATKBoosterLevel++;
+        if (ATKBoosterLevel == 1)
+        {
+            Instantiate(ATKEffect, ATKBooster.transform.position, ATKBooster.transform.rotation);
+        }
     }
 
 
     public void num6B(InputAction.CallbackContext context)
     {
         ATKBoosterLevelB++;
+        if (ATKBoosterLevelB == 1)
+        {
+            Instantiate(ATKEffect, ATKBoosterB.transform.position, ATKBoosterB.transform.rotation);
+        }
     }
 
 
     public void num7(InputAction.CallbackContext context)
     {
        SPDBoosterLevel++;
+        if (SPDBoosterLevel == 1)
+        {
+            Instantiate(ATKEffect, SPBooster.transform.position, SPBooster.transform.rotation);
+        }
     }
 
 
     public void num7B(InputAction.CallbackContext context)
     {
         SPDBoosterLevelB++;
+        if (SPDBoosterLevelB == 1)
+        {
+            Instantiate(ATKEffect, SPBoosterB.transform.position, SPBoosterB.transform.rotation);
+        }
     }
 
 
     public void num8(InputAction.CallbackContext context)
     {
         HPBoosterLevel++;
+        if (HPBoosterLevel == 1)
+        {
+            Instantiate(ATKEffect, HPBooster.transform.position, HPBooster.transform.rotation);
+        }
     }
 
 
     public void num8B(InputAction.CallbackContext context)
     {
         HPBoosterLevelB++;
+        if (HPBoosterLevelB == 1)
+        {
+            Instantiate(ATKEffect, HPBoosterB.transform.position, HPBoosterB.transform.rotation);
+        }
     }
     //   square1.GetComponent<Renderer>().material.color = Color.red;
     //el quadrat concret puja o baixa
@@ -679,12 +1075,16 @@ public class Player : MonoBehaviour
         CartaPreuC = 6;
         CartaPreuD = 8;
 
+    
+       
 
         StartCoroutine(generate());
+        StartCoroutine(generateB());
+        
     }
 
 
-
+    
 
     IEnumerator generate()
     {
@@ -692,6 +1092,7 @@ public class Player : MonoBehaviour
         {
             coins++;
             Debug.Log("Coins: " + coins);
+            Instantiate(coinEffect, generator.transform.position, generator.transform.rotation);
 
             if (generatorLevel == 1)
             {
@@ -702,6 +1103,34 @@ public class Player : MonoBehaviour
                 yield return new WaitForSeconds(2);
             }
             else if (generatorLevel == 3)
+            {
+                yield return new WaitForSeconds(1);
+            }
+            else
+            {
+                Debug.Log("you hacker");
+            }
+
+        }
+    }
+
+    IEnumerator generateB()
+    {
+        while (true)
+        {
+            coinsB++;
+            Debug.Log("Coins: " + coinsB);
+            Instantiate(coinEffect, generatorB.transform.position, generatorB.transform.rotation);
+
+            if (generatorLevelB == 1)
+            {
+                yield return new WaitForSeconds(3);
+            }
+            else if (generatorLevelB == 2)
+            {
+                yield return new WaitForSeconds(2);
+            }
+            else if (generatorLevelB == 3)
             {
                 yield return new WaitForSeconds(1);
             }
@@ -859,7 +1288,9 @@ public class Player : MonoBehaviour
         }
         else if (ATKBoosterLevel == 1)
         {
+            
             ATKBooster.GetComponent<Renderer>().material.color = Color.green;
+            
         }
         else if (ATKBoosterLevel == 2)
         {
@@ -881,6 +1312,7 @@ public class Player : MonoBehaviour
         }
         else if (ATKBoosterLevelB == 1)
         {
+            
             ATKBoosterB.GetComponent<Renderer>().material.color = Color.green;
         }
         else if (ATKBoosterLevelB == 2)
@@ -910,6 +1342,7 @@ public class Player : MonoBehaviour
         }
         else if (SPDBoosterLevel == 1)
         {
+           
             SPBooster.GetComponent<Renderer>().material.color = Color.green;
         }
         else if (SPDBoosterLevel == 2)
@@ -932,6 +1365,7 @@ public class Player : MonoBehaviour
         }
         else if (SPDBoosterLevelB == 1)
         {
+           
             SPBoosterB.GetComponent<Renderer>().material.color = Color.green;
         }
         else if (SPDBoosterLevelB == 2)
@@ -962,6 +1396,7 @@ public class Player : MonoBehaviour
         else if (HPBoosterLevel == 1)
         {
             HPBooster.GetComponent<Renderer>().material.color = Color.green;
+           
         }
         else if (HPBoosterLevel == 2)
         {
@@ -984,6 +1419,7 @@ public class Player : MonoBehaviour
         else if (HPBoosterLevelB == 1)
         {
             HPBoosterB.GetComponent<Renderer>().material.color = Color.green;
+           
         }
         else if (HPBoosterLevelB == 2)
         {
