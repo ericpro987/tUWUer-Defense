@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Transactions;
 using UnityEngine;
@@ -13,8 +14,11 @@ public class Bullet : MonoBehaviour
     private string tagEnemy;
     [SerializeField]
     private bool bouncing = false;
+    private int time = 2;
+    public int getTime => time;
     [SerializeField]
     private LayerMask layerHit;
+    public int atk { get; private set; }
     public void SetBouncing(bool bouncing)
     {
         this.bouncing = bouncing;
@@ -22,6 +26,14 @@ public class Bullet : MonoBehaviour
     public void SetTagEnemy(string tag)
     {
         this.tagEnemy = tag;
+    }
+    public void SetAtk(int atk)
+    {
+        this.atk = atk;
+    }
+    public void SetTime(int time)
+    {
+        this.time = time;
     }
     // public Rigidbody2D rb => rigidbody2d;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -46,34 +58,41 @@ public class Bullet : MonoBehaviour
     {
         
     }
-    public IEnumerator Die()
+    public IEnumerator Die(int time)
     {
-        if (bouncing) Debug.LogAssertion("Entro a DIE");
         yield return new WaitForSeconds(2);
         this.gameObject.SetActive(false);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Trigger Enter");
         if (collision.transform.gameObject.tag == tagEnemy && collision.transform.gameObject.layer == layer)
         {
-            Debug.Log("Entro al if");
             if (bouncing)
             {
-                Debug.Log("Entro al bouncing");
                 Collider2D hit = Physics2D.OverlapCircle(this.transform.position, 50, layerHit);
                 if (hit)
                 {
-                    Debug.Log("Entro al hit");
-                    Debug.LogError(hit.transform.name);
-
-                        Debug.LogWarning("Entro al cambio de velocity");
-
                         Vector2 dir = (hit.transform.position - this.transform.position).normalized;
                         this.rigidbody2d.linearVelocity = dir * 5;
                 }
-                StartCoroutine(Die());
+                StartCoroutine(Die(time));
 
+            }
+            if (collision.TryGetComponent<MagoOscuro>(out MagoOscuro magoOscuro))
+            {
+                magoOscuro.ReceiveDamage(atk);
+            }
+            else if (collision.TryGetComponent<BouncingEnemy>(out BouncingEnemy bouncingEnemy))
+            {
+                bouncingEnemy.ReceiveDamage(atk);
+            }
+            else if (collision.TryGetComponent<ExplosiveEnemy>(out ExplosiveEnemy explosiveEnemy))
+            {
+                explosiveEnemy.ReceiveDamage(atk);
+            }
+            else if(collision.TryGetComponent<PjTorrePrincipal>(out PjTorrePrincipal pjTorrePrincipal))
+            {
+                pjTorrePrincipal.ReceiveDamage(atk);
             }
             //this.gameObject.SetActive(false);
         }

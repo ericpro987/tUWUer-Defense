@@ -5,6 +5,14 @@ using UnityEngine;
 public class BouncingEnemy : MonoBehaviour
 {
     [SerializeField]
+    public int hp_max { get; private set; }
+    [SerializeField]
+    public int hp { get; private set; }
+    [SerializeField]
+    public int atk { get; private set; }
+    [SerializeField]
+    public int spd { get; private set; }
+    [SerializeField]
     private Range rangeDetection;
     [SerializeField]
     private Range rangeAttack;
@@ -18,9 +26,15 @@ public class BouncingEnemy : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
+        hp_max = 10;
+        hp = 10;
+        atk = 1;
+        spd = 3;
+        bullet.SetAtk(atk);
         bullet.SetTagEnemy(tagEnemy);
         rb = GetComponent<Rigidbody2D>();
         bullet.SetBouncing(true);
+        bullet.gameObject.SetActive(false);
         rangeAttack.OnEnter += Attack;
         rangeAttack.OnStay += Attack;
         rangeDetection.OnEnter += StopMovement;
@@ -37,10 +51,22 @@ public class BouncingEnemy : MonoBehaviour
         if (!isStopped)
             Move();
     }
+    public void SetHp(int hp)
+    {
+        this.hp = hp;
+    }
+    public void SetSpd(int spd)
+    {
+        this.spd = spd;
+    }
+    public void SetAtk(int atk)
+    {
+        this.atk = atk;
+    }
     void Move()
     {
         Vector3 dir = (tower.transform.position - this.transform.position).normalized;
-        rb.linearVelocity = dir * 2;
+        rb.linearVelocity = dir * spd;
     }
     void ResumeMovement(GameObject go)
     {
@@ -64,17 +90,26 @@ public class BouncingEnemy : MonoBehaviour
             cooldown = true;
             if (enemy.tag == tagEnemy)
             {
-                Debug.Log("Entro a Attack");
-                bullet.transform.parent = null;
                 bullet.transform.position = transform.position;
-                bullet.gameObject.SetActive(true);
+                bullet.gameObject.SetActive(true);  
+                bullet.transform.parent = null;
                 Vector2 dir = (enemy.transform.position - bullet.transform.position).normalized;
                 bullet.rigidbody2d.linearVelocity = dir * 6;
                 StartCoroutine(ResetCooldown());
             }
         }
       
-    }  
+    }
+    public void ReceiveDamage(int atk)
+    {
+        this.hp -= atk;
+        Debug.Log(hp);
+        if (this.hp <= 0)
+        {
+            Destroy(bullet.gameObject);
+            Destroy(this.gameObject);
+        }
+    }
     IEnumerator ResetCooldown()
         {
             yield return new WaitForSeconds(2.5f);

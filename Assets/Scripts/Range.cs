@@ -10,11 +10,20 @@ public class Range : MonoBehaviour
    
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log($"El enemigo: {collision.gameObject.name}");
         if (collision.TryGetComponent<MagoOscuro>(out MagoOscuro magoOscuro))
         {
             if (!this.transform.parent.gameObject.CompareTag(collision.tag)) 
              OnEnter?.Invoke(collision.gameObject);
+        }
+        else if (collision.TryGetComponent<BouncingEnemy>(out BouncingEnemy bouncingEnemy))
+        {
+            if (!this.transform.parent.gameObject.CompareTag(bouncingEnemy.tag))
+                OnEnter?.Invoke(collision.gameObject);
+        }
+        else if (collision.TryGetComponent<ExplosiveEnemy>(out ExplosiveEnemy explosiveEnemy))
+        {
+            if (!this.transform.parent.gameObject.CompareTag(explosiveEnemy.tag))
+                OnEnter?.Invoke(collision.gameObject);
         }
         else
         {
@@ -23,10 +32,18 @@ public class Range : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        Debug.Log($"El enemigo: {collision.gameObject.name}");
         if (collision.TryGetComponent<MagoOscuro>(out MagoOscuro magoOscuro))
         {
             if (!this.transform.parent.gameObject.CompareTag(magoOscuro.tag))
+                OnStay?.Invoke(collision.gameObject);
+        }
+        else if (collision.TryGetComponent<BouncingEnemy>(out BouncingEnemy bouncingEnemy))
+        {
+            if (!this.transform.parent.gameObject.CompareTag(bouncingEnemy.tag))
+                OnStay?.Invoke(collision.gameObject);
+        }else if (collision.TryGetComponent<ExplosiveEnemy>(out ExplosiveEnemy explosiveEnemy))
+        {
+            if (!this.transform.parent.gameObject.CompareTag(explosiveEnemy.tag))
                 OnStay?.Invoke(collision.gameObject);
         }
         else
@@ -36,10 +53,19 @@ public class Range : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log($"El enemigo: {collision.gameObject.name}");
         if (collision.TryGetComponent<MagoOscuro>(out MagoOscuro magoOscuro))
         {
             if (!this.transform.parent.gameObject.CompareTag(magoOscuro.tag))
+                OnExit?.Invoke(collision.gameObject);
+        }
+        else if (collision.TryGetComponent<BouncingEnemy>(out BouncingEnemy bouncingEnemy))
+        {
+            if (!this.transform.parent.gameObject.CompareTag(bouncingEnemy.tag))
+                OnExit?.Invoke(collision.gameObject);
+        }
+        else if (collision.TryGetComponent<ExplosiveEnemy>(out ExplosiveEnemy explosiveEnemy))
+        {
+            if (!this.transform.parent.gameObject.CompareTag(explosiveEnemy.tag))
                 OnExit?.Invoke(collision.gameObject);
         }
         else

@@ -7,6 +7,12 @@ using UnityEngine;
 public class PjTorrePrincipal : MonoBehaviour
 {
     [SerializeField]
+    public int hp_max { get; private set; }
+    public int hp { get; private set; }
+    public int atk { get; private set; }
+    public int spd { get; private set; }
+
+    [SerializeField]
     private Range rangeDetection;
     [SerializeField]
     private Range rangeAttack;
@@ -19,11 +25,16 @@ public class PjTorrePrincipal : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
+        hp_max = 10;
+        hp = 10;
+        atk = 1;
+        spd = 3;
         for (int i = 0; i < ammo.Count; i++)
         {
             if (!ammo[i].available)
             {
                 ammo[i].SetTagEnemy(tagEnemy);
+                ammo[i].SetAtk(atk);
             }
         }
         rangeDetection.OnEnter += PushEnemiesInList;
@@ -40,6 +51,18 @@ public class PjTorrePrincipal : MonoBehaviour
     {
 
     }
+    public void SetHp(int hp)
+    {
+        this.hp = hp;
+    }
+    public void SetSpd(int spd)
+    {
+        this.spd= spd;
+    }
+    public void SetAtk(int atk)
+    {
+        this.atk = atk;
+    }
 
     private void PushEnemiesInList(GameObject enemy)
     {
@@ -48,7 +71,6 @@ public class PjTorrePrincipal : MonoBehaviour
     bool cooldown = false;
     private void Attack(GameObject enemy)
     {
-        Debug.Log("Entro a Attack");
         if (!cooldown)
         {
             cooldown = true;
@@ -57,7 +79,6 @@ public class PjTorrePrincipal : MonoBehaviour
             {
                 if (!ammo[i].gameObject.activeSelf && ammo[i].available)
                 {
-                    Debug.Log("Entro en bullet y asigno");
                     bullet = ammo[i];
                     bullet.transform.position = this.transform.position;
                     bullet.available = false;
@@ -66,7 +87,6 @@ public class PjTorrePrincipal : MonoBehaviour
             }
             if (bullet != null)
             {
-                Debug.Log("Bullet no es null");
                 bullet.gameObject.SetActive(true);
                 Vector2 dir = (enemy.transform.position - bullet.transform.position).normalized;
                 bullet.rigidbody2d.linearVelocity = dir*6;
@@ -74,10 +94,21 @@ public class PjTorrePrincipal : MonoBehaviour
             }
             else
             {
-                Debug.Log("Bullet es null");
                 StartCoroutine(Reload());
             }
             
+        }
+    }
+    public void ReceiveDamage(int atk)
+    {
+        this.hp -= atk;
+        if (this.hp <= 0)
+        {
+            for (int i = 0; i < ammo.Count; i++)
+            {
+                Destroy(ammo[i].gameObject);
+            }
+            Destroy(this.gameObject);
         }
     }
     IEnumerator ResetCooldown()

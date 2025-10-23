@@ -5,6 +5,14 @@ using UnityEngine;
 public class MagoOscuro : MonoBehaviour
 {
     [SerializeField]
+    public int hp_max { get; private set; }
+    [SerializeField]
+    public int hp { get; private set; }
+    [SerializeField]
+    public int atk { get; private set; }
+    [SerializeField]
+    public int spd { get; private set; }
+    [SerializeField]
     private Range rangeDetection;
     [SerializeField]
     private Range rangeAttack;
@@ -21,12 +29,15 @@ public class MagoOscuro : MonoBehaviour
     private string tagEnemy;
     private void Awake()
     {
+        hp_max = 10;
+        hp = 10;
+        atk = 1;
+        spd = 3;
         for (int i = 0; i < ammo.Count; i++)
         {
-            if (!ammo[i].available)
-            {
                 ammo[i].SetTagEnemy(tagEnemy);
-            }
+                ammo[i].SetAtk(atk);
+                ammo[i].SetTime(0);
         }
         rb = GetComponent<Rigidbody2D>();
         rangeAttack.OnEnter += Attack;
@@ -46,10 +57,22 @@ public class MagoOscuro : MonoBehaviour
         if(!isStopped)
             Move();
     }
+    public void SetHp(int hp)
+    {
+        this.hp = hp;
+    }
+    public void SetSpd(int spd)
+    {
+        this.spd = spd;
+    }
+    public void SetAtk(int atk)
+    {
+        this.atk = atk;
+    }
     void Move()
     {
         Vector3 dir = (tower.transform.position - this.transform.position).normalized;
-        rb.linearVelocity = dir*2;
+        rb.linearVelocity = dir*spd;
     }
     void ResumeMovement(GameObject go)
     {
@@ -58,11 +81,11 @@ public class MagoOscuro : MonoBehaviour
     }
     void StopMovement(GameObject enemy)
     {
-    /*    if (enemy.CompareTag(tagEnemy))
-        {*/
+        if (enemy.CompareTag(tagEnemy))
+        {
             isStopped = true;
             rb.linearVelocity = Vector2.zero;
-       // }
+        }
     }
 
     bool cooldown = false;
@@ -71,7 +94,6 @@ public class MagoOscuro : MonoBehaviour
     {
         if (enemy.tag == tagEnemy)
         {
-            Debug.Log("Entro a Attack");
             if (!cooldown)
             {
                 cooldown = true;
@@ -80,7 +102,6 @@ public class MagoOscuro : MonoBehaviour
                 {
                     if (ammo[i].available)
                     {
-                        Debug.Log("Entro en bullet y asigno");
                         bullet = ammo[i];
                         bullet.available = false;
                         break;
@@ -89,20 +110,30 @@ public class MagoOscuro : MonoBehaviour
                 if (bullet != null)
                 {
                     bullet.transform.parent = null;
-                    Debug.Log("Bullet no es null");
                     Vector2 dir = (enemy.transform.position - bullet.transform.position).normalized;
                     bullet.rigidbody2d.linearVelocity = dir * 6;
-                    bullet.Die();
+                    bullet.Die(bullet.getTime);
                     StartCoroutine(ResetCooldown());
                 }
                 else
                 {
-                    Debug.Log("Bullet es null");
                     if (AllReload() || !isReloading)
                         StartCoroutine(Reload());
                 }
 
             }
+        }
+    }
+    public void ReceiveDamage(int atk)
+    {
+        this.hp -= atk;
+        if(this.hp <= 0)
+        {
+            for (int i = 0; i < ammo.Count; i++)
+            {
+                Destroy(ammo[i].gameObject);
+            }
+            Destroy(this.gameObject);
         }
     }
     IEnumerator ResetCooldown()
@@ -144,4 +175,9 @@ public class MagoOscuro : MonoBehaviour
         StartCoroutine(ResetCooldown());
         isReloading = false;
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
+    }
+
 }
