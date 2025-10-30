@@ -45,7 +45,7 @@ public class Player : MonoBehaviour
 
     public List<GameObject> Structures;
 
-    InputSystem_Actions actions;
+    private InputSystem_Actions actions;
     public int JugadorMoney;
 
     public GameObject bola;
@@ -81,6 +81,10 @@ public class Player : MonoBehaviour
 
     public ParticleSystem coinEffect;
     public ParticleSystem ATKEffect;
+
+
+    public TextMeshProUGUI LogsVermell;
+    public TextMeshProUGUI LogsBlau;
 
     private void Awake()
     {
@@ -178,6 +182,16 @@ public class Player : MonoBehaviour
 
     }
 
+    public void enableActions()
+    {
+        actions.Torre.Enable();
+    }
+
+    public void disableActions()
+    {
+        actions.Torre.Disable();
+    }
+
     public void A(InputAction.CallbackContext context)
     {
 
@@ -186,11 +200,13 @@ public class Player : MonoBehaviour
             if (coins >= CartaPreuA)
             {
                 Instantiate(bola, spawnPoints[0].position, spawnPoints[0].rotation);
+                LogsVermell.text = "";
                 coins -= CartaPreuA;
             }
             else
             {
-                Debug.Log("not enough pasta");
+                Debug.Log("No tens suficients coins");
+                LogsVermell.text = "No tens suficients coins";
             }
             
         } else if (selectedTroop == 2)
@@ -198,11 +214,13 @@ public class Player : MonoBehaviour
             if (coins >= CartaPreuB)
             {
                 Instantiate(bola2, spawnPoints[0].position, spawnPoints[0].rotation);
+                LogsVermell.text = "";
                 coins -= CartaPreuB;
             }
             else
             {
-                Debug.Log("not enough pasta");
+                Debug.Log("No tens suficients coins");
+                LogsVermell.text = "No tens suficients coins";
             }
            
         }
@@ -212,11 +230,13 @@ public class Player : MonoBehaviour
             if (coins >= CartaPreuC)
             {
                 Instantiate(bola3, spawnPoints[0].position, spawnPoints[0].rotation);
+                LogsVermell.text = "";
                 coins -= CartaPreuC;
             }
             else
             {
-                Debug.Log("not enough pasta");
+                Debug.Log("No tens suficients coins");
+                LogsVermell.text = "No tens suficients coins";
             }
             
         }
@@ -225,11 +245,13 @@ public class Player : MonoBehaviour
             if (coins >= CartaPreuD)
             {
                 Instantiate(bola4, spawnPoints[0].position, spawnPoints[0].rotation);
+                LogsVermell.text = "";
                 coins -= CartaPreuD;
             }
             else
             {
-                Debug.Log("not enough pasta");
+                Debug.Log("No tens suficients coins");
+                LogsVermell.text = "No tens suficients coins";
             }
 
             
@@ -237,6 +259,7 @@ public class Player : MonoBehaviour
         else
         {
             Debug.Log("Cap tropa seleccionada");
+            LogsVermell.text = "Cap tropa seleccionada";
         }
         
 
@@ -253,11 +276,13 @@ public class Player : MonoBehaviour
             if (coinsB >= CartaPreuA)
             {
                 Instantiate(bola5, spawnPointsB[0].position, spawnPointsB[0].rotation);
+                LogsBlau.text = "";
                 coinsB -= CartaPreuA;
             }
             else
             {
-                Debug.Log("not enough pasta");
+                Debug.Log("No tens suficients coins");
+                LogsBlau.text = "No tens suficients coins";
             }
             
         }
@@ -266,11 +291,13 @@ public class Player : MonoBehaviour
             if (coinsB >= CartaPreuB)
             {
                 Instantiate(bola6, spawnPointsB[0].position, spawnPointsB[0].rotation);
+                LogsBlau.text = "";
                 coinsB -= CartaPreuB;
             }
             else
             {
-                Debug.Log("not enough pasta");
+                Debug.Log("No tens suficients coins");
+                LogsBlau.text = "No tens suficients coins";
             }
 
             
@@ -281,11 +308,13 @@ public class Player : MonoBehaviour
             if (coinsB >= CartaPreuC)
             {
                 Instantiate(bola7, spawnPointsB[0].position, spawnPointsB[0].rotation);
+                LogsBlau.text = "";
                 coinsB -= CartaPreuC;
             }
             else
             {
-                Debug.Log("not enough pasta");
+                Debug.Log("No tens suficients coins");
+                LogsBlau.text = "No tens suficients coins";
             }
 
 
@@ -297,11 +326,13 @@ public class Player : MonoBehaviour
             if (coinsB >= CartaPreuD)
             {
                 Instantiate(bola8, spawnPointsB[0].position, spawnPointsB[0].rotation);
+                LogsBlau.text = "";
                 coinsB -= CartaPreuD;
             }
             else
             {
-                Debug.Log("not enough pasta");
+                Debug.Log("No tens suficients coins");
+                LogsBlau.text = "No tens suficients coins";
             }
 
 
@@ -310,6 +341,7 @@ public class Player : MonoBehaviour
         else
         {
             Debug.Log("Cap tropa seleccionada");
+            LogsBlau.text = "Cap tropa seleccionada";
         }
     }
 
@@ -324,11 +356,13 @@ public class Player : MonoBehaviour
             if (coins >= CartaPreuA)
             {
                 Instantiate(bola, spawnPoints[1].position, spawnPoints[1].rotation);
+                LogsVermell.text = "";
                 coins -= CartaPreuA;
             }
             else
             {
-                Debug.Log("not enough pasta");
+                Debug.Log("No tens suficients coins");
+                LogsVermell.text = "No tens suficients coins";
             }
 
            
@@ -339,11 +373,13 @@ public class Player : MonoBehaviour
             if (coins >= CartaPreuB)
             {
                 Instantiate(bola2, spawnPoints[1].position, spawnPoints[1].rotation);
+                LogsVermell.text = "";
                 coins -= CartaPreuB;
             }
             else
             {
-                Debug.Log("not enough pasta");
+                Debug.Log("No tens suficients coins");
+                LogsVermell.text = "No tens suficients coins";
             }
 
 
@@ -355,11 +391,13 @@ public class Player : MonoBehaviour
             if (coins >= CartaPreuC)
             {
                 Instantiate(bola3, spawnPoints[1].position, spawnPoints[1].rotation);
+                LogsVermell.text = "";
                 coins -= CartaPreuC;
             }
             else
             {
-                Debug.Log("not enough pasta");
+                Debug.Log("No tens suficients coins");
+                LogsVermell.text = "No tens suficients coins";
             }
 
 
@@ -371,11 +409,13 @@ public class Player : MonoBehaviour
             if (coins >= CartaPreuD)
             {
                 Instantiate(bola4, spawnPoints[1].position, spawnPoints[1].rotation);
+                LogsVermell.text = "";
                 coins -= CartaPreuD;
             }
             else
             {
-                Debug.Log("not enough pasta");
+                Debug.Log("No tens suficients coins");
+                LogsVermell.text = "No tens suficients coins";
             }
 
 
@@ -384,6 +424,7 @@ public class Player : MonoBehaviour
         else
         {
             Debug.Log("Cap tropa seleccionada");
+            LogsVermell.text = "Cap tropa seleccionada";
         }
     }
 
@@ -399,11 +440,13 @@ public class Player : MonoBehaviour
             if (coinsB >= CartaPreuA)
             {
                 Instantiate(bola5, spawnPointsB[1].position, spawnPointsB[1].rotation);
+                LogsBlau.text = "";
                 coinsB -= CartaPreuA;
             }
             else
             {
-                Debug.Log("not enough pasta");
+                Debug.Log("No tens suficients coins");
+                LogsBlau.text = "No tens suficients coins";
             }
 
 
@@ -415,11 +458,13 @@ public class Player : MonoBehaviour
             if (coinsB >= CartaPreuB)
             {
                 Instantiate(bola6, spawnPointsB[1].position, spawnPointsB[1].rotation);
+                LogsBlau.text = "";
                 coinsB -= CartaPreuB;
             }
             else
             {
-                Debug.Log("not enough pasta");
+                Debug.Log("No tens suficients coins");
+                LogsBlau.text = "No tens suficients coins";
             }
 
 
@@ -431,11 +476,13 @@ public class Player : MonoBehaviour
             if (coinsB >= CartaPreuC)
             {
                 Instantiate(bola7, spawnPointsB[1].position, spawnPointsB[1].rotation);
+                LogsBlau.text = "";
                 coinsB -= CartaPreuC;
             }
             else
             {
-                Debug.Log("not enough pasta");
+                Debug.Log("No tens suficients coins");
+                LogsBlau.text = "No tens suficients coins";
             }
 
 
@@ -447,11 +494,13 @@ public class Player : MonoBehaviour
             if (coinsB >= CartaPreuD)
             {
                 Instantiate(bola8, spawnPointsB[1].position, spawnPointsB[1].rotation);
+                LogsBlau.text = "";
                 coinsB -= CartaPreuD;
             }
             else
             {
-                Debug.Log("not enough pasta");
+                Debug.Log("No tens suficients coins");
+                LogsBlau.text = "No tens suficients coins";
             }
 
 
@@ -460,6 +509,7 @@ public class Player : MonoBehaviour
         else
         {
             Debug.Log("Cap tropa seleccionada");
+            LogsBlau.text = "Cap tropa seleccionada";
         }
     }
 
@@ -475,11 +525,13 @@ public class Player : MonoBehaviour
             if (coins >= CartaPreuA)
             {
                 Instantiate(bola, spawnPoints[2].position, spawnPoints[2].rotation);
+                LogsVermell.text = "";
                 coins -= CartaPreuA;
             }
             else
             {
-                Debug.Log("not enough pasta");
+                Debug.Log("No tens suficients coins");
+                LogsVermell.text = "No tens suficients coins";
             }
 
 
@@ -491,11 +543,13 @@ public class Player : MonoBehaviour
             if (coins >= CartaPreuB)
             {
                 Instantiate(bola2, spawnPoints[2].position, spawnPoints[2].rotation);
+                LogsVermell.text = "";
                 coins -= CartaPreuB;
             }
             else
             {
-                Debug.Log("not enough pasta");
+                Debug.Log("No tens suficients coins");
+                LogsVermell.text = "No tens suficients coins";
             }
 
 
@@ -507,11 +561,13 @@ public class Player : MonoBehaviour
             if (coins >= CartaPreuC)
             {
                 Instantiate(bola3, spawnPoints[2].position, spawnPoints[2].rotation);
+                LogsVermell.text = "";
                 coins -= CartaPreuC;
             }
             else
             {
-                Debug.Log("not enough pasta");
+                Debug.Log("No tens suficients coins");
+                LogsVermell.text = "No tens suficients coins";
             }
 
 
@@ -523,11 +579,13 @@ public class Player : MonoBehaviour
             if (coins >= CartaPreuD)
             {
                 Instantiate(bola4, spawnPoints[2].position, spawnPoints[2].rotation);
+                LogsVermell.text = "";
                 coins -= CartaPreuD;
             }
             else
             {
-                Debug.Log("not enough pasta");
+                Debug.Log("No tens suficients coins");
+                LogsVermell.text = "No tens suficients coins";
             }
 
 
@@ -536,6 +594,7 @@ public class Player : MonoBehaviour
         else
         {
             Debug.Log("Cap tropa seleccionada");
+            LogsVermell.text = "Cap tropa seleccionada";
         }
     }
 
@@ -551,11 +610,13 @@ public class Player : MonoBehaviour
             if (coinsB >= CartaPreuA)
             {
                 Instantiate(bola5, spawnPointsB[2].position, spawnPointsB[2].rotation);
+                LogsBlau.text = "";
                 coinsB -= CartaPreuA;
             }
             else
             {
-                Debug.Log("not enough pasta");
+                Debug.Log("No tens suficients coins");
+                LogsBlau.text = "No tens suficients coins";
             }
 
 
@@ -567,11 +628,13 @@ public class Player : MonoBehaviour
             if (coinsB >= CartaPreuB)
             {
                 Instantiate(bola6, spawnPointsB[2].position, spawnPointsB[2].rotation);
+                LogsBlau.text = "";
                 coinsB -= CartaPreuB;
             }
             else
             {
-                Debug.Log("not enough pasta");
+                Debug.Log("No tens suficients coins");
+                LogsBlau.text = "No tens suficients coins";
             }
 
 
@@ -583,11 +646,13 @@ public class Player : MonoBehaviour
             if (coinsB >= CartaPreuC)
             {
                 Instantiate(bola7, spawnPointsB[2].position, spawnPointsB[2].rotation);
+                LogsBlau.text = "";
                 coinsB -= CartaPreuC;
             }
             else
             {
-                Debug.Log("not enough pasta");
+                Debug.Log("No tens suficients coins");
+                LogsBlau.text = "No tens suficients coins";
             }
 
 
@@ -599,11 +664,13 @@ public class Player : MonoBehaviour
             if (coinsB >= CartaPreuD)
             {
                 Instantiate(bola8, spawnPointsB[2].position, spawnPointsB[2].rotation);
+                LogsBlau.text = "";
                 coinsB -= CartaPreuD;
             }
             else
             {
-                Debug.Log("not enough pasta");
+                Debug.Log("No tens suficients coins");
+                LogsBlau.text = "No tens suficients coins";
             }
 
 
@@ -612,6 +679,7 @@ public class Player : MonoBehaviour
         else
         {
             Debug.Log("Cap tropa seleccionada");
+            LogsBlau.text = "Cap tropa seleccionada";
         }
     }
 
@@ -629,11 +697,13 @@ public class Player : MonoBehaviour
             if (coinsB >= CartaPreuA)
             {
                 Instantiate(bola5, spawnPointsB[3].position, spawnPointsB[3].rotation);
+                LogsBlau.text = "";
                 coinsB -= CartaPreuA;
             }
             else
             {
-                Debug.Log("not enough pasta");
+                Debug.Log("No tens suficients coins");
+                LogsBlau.text = "No tens suficients coins";
             }
 
 
@@ -645,11 +715,13 @@ public class Player : MonoBehaviour
             if (coinsB >= CartaPreuB)
             {
                 Instantiate(bola6, spawnPointsB[3].position, spawnPointsB[3].rotation);
+                LogsBlau.text = "";
                 coinsB -= CartaPreuB;
             }
             else
             {
-                Debug.Log("not enough pasta");
+                Debug.Log("No tens suficients coins");
+                LogsBlau.text = "No tens suficients coins";
             }
 
 
@@ -661,11 +733,13 @@ public class Player : MonoBehaviour
             if (coinsB >= CartaPreuC)
             {
                 Instantiate(bola7, spawnPointsB[3].position, spawnPointsB[3].rotation);
+                LogsBlau.text = "";
                 coinsB -= CartaPreuC;
             }
             else
             {
-                Debug.Log("not enough pasta");
+                Debug.Log("No tens suficients coins");
+                LogsBlau.text = "No tens suficients coins";
             }
 
 
@@ -677,11 +751,13 @@ public class Player : MonoBehaviour
             if (coinsB >= CartaPreuD)
             {
                 Instantiate(bola8, spawnPointsB[3].position, spawnPointsB[3].rotation);
+                LogsBlau.text = "";
                 coinsB -= CartaPreuD;
             }
             else
             {
-                Debug.Log("not enough pasta");
+                Debug.Log("No tens suficients coins");
+                LogsBlau.text = "No tens suficients coins";
             }
 
 
@@ -690,6 +766,7 @@ public class Player : MonoBehaviour
         else
         {
             Debug.Log("Cap tropa seleccionada");
+            LogsBlau.text = "Cap tropa seleccionada";
         }
         
     }
@@ -703,11 +780,13 @@ public class Player : MonoBehaviour
             if (coins >= CartaPreuA)
             {
                 Instantiate(bola, spawnPoints[3].position, spawnPoints[3].rotation);
+                LogsVermell.text = "";
                 coins -= CartaPreuA;
             }
             else
             {
-                Debug.Log("not enough pasta");
+                Debug.Log("No tens suficients coins");
+                LogsVermell.text = "No tens suficients coins";
             }
 
 
@@ -719,11 +798,13 @@ public class Player : MonoBehaviour
             if (coins >= CartaPreuB)
             {
                 Instantiate(bola2, spawnPoints[3].position, spawnPoints[3].rotation);
+                LogsVermell.text = "";
                 coins -= CartaPreuB;
             }
             else
             {
-                Debug.Log("not enough pasta");
+                Debug.Log("No tens suficients coins");
+                LogsVermell.text = "No tens suficients coins";
             }
 
 
@@ -735,11 +816,13 @@ public class Player : MonoBehaviour
             if (coins >= CartaPreuC)
             {
                 Instantiate(bola3, spawnPoints[3].position, spawnPoints[3].rotation);
+                LogsVermell.text = "";
                 coins -= CartaPreuC;
             }
             else
             {
-                Debug.Log("not enough pasta");
+                Debug.Log("No tens suficients coins");
+                LogsVermell.text = "No tens suficients coins";
             }
 
 
@@ -751,11 +834,13 @@ public class Player : MonoBehaviour
             if (coins >= CartaPreuD)
             {
                 Instantiate(bola4, spawnPoints[3].position, spawnPoints[3].rotation);
+                LogsVermell.text = "";
                 coins -= CartaPreuD;
             }
             else
             {
-                Debug.Log("not enough pasta");
+                Debug.Log("No tens suficients coins");
+                LogsVermell.text = "No tens suficients coins";
             }
 
 
@@ -764,6 +849,7 @@ public class Player : MonoBehaviour
         else
         {
             Debug.Log("Cap tropa seleccionada");
+            LogsVermell.text = "Cap tropa seleccionada";
         }
 
 
@@ -861,7 +947,11 @@ public class Player : MonoBehaviour
         }
 
         selectedTroop = 1;
-    
+        if (LogsVermell.text == "Cap tropa seleccionada")
+        {
+            LogsVermell.text = "";
+        }
+
 
         carta1.transform.position += new Vector3(0, -0.2f, 0);
     }
@@ -887,6 +977,10 @@ public class Player : MonoBehaviour
         }
 
         selectedTroop = 2;
+        if (LogsVermell.text == "Cap tropa seleccionada")
+        {
+            LogsVermell.text = "";
+        }
 
 
         carta2.transform.position += new Vector3(0, -0.2f, 0);
@@ -913,6 +1007,10 @@ public class Player : MonoBehaviour
         }
 
         selectedTroop = 3;
+        if (LogsVermell.text == "Cap tropa seleccionada")
+        {
+            LogsVermell.text = "";
+        }
 
 
         carta3.transform.position += new Vector3(0, -0.2f, 0);
@@ -939,7 +1037,10 @@ public class Player : MonoBehaviour
         }
 
         selectedTroop = 4;
-
+        if (LogsVermell.text == "Cap tropa seleccionada")
+        {
+            LogsVermell.text = "";
+        }
 
         carta4.transform.position += new Vector3(0, -0.2f, 0);
     }
@@ -965,6 +1066,11 @@ public class Player : MonoBehaviour
         }
 
         selectedTroopB = 1;
+        if (LogsBlau.text == "Cap tropa seleccionada")
+        {
+            LogsBlau.text = "";
+        }
+        
 
 
         carta5.transform.position += new Vector3(0, 0.2f, 0);
@@ -991,7 +1097,10 @@ public class Player : MonoBehaviour
         }
 
         selectedTroopB = 2;
-
+        if (LogsBlau.text == "Cap tropa seleccionada")
+        {
+            LogsBlau.text = "";
+        }
 
         carta6.transform.position += new Vector3(0, 0.2f, 0);
     }
@@ -1017,7 +1126,10 @@ public class Player : MonoBehaviour
         }
 
         selectedTroopB = 3;
-
+        if (LogsBlau.text == "Cap tropa seleccionada")
+        {
+            LogsBlau.text = "";
+        }
 
         carta7.transform.position += new Vector3(0, 0.2f, 0);
     }
@@ -1043,7 +1155,10 @@ public class Player : MonoBehaviour
         }
 
         selectedTroopB = 4;
-
+        if (LogsBlau.text == "Cap tropa seleccionada")
+        {
+            LogsBlau.text = "";
+        }
 
         carta8.transform.position += new Vector3(0, 0.2f, 0);
     }
@@ -1075,8 +1190,9 @@ public class Player : MonoBehaviour
         CartaPreuC = 6;
         CartaPreuD = 8;
 
-    
-       
+
+        LogsVermell.text = "";
+        LogsBlau.text = "";
 
         StartCoroutine(generate());
         StartCoroutine(generateB());
