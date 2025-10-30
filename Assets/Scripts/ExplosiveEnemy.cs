@@ -1,7 +1,11 @@
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ExplosiveEnemy : MonoBehaviour
 {
+    [SerializeField]
+    private GameManager gameManager;
     [SerializeField]
     public int hp_max { get; private set; }
     [SerializeField]
@@ -20,10 +24,12 @@ public class ExplosiveEnemy : MonoBehaviour
     private string tagEnemy;
     [SerializeField]
     private ParticleCollider ps;
+
+
     private void Awake()
     {
         hp_max = 10;
-        hp = 10;
+        hp = hp_max;
         atk = 1;
         spd = 3;
         rb = GetComponent<Rigidbody2D>();
@@ -32,9 +38,9 @@ public class ExplosiveEnemy : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-    
-    }
+            gameManager.AddIntoList(this.gameObject);
 
+    }
     // Update is called once per frame
     bool isStopped = false;
     // Update is called once per frame
@@ -73,5 +79,9 @@ public class ExplosiveEnemy : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+    }
+    private void OnDestroy()
+    {
+        gameManager.RemoveOfList(this.gameObject);
     }
 }

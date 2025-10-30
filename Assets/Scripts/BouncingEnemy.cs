@@ -1,9 +1,12 @@
 using System.Collections;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class BouncingEnemy : MonoBehaviour
 {
+    [SerializeField]
+    private GameManager gameManager;
     [SerializeField]
     public int hp_max { get; private set; }
     [SerializeField]
@@ -23,11 +26,14 @@ public class BouncingEnemy : MonoBehaviour
     private Rigidbody2D rb;
     [SerializeField]
     private string tagEnemy;
+    [SerializeField]
+    List<GameObject> enemies;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
-        hp_max = 10;
-        hp = 10;
+        enemies = new List<GameObject>();
+        hp_max = 20;
+        hp = hp_max;
         atk = 1;
         spd = 3;
         bullet.SetAtk(atk);
@@ -37,11 +43,14 @@ public class BouncingEnemy : MonoBehaviour
         bullet.gameObject.SetActive(false);
         rangeAttack.OnEnter += Attack;
         rangeAttack.OnStay += Attack;
+        rangeDetection.OnEnter += PushInList;
+        rangeDetection.OnExit+= RemoveFromList;
         rangeDetection.OnEnter += StopMovement;
         rangeDetection.OnExit += ResumeMovement;
     }
     void Start()
     {
+        gameManager.AddIntoList(this.gameObject);
 
     }
     bool isStopped = false;
@@ -50,6 +59,16 @@ public class BouncingEnemy : MonoBehaviour
     {
         if (!isStopped)
             Move();
+    }
+    private void PushInList(GameObject go)
+    {
+        if (go.tag == tagEnemy)
+            enemies.Add(go);
+    }
+    public void RemoveFromList(GameObject go)
+    {
+        if (go.tag == tagEnemy)
+            enemies.Remove(go);
     }
     public void SetHp(int hp)
     {
@@ -70,8 +89,11 @@ public class BouncingEnemy : MonoBehaviour
     }
     void ResumeMovement(GameObject go)
     {
-        isStopped = false;
-        // Move();
+        if (enemies.Count == 0)
+            isStopped = false;
+        else rangeDetection.OnStay.Invoke(enemies[0]);
+// StartCoroutine(Attack2(enemies[0]));
+// Move();
     }
     void StopMovement(GameObject enemy)
     {
@@ -85,11 +107,16 @@ public class BouncingEnemy : MonoBehaviour
     bool cooldown = false;
     private void Attack(GameObject enemy)
     {
-        if (!cooldown && !bullet.isActiveAndEnabled)
+        Debug.Log($"Attack llamado - cooldown: {cooldown}, bullet activa: {bullet.gameObject.activeSelf}");
+
+        if (!cooldown)
         {
             cooldown = true;
-            if (enemy.tag == tagEnemy)
+            Debug.Log("A");
+            Debug.Log(enemy.transform.tag + " " + enemy.name+ " "+tagEnemy);
+            if (enemy.gameObject.tag == tagEnemy)
             {
+                Debug.Log("B");
                 bullet.transform.position = transform.position;
                 bullet.gameObject.SetActive(true);  
                 bullet.transform.parent = null;
@@ -100,10 +127,30 @@ public class BouncingEnemy : MonoBehaviour
         }
       
     }
+    private IEnumerator Attack2(GameObject enemy)
+    {
+        while (enemies.Count > 0)
+        {
+            if (!cooldown && !bullet.isActiveAndEnabled)
+            {
+                cooldown = true;
+                if (enemy.tag == tagEnemy)
+                {
+                    bullet.transform.position = transform.position;
+                    bullet.gameObject.SetActive(true);
+                    bullet.transform.parent = null;
+                    Vector2 dir = (enemy.transform.position - bullet.transform.position).normalized;
+                    bullet.rigidbody2d.linearVelocity = dir * 6;
+                    StartCoroutine(ResetCooldown());
+                }
+            }
+            yield return new WaitForEndOfFrame();
+        }
+    }
     public void ReceiveDamage(int atk)
     {
+        Debug.LogError("AYUDA!!! ME ESTAN MATANDO!!!");
         this.hp -= atk;
-        Debug.Log(hp);
         if (this.hp <= 0)
         {
             Destroy(bullet.gameObject);
@@ -113,6 +160,11 @@ public class BouncingEnemy : MonoBehaviour
     IEnumerator ResetCooldown()
         {
             yield return new WaitForSeconds(2.5f);
-            cooldown = false;
+        bullet.transform.parent = this.transform;
+        cooldown = false;
         }
+    private void OnDestroy()
+    {
+        gameManager.RemoveOfList(this.gameObject);
     }
+}

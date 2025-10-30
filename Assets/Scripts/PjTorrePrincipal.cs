@@ -26,7 +26,7 @@ public class PjTorrePrincipal : MonoBehaviour
     private void Awake()
     {
         hp_max = 10;
-        hp = 10;
+        hp = hp_max;
         atk = 1;
         spd = 3;
         for (int i = 0; i < ammo.Count; i++)

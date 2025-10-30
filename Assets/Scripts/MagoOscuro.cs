@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MagoOscuro : MonoBehaviour
 {
+    [SerializeField] 
+    private GameManager gameManager;
     [SerializeField]
     public int hp_max { get; private set; }
     [SerializeField]
@@ -30,7 +32,7 @@ public class MagoOscuro : MonoBehaviour
     private void Awake()
     {
         hp_max = 10;
-        hp = 10;
+        hp = hp_max;
         atk = 1;
         spd = 3;
         for (int i = 0; i < ammo.Count; i++)
@@ -44,11 +46,13 @@ public class MagoOscuro : MonoBehaviour
         rangeAttack.OnStay += Attack;
         rangeDetection.OnEnter += StopMovement;
         rangeDetection.OnExit += ResumeMovement;
+
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        gameManager.AddIntoList(this.gameObject);
+
     }
     bool isStopped = false;
     // Update is called once per frame
@@ -56,6 +60,16 @@ public class MagoOscuro : MonoBehaviour
     {
         if(!isStopped)
             Move();
+    }
+    private void PushInList(GameObject go)
+    {
+        if (go.tag == tagEnemy)
+            enemies.Add(go);
+    }
+    public void RemoveFromList(GameObject go)
+    {
+        if (go.tag == tagEnemy)
+            enemies.Remove(go);
     }
     public void SetHp(int hp)
     {
@@ -179,5 +193,8 @@ public class MagoOscuro : MonoBehaviour
     {
 
     }
-
+    private void OnDestroy()
+    {
+        gameManager.RemoveOfList(this.gameObject);
+    }
 }

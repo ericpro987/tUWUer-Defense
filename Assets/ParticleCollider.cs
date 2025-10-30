@@ -13,12 +13,9 @@ public class ParticleCollider : MonoBehaviour
 
     void OnParticleCollision(GameObject other)
     {
-
-        // Ejemplo: aplicar daño si el objeto tiene cierto tag
         if (other.CompareTag("J1"))
         {
             Destroy(other.gameObject);
-            // Podés llamar a un método del enemigo, por ejemplo
         }
     }
     public void PlayAnimation()

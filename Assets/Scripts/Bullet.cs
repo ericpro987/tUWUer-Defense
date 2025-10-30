@@ -75,25 +75,32 @@ public class Bullet : MonoBehaviour
                         Vector2 dir = (hit.transform.position - this.transform.position).normalized;
                         this.rigidbody2d.linearVelocity = dir * 5;
                 }
-                StartCoroutine(Die(time));
-
             }
-            if (collision.TryGetComponent<MagoOscuro>(out MagoOscuro magoOscuro))
+            Debug.LogAssertion(collision.gameObject.name);
+            if (collision.gameObject.TryGetComponent<MagoOscuro>(out MagoOscuro magoOscuro))
             {
+                Debug.Log("mE HAN ATACADO: mAGO");
                 magoOscuro.ReceiveDamage(atk);
             }
-            else if (collision.TryGetComponent<BouncingEnemy>(out BouncingEnemy bouncingEnemy))
+            else if (collision.gameObject.TryGetComponent<BouncingEnemy>(out BouncingEnemy bouncingEnemy))
             {
+                Debug.LogError("mE HAN ATACADO: bOUNCING");
                 bouncingEnemy.ReceiveDamage(atk);
             }
-            else if (collision.TryGetComponent<ExplosiveEnemy>(out ExplosiveEnemy explosiveEnemy))
+            else if (collision.gameObject.TryGetComponent<ExplosiveEnemy>(out ExplosiveEnemy explosiveEnemy))
             {
                 explosiveEnemy.ReceiveDamage(atk);
             }
-            else if(collision.TryGetComponent<PjTorrePrincipal>(out PjTorrePrincipal pjTorrePrincipal))
+            else if(collision.gameObject.TryGetComponent<PjTorrePrincipal>(out PjTorrePrincipal pjTorrePrincipal))
             {
                 pjTorrePrincipal.ReceiveDamage(atk);
             }
+            else if (collision.gameObject.TryGetComponent<BasicEnemy>(out BasicEnemy basicEnemy))
+            {
+                basicEnemy.ReceiveDamage(atk);
+            }
+            StartCoroutine(Die(1));
+
             //this.gameObject.SetActive(false);
         }
     }
