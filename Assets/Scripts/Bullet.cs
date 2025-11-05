@@ -60,7 +60,7 @@ public class Bullet : MonoBehaviour
     }
     public IEnumerator Die(int time)
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(time);
         this.gameObject.SetActive(false);
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -99,7 +99,7 @@ public class Bullet : MonoBehaviour
             {
                 basicEnemy.ReceiveDamage(atk);
             }
-            StartCoroutine(Die(1));
+            StartCoroutine(Die(0));
 
             //this.gameObject.SetActive(false);
         }

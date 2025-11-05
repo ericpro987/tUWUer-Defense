@@ -193,7 +193,7 @@ public class MagoOscuro : MonoBehaviour
     {
 
     }
-    private void OnDestroy()
+    private void OnDisable()
     {
         gameManager.RemoveOfList(this.gameObject);
     }

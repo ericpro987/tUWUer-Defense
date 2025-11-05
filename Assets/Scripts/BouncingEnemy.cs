@@ -163,7 +163,7 @@ public class BouncingEnemy : MonoBehaviour
         bullet.transform.parent = this.transform;
         cooldown = false;
         }
-    private void OnDestroy()
+    private void OnDisable()
     {
         gameManager.RemoveOfList(this.gameObject);
     }
