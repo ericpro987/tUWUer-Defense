@@ -4,96 +4,97 @@ using UnityEngine;
 
 public class MagoOscuro : MonoBehaviour
 {
-    [SerializeField] 
+    [SerializeField]
     private GameManager gameManager;
     [SerializeField]
-    public int hp_max { get; private set; }
+    private int hp_max = 10;
     [SerializeField]
-    public int hp { get; private set; }
+    private int hp;
     [SerializeField]
-    public int atk { get; private set; }
+    private int atk = 1;
     [SerializeField]
-    public int spd { get; private set; }
+    private int spd = 3;
     [SerializeField]
     private Range rangeDetection;
     [SerializeField]
     private Range rangeAttack;
     [SerializeField]
-    private List<GameObject> enemies;
+    private List<GameObject> enemies = new List<GameObject>();
     [SerializeField]
-    private List<Bullet> ammo;
+    private List<Bullet> ammo = new List<Bullet>();
     [SerializeField]
     private List<Transform> pos;
-    Rigidbody2D rb;
     [SerializeField]
     private GameObject tower;
     [SerializeField]
     private string tagEnemy;
+
+    private Rigidbody2D rb;
+    private bool isStopped = false;
+    private bool cooldown = false;
+    private bool isReloading = false;
+
     private void Awake()
     {
-        hp_max = 10;
+        ValidateReferences();
+
         hp = hp_max;
-        atk = 1;
-        spd = 3;
-        for (int i = 0; i < ammo.Count; i++)
-        {
-                ammo[i].SetTagEnemy(tagEnemy);
-                ammo[i].SetAtk(atk);
-                ammo[i].SetTime(0);
-        }
+
+        InitializeAmmo();
+
         rb = GetComponent<Rigidbody2D>();
+
         rangeAttack.OnEnter += Attack;
         rangeAttack.OnStay += Attack;
         rangeDetection.OnEnter += StopMovement;
         rangeDetection.OnExit += ResumeMovement;
-
     }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    private void Start()
     {
+        Time.timeScale = 0.7f;
         gameManager.AddIntoList(this.gameObject);
+    }
 
-    }
-    bool isStopped = false;
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if(!isStopped)
+        if (!isStopped)
+        {
             Move();
+        }
     }
-    private void PushInList(GameObject go)
+
+    private void ValidateReferences()
     {
-        if (go.tag == tagEnemy)
-            enemies.Add(go);
+        if (gameManager == null) Debug.LogError("GameManager no est� asignado.");
+        if (tower == null) Debug.LogError("Tower no est� asignado.");
+        if (rangeDetection == null) Debug.LogError("RangeDetection no est� asignado.");
+        if (rangeAttack == null) Debug.LogError("RangeAttack no est� asignado.");
     }
-    public void RemoveFromList(GameObject go)
+
+    private void InitializeAmmo()
     {
-        if (go.tag == tagEnemy)
-            enemies.Remove(go);
+        foreach (var bullet in ammo)
+        {
+            bullet.SetTagEnemy(tagEnemy);
+            bullet.SetAtk(atk);
+            bullet.SetTime(0);
+        }
     }
-    public void SetHp(int hp)
+
+    private void Move()
     {
-        this.hp = hp;
+        Vector3 direction = (tower.transform.position - transform.position).normalized;
+        rb.linearVelocity = direction * spd;
     }
-    public void SetSpd(int spd)
+
+    private void ResumeMovement(GameObject go)
     {
-        this.spd = spd;
-    }
-    public void SetAtk(int atk)
-    {
-        this.atk = atk;
-    }
-    void Move()
-    {
-        Vector3 dir = (tower.transform.position - this.transform.position).normalized;
-        rb.linearVelocity = dir*spd;
-    }
-    void ResumeMovement(GameObject go)
-    {
+     //   Time.timeScale = 0;
         isStopped = false;
-       // Move();
     }
-    void StopMovement(GameObject enemy)
+
+    private void StopMovement(GameObject enemy)
     {
         if (enemy.CompareTag(tagEnemy))
         {
@@ -102,97 +103,124 @@ public class MagoOscuro : MonoBehaviour
         }
     }
 
-    bool cooldown = false;
-    bool isReloading = false;
     private void Attack(GameObject enemy)
     {
-        if (enemy.tag == tagEnemy)
-        {
-            if (!cooldown)
-            {
-                cooldown = true;
-                Bullet bullet = null;
-                for (int i = 0; i < ammo.Count; i++)
-                {
-                    if (ammo[i].available)
-                    {
-                        bullet = ammo[i];
-                        bullet.available = false;
-                        break;
-                    }
-                }
-                if (bullet != null)
-                {
-                    bullet.transform.parent = null;
-                    Vector2 dir = (enemy.transform.position - bullet.transform.position).normalized;
-                    bullet.rigidbody2d.linearVelocity = dir * 6;
-                    bullet.Die(bullet.getTime);
-                    StartCoroutine(ResetCooldown());
-                }
-                else
-                {
-                    if (AllReload() || !isReloading)
-                        StartCoroutine(Reload());
-                }
+        if (!enemy.CompareTag(tagEnemy)) return;
 
-            }
-        }
-    }
-    public void ReceiveDamage(int atk)
-    {
-        this.hp -= atk;
-        if(this.hp <= 0)
+        if (!cooldown)
         {
-            for (int i = 0; i < ammo.Count; i++)
+            cooldown = true;
+
+            Bullet bullet = GetAvailableBullet();
+
+            if (bullet != null)
             {
-                Destroy(ammo[i].gameObject);
+                FireBullet(bullet, enemy);
             }
-            Destroy(this.gameObject);
+            else if (AllReload() || !isReloading)
+            {
+                StartCoroutine(Reload());
+            }
+            StartCoroutine(ResetCooldown());
+
         }
     }
-    IEnumerator ResetCooldown()
+
+    private Bullet GetAvailableBullet()
+    {
+        foreach (var bullet in ammo)
+        {
+            if (bullet.available)
+            {
+                bullet.available = false;
+                return bullet;
+            }
+        }
+        return null;
+    }
+
+    private void FireBullet(Bullet bullet, GameObject enemy)
+    {
+        bullet.transform.parent = null;
+        Vector2 direction = (enemy.transform.position - bullet.transform.position).normalized;
+        bullet.rigidbody2d.linearVelocity = direction * 6;
+        bullet.Die(bullet.getTime);
+     //   StartCoroutine(ResetCooldown());
+    }
+
+    public void ReceiveDamage(int damage)
+    {
+        hp -= damage;
+        if (hp <= 0)
+        {
+            Debug.Log($"Enemigo destruido: {gameObject.name}");
+            DestroyAllAmmo();
+            Destroy(gameObject);
+        }
+    }
+
+    private void DestroyAllAmmo()
+    {
+        foreach (var bullet in ammo)
+        {
+            Destroy(bullet.gameObject);
+        }
+    }
+
+    private IEnumerator ResetCooldown()
     {
         yield return new WaitForSeconds(1);
         cooldown = false;
     }
-    bool AllReload()
+
+    private bool AllReload()
     {
-        for (int i = 0; i < ammo.Count; i++)
+        foreach (var bullet in ammo)
         {
-            if (!ammo[i].available)
+            if (!bullet.available)
+            {
                 return false;
+            }
         }
         return true;
     }
-    IEnumerator Reload()
+
+    private IEnumerator Reload()
     {
         isReloading = true;
-        bool recargado = AllReload();
 
-        while (!recargado)
+        while (!AllReload())
         {
             for (int i = 0; i < ammo.Count; i++)
             {
                 if (!ammo[i].available)
                 {
                     yield return new WaitForSeconds(3);
-                    ammo[i].transform.parent = this.transform;
-                    ammo[i].rigidbody2d.linearVelocity = new Vector2(0, 0);
-                    ammo[i].transform.position = pos[i].position;
-                    ammo[i].gameObject.SetActive(true);
-                    ammo[i].available = true;
-                    StartCoroutine(ResetCooldown());
+                    ResetBullet(ammo[i], pos[i]);
                 }
             }
-            recargado = AllReload();
         }
-        StartCoroutine(ResetCooldown());
+
         isReloading = false;
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
 
+    private void ResetBullet(Bullet bullet, Transform position)
+    {
+        bullet.transform.parent = transform;
+        bullet.rigidbody2d.linearVelocity = Vector2.zero;
+        bullet.transform.position = position.position;
+        bullet.gameObject.SetActive(true);
+        bullet.available = true;
     }
+
+    public void RemoveFromList(GameObject go)
+    {
+        if (go.CompareTag(tagEnemy))
+        {
+            enemies.Remove(go);
+        }
+    }
+
     private void OnDisable()
     {
         gameManager.RemoveOfList(this.gameObject);

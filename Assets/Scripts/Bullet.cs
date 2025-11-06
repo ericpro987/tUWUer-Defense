@@ -70,7 +70,7 @@ public class Bullet : MonoBehaviour
             if (bouncing)
             {
                 Collider2D hit = Physics2D.OverlapCircle(this.transform.position, 50, layerHit);
-                if (hit)
+                if (hit && hit != collision)
                 {
                         Vector2 dir = (hit.transform.position - this.transform.position).normalized;
                         this.rigidbody2d.linearVelocity = dir * 5;

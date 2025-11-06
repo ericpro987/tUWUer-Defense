@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class BouncingEnemy : MonoBehaviour
@@ -8,161 +7,156 @@ public class BouncingEnemy : MonoBehaviour
     [SerializeField]
     private GameManager gameManager;
     [SerializeField]
-    public int hp_max { get; private set; }
+    private int hp_max = 20;
     [SerializeField]
-    public int hp { get; private set; }
+    private int hp;
     [SerializeField]
-    public int atk { get; private set; }
+    private int atk = 1;
     [SerializeField]
-    public int spd { get; private set; }
+    private int spd = 3;
     [SerializeField]
     private Range rangeDetection;
     [SerializeField]
     private Range rangeAttack;
     [SerializeField]
-    private Bullet bullet;
+    private Bullet bullet;  
     [SerializeField]
     private GameObject tower;
-    private Rigidbody2D rb;
     [SerializeField]
     private string tagEnemy;
-    [SerializeField]
-    List<GameObject> enemies;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    private Rigidbody2D rb;
+    private List<GameObject> enemies = new List<GameObject>();
+    private bool isStopped = false;
+    private bool cooldown = false;
+
     private void Awake()
     {
-        enemies = new List<GameObject>();
-        hp_max = 20;
+        ValidateReferences();
+
         hp = hp_max;
-        atk = 1;
-        spd = 3;
-        bullet.SetAtk(atk);
-        bullet.SetTagEnemy(tagEnemy);
+
+        InitializeBullet();
+
         rb = GetComponent<Rigidbody2D>();
-        bullet.SetBouncing(true);
-        bullet.gameObject.SetActive(false);
+
         rangeAttack.OnEnter += Attack;
         rangeAttack.OnStay += Attack;
         rangeDetection.OnEnter += PushInList;
-        rangeDetection.OnExit+= RemoveFromList;
+        rangeDetection.OnExit += RemoveFromList;
         rangeDetection.OnEnter += StopMovement;
         rangeDetection.OnExit += ResumeMovement;
     }
-    void Start()
+
+    private void Start()
     {
         gameManager.AddIntoList(this.gameObject);
-
     }
-    bool isStopped = false;
-    // Update is called once per frame
-    void Update()
+
+    private void Update()
     {
         if (!isStopped)
+        {
             Move();
+        }
     }
+
+    private void ValidateReferences()
+    {
+        if (gameManager == null) Debug.LogError("GameManager no est� asignado.");
+        if (tower == null) Debug.LogError("Tower no est� asignado.");
+        if (rangeDetection == null) Debug.LogError("RangeDetection no est� asignado.");
+        if (rangeAttack == null) Debug.LogError("RangeAttack no est� asignado.");
+        if (bullet == null) Debug.LogError("Bullet no est� asignado.");
+    }
+
+    private void InitializeBullet()
+    {
+        bullet.SetAtk(atk);
+        bullet.SetTagEnemy(tagEnemy);
+        bullet.SetBouncing(true);
+        bullet.gameObject.SetActive(false);
+    }
+
+    private void Move()
+    {
+        Vector3 direction = (tower.transform.position - transform.position).normalized;
+        rb.linearVelocity = direction * spd;
+    }
+
     private void PushInList(GameObject go)
     {
-        if (go.tag == tagEnemy)
+        if (go.CompareTag(tagEnemy))
+        {
             enemies.Add(go);
+        }
     }
+
     public void RemoveFromList(GameObject go)
     {
-        if (go.tag == tagEnemy)
+        if (go.CompareTag(tagEnemy))
+        {
             enemies.Remove(go);
+        }
     }
-    public void SetHp(int hp)
-    {
-        this.hp = hp;
-    }
-    public void SetSpd(int spd)
-    {
-        this.spd = spd;
-    }
-    public void SetAtk(int atk)
-    {
-        this.atk = atk;
-    }
-    void Move()
-    {
-        Vector3 dir = (tower.transform.position - this.transform.position).normalized;
-        rb.linearVelocity = dir * spd;
-    }
-    void ResumeMovement(GameObject go)
+
+    private void ResumeMovement(GameObject go)
     {
         if (enemies.Count == 0)
+        {
             isStopped = false;
-        else rangeDetection.OnStay.Invoke(enemies[0]);
-// StartCoroutine(Attack2(enemies[0]));
-// Move();
+        }
+        else
+        {
+            rangeDetection.OnStay?.Invoke(enemies[0]);
+        }
     }
-    void StopMovement(GameObject enemy)
+
+    private void StopMovement(GameObject enemy)
     {
-        /*    if (enemy.CompareTag(tagEnemy))
-            {*/
         isStopped = true;
         rb.linearVelocity = Vector2.zero;
-        // }
     }
 
-    bool cooldown = false;
     private void Attack(GameObject enemy)
     {
-        Debug.Log($"Attack llamado - cooldown: {cooldown}, bullet activa: {bullet.gameObject.activeSelf}");
+        if (!enemy.CompareTag(tagEnemy) || cooldown) return;
 
-        if (!cooldown)
-        {
-            cooldown = true;
-            Debug.Log("A");
-            Debug.Log(enemy.transform.tag + " " + enemy.name+ " "+tagEnemy);
-            if (enemy.gameObject.tag == tagEnemy)
-            {
-                Debug.Log("B");
-                bullet.transform.position = transform.position;
-                bullet.gameObject.SetActive(true);  
-                bullet.transform.parent = null;
-                Vector2 dir = (enemy.transform.position - bullet.transform.position).normalized;
-                bullet.rigidbody2d.linearVelocity = dir * 6;
-                StartCoroutine(ResetCooldown());
-            }
-        }
-      
+        cooldown = true;
+
+        FireBullet(enemy);
+        StartCoroutine(ResetCooldown());
     }
-    private IEnumerator Attack2(GameObject enemy)
+
+    private void FireBullet(GameObject enemy)
     {
-        while (enemies.Count > 0)
-        {
-            if (!cooldown && !bullet.isActiveAndEnabled)
-            {
-                cooldown = true;
-                if (enemy.tag == tagEnemy)
-                {
-                    bullet.transform.position = transform.position;
-                    bullet.gameObject.SetActive(true);
-                    bullet.transform.parent = null;
-                    Vector2 dir = (enemy.transform.position - bullet.transform.position).normalized;
-                    bullet.rigidbody2d.linearVelocity = dir * 6;
-                    StartCoroutine(ResetCooldown());
-                }
-            }
-            yield return new WaitForEndOfFrame();
-        }
+        bullet.transform.position = transform.position;
+        bullet.gameObject.SetActive(true);
+        bullet.transform.parent = null;
+
+        Vector2 direction = (enemy.transform.position - bullet.transform.position).normalized;
+        bullet.rigidbody2d.linearVelocity = direction * 6;
     }
-    public void ReceiveDamage(int atk)
+
+    public void ReceiveDamage(int damage)
     {
         Debug.LogError("AYUDA!!! ME ESTAN MATANDO!!!");
-        this.hp -= atk;
-        if (this.hp <= 0)
+        hp -= damage;
+
+        if (hp <= 0)
         {
             Destroy(bullet.gameObject);
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
     }
-    IEnumerator ResetCooldown()
-        {
-            yield return new WaitForSeconds(2.5f);
-        bullet.transform.parent = this.transform;
+
+    private IEnumerator ResetCooldown()
+    {
+        yield return new WaitForSeconds(2.5f);
+        bullet.transform.parent = transform;
         cooldown = false;
-        }
+    }
+
     private void OnDisable()
     {
         gameManager.RemoveOfList(this.gameObject);
