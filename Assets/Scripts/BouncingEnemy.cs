@@ -161,4 +161,16 @@ public class BouncingEnemy : MonoBehaviour
     {
         gameManager.RemoveOfList(this.gameObject);
     }
+    public void SetHp(int hp)
+    {
+        this.hp = hp;
+    }
+    public void SetSpd(int spd)
+    {
+        this.spd = spd;
+    }
+    public void SetAtk(int atk)
+    {
+        this.atk = atk;
+    }
 }

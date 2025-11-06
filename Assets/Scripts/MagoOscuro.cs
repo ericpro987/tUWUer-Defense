@@ -7,32 +7,32 @@ public class MagoOscuro : MonoBehaviour
     [SerializeField]
     private GameManager gameManager;
     [SerializeField]
-    private int hp_max = 10;
+    public int hp_max { get; private set; } = 10;
     [SerializeField]
-    private int hp;
+    public int hp { get; private set; }
     [SerializeField]
-    private int atk = 1;
+    public int atk { get; private set; } = 1;
     [SerializeField]
-    private int spd = 3;
+    public int spd { get; private set; } = 3;
     [SerializeField]
-    private Range rangeDetection;
+    public Range rangeDetection { get; private set; }
     [SerializeField]
-    private Range rangeAttack;
+    public Range rangeAttack { get; private set; }
     [SerializeField]
-    private List<GameObject> enemies = new List<GameObject>();
+    public List<GameObject> enemies { get; private set; } = new List<GameObject>();
     [SerializeField]
-    private List<Bullet> ammo = new List<Bullet>();
+    public List<Bullet> ammo { get; private set; } = new List<Bullet>();
     [SerializeField]
-    private List<Transform> pos;
+    public List<Transform> pos { get; private set; }
     [SerializeField]
-    private GameObject tower;
+    public GameObject tower { get; private set; }
     [SerializeField]
-    private string tagEnemy;
+    public string tagEnemy { get; private set; }
 
     private Rigidbody2D rb;
-    private bool isStopped = false;
-    private bool cooldown = false;
-    private bool isReloading = false;
+    public bool isStopped = false;
+    public bool cooldown = false;
+    public bool isReloading = false;
 
     private void Awake()
     {
@@ -52,7 +52,6 @@ public class MagoOscuro : MonoBehaviour
 
     private void Start()
     {
-        Time.timeScale = 0.7f;
         gameManager.AddIntoList(this.gameObject);
     }
 
@@ -81,7 +80,18 @@ public class MagoOscuro : MonoBehaviour
             bullet.SetTime(0);
         }
     }
-
+    public void SetHp(int hp)
+    {
+        this.hp = hp;
+    }
+    public void SetSpd(int spd)
+    {
+        this.spd = spd;
+    }
+    public void SetAtk(int atk)
+    {
+        this.atk = atk;
+    }
     private void Move()
     {
         Vector3 direction = (tower.transform.position - transform.position).normalized;

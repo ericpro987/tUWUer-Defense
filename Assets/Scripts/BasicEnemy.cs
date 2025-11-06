@@ -167,4 +167,5 @@ public class BasicEnemy : MonoBehaviour
     {
         gameManager.RemoveOfList(this.gameObject);
     }
+
 }
