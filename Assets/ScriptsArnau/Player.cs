@@ -8,83 +8,148 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
 
-    public bool Jugador;
+    [SerializeField]
+    private bool Jugador;
 
-    public Transform[] spawnPoints;
-
-    public Transform[] spawnPointsB;
-
-    public GameObject torre1;
-
-    public int coins;
-    public int coinsB;
+    [SerializeField]
+    private Transform[] spawnPoints;
 
 
-    public int selectedTroop;
-    public int selectedTroopB;
+    [SerializeField]
+    private Transform[] spawnPointsB;
 
-    public GameObject generator;
-    public GameObject generatorB;
-    public int generatorLevel;
-    public int generatorLevelB;
 
-    public GameObject ATKBooster;
-    public GameObject ATKBoosterB;
-    public int ATKBoosterLevel;
-    public int ATKBoosterLevelB;
+    [SerializeField]
+    private GameObject torre1;
 
-    public GameObject SPBooster;
-    public GameObject SPBoosterB;
-    public int SPDBoosterLevel;
-    public int SPDBoosterLevelB;
 
-    public GameObject HPBooster;
-    public GameObject HPBoosterB;
-    public int HPBoosterLevel;
-    public int HPBoosterLevelB;
+    [Header("Player's Coins")]
+    [SerializeField]
+    private int coins;
+    [SerializeField]
+    private int coinsB;
 
-    public List<GameObject> Structures;
+    [Header("Player's selected troop")]
+    [SerializeField]
+    private int selectedTroop;
+    [SerializeField]
+    private int selectedTroopB;
 
+
+    [Header("Coin generators")]
+    [SerializeField]
+    private GameObject generator;
+    [SerializeField]
+    private GameObject generatorB;
+    [SerializeField]
+    private int generatorLevel;
+    [SerializeField]
+    private int generatorLevelB;
+
+
+    [Header("Attack booster")]
+    [SerializeField]
+    private GameObject ATKBooster;
+    [SerializeField]
+    private GameObject ATKBoosterB;
+    [SerializeField]
+    private int ATKBoosterLevel;
+    [SerializeField]
+    private int ATKBoosterLevelB;
+
+    [Header("Speed booster")]
+    [SerializeField]
+    private GameObject SPBooster;
+    [SerializeField]
+    private GameObject SPBoosterB;
+    [SerializeField]
+    private int SPDBoosterLevel;
+    [SerializeField]
+    private int SPDBoosterLevelB;
+
+
+    [Header("Health Points booster")]
+    [SerializeField]
+    private GameObject HPBooster;
+    [SerializeField]
+    private GameObject HPBoosterB;
+    [SerializeField]
+    private int HPBoosterLevel;
+    [SerializeField]
+    private int HPBoosterLevelB;
+
+    [Header("Structures")]
+    [SerializeField]
+    private List<GameObject> Structures;
+
+    [Header("Input system")]
     private InputSystem_Actions actions;
-    public int JugadorMoney;
+    [SerializeField]
+    private int JugadorMoney;
 
-    public GameObject bola;
-    public GameObject bola2;
-    public GameObject bola3;
-    public GameObject bola4;
+    [SerializeField]
+    private GameObject bola;
+    [SerializeField]
+    private GameObject bola2;
+    [SerializeField]
+    private GameObject bola3;
+    [SerializeField]
+    private GameObject bola4;
 
-    public GameObject bola5;
-    public GameObject bola6;
-    public GameObject bola7;
-    public GameObject bola8;
-
-
-    public GameObject carta1;
-    public GameObject carta2;
-    public GameObject carta3;
-    public GameObject carta4;
-
-    public GameObject carta5;
-    public GameObject carta6;
-    public GameObject carta7;
-    public GameObject carta8;
-
-    public int CartaPreuA;
-    public int CartaPreuB;
-    public int CartaPreuC;
-    public int CartaPreuD;
+    [SerializeField]
+    private GameObject bola5;
+    [SerializeField]
+    private GameObject bola6;
+    [SerializeField]
+    private GameObject bola7;
+    [SerializeField]
+    private GameObject bola8;
 
 
+    [SerializeField]
+    private GameObject carta1;
+    [SerializeField]
+    private GameObject carta2;
+    [SerializeField]
+    private GameObject carta3;
+    [SerializeField]
+    private GameObject carta4;
 
-    public TextMeshProUGUI MONEDES;
-    public TextMeshProUGUI MONEDESB;
+    [SerializeField]
+    private GameObject carta5;
+    [SerializeField]
+    private GameObject carta6;
+    [SerializeField]
+    private GameObject carta7;
+    [SerializeField]
+    private GameObject carta8;
 
-    public ParticleSystem coinEffect;
-    public ParticleSystem ATKEffect;
+    [SerializeField]
+    private int CartaPreuA;
+    [SerializeField]
+    private int CartaPreuB;
+    [SerializeField]
+    private int CartaPreuC;
+    [SerializeField]
+    private int CartaPreuD;
 
 
-    public TextMeshProUGUI LogsVermell;
-    public TextMeshProUGUI LogsBlau;
+
+    [SerializeField]
+    private TextMeshProUGUI MONEDES;
+    [SerializeField]
+    private TextMeshProUGUI MONEDESB;
+
+    [SerializeField]
+    private ParticleSystem coinEffect;
+    [SerializeField]
+    private ParticleSystem ATKEffect;
+
+
+    [SerializeField]
+    private TextMeshProUGUI LogsVermell;
+    [SerializeField]
+    private TextMeshProUGUI LogsBlau;
 
     private void Awake()
     {

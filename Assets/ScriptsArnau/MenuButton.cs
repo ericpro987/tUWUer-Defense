@@ -6,6 +6,7 @@ public class MenuButton : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
+    public GameObject pauseMenuUI;
     InputSystem_Actions actions;
 
     [SerializeField]
@@ -15,6 +16,7 @@ public class MenuButton : MonoBehaviour
     private void Awake()
     {
         paused = false;
+        pauseMenuUI.SetActive(false);
     }
 
     public void PauseResume()
@@ -25,6 +27,7 @@ public class MenuButton : MonoBehaviour
             Time.timeScale = 1.0f;
             Debug.Log("resumed");
             player.enableActions();
+            pauseMenuUI.SetActive(false);
         }
         else
         {
@@ -32,6 +35,7 @@ public class MenuButton : MonoBehaviour
             Time.timeScale = 0.0f;
             Debug.Log("pausa");
             player.disableActions();
+            pauseMenuUI.SetActive(true);
 
         }
 
