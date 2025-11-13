@@ -101,7 +101,7 @@ public class Bullet : MonoBehaviour
             }
             StartCoroutine(Die(0));
 
-            //this.gameObject.SetActive(false);
+           // this.gameObject.SetActive(false);
         }
     }
 }

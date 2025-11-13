@@ -34,6 +34,12 @@ public class MagoOscuro : MonoBehaviour
     private bool cooldown = false;
     private bool isReloading = false;
 
+    [SerializeField]
+    private GameObject torre1;
+
+    [SerializeField]
+    private GameObject torre2;
+
     private void Awake()
     {
         ValidateReferences();
@@ -48,6 +54,36 @@ public class MagoOscuro : MonoBehaviour
         rangeAttack.OnStay += Attack;
         rangeDetection.OnEnter += StopMovement;
         rangeDetection.OnExit += ResumeMovement;
+
+        torre1 = GameObject.Find("Torre1");
+        torre2 = GameObject.Find("Torre2");
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+
+        if (transform.position.x < 0)
+        {
+            
+            tower = torre2;
+            tagEnemy = "J2";
+            gameObject.tag = "J1";
+
+            
+        }
+        else if (transform.position.x > 0)
+        {
+            tower = torre1;
+            tagEnemy = "J1";
+            gameObject.tag = "J2";
+        }
+
+
+        foreach (var bullet in ammo)
+        {
+            bullet.SetTagEnemy(tagEnemy);
+            bullet.SetAtk(atk);
+            bullet.SetTime(0);
+        }
+
     }
 
     private void Start()
