@@ -314,7 +314,11 @@ public class Player : MonoBehaviour
         {
             if (coins >= CartaPreuA)
             {
-                Instantiate(bola, spawnPoints[0].position, spawnPoints[0].rotation);
+                GameObject newBola = Instantiate(bola, spawnPoints[0].position, spawnPoints[0].rotation);
+                BasicEnemy mo = newBola.GetComponent<BasicEnemy>();
+                mo.SetHp(mo.hp+HPBoosterLevel);
+                mo.SetAtk(mo.atk+ATKBoosterLevel);
+                mo.SetSpd(mo.spd+SPDBoosterLevel);
                 LogsVermell.text = "";
                 coins -= CartaPreuA;
             }
@@ -328,7 +332,8 @@ public class Player : MonoBehaviour
         {
             if (coins >= CartaPreuB)
             {
-                Instantiate(bola2, spawnPoints[0].position, spawnPoints[0].rotation);
+                GameObject newBola = Instantiate(bola2, spawnPoints[0].position, spawnPoints[0].rotation);
+                
                 LogsVermell.text = "";
                 coins -= CartaPreuB;
             }
@@ -344,7 +349,7 @@ public class Player : MonoBehaviour
 
             if (coins >= CartaPreuC)
             {
-                Instantiate(bola3, spawnPoints[0].position, spawnPoints[0].rotation);
+                GameObject newBola = Instantiate(bola3, spawnPoints[0].position, spawnPoints[0].rotation);
                 LogsVermell.text = "";
                 coins -= CartaPreuC;
             }
@@ -359,7 +364,7 @@ public class Player : MonoBehaviour
         {
             if (coins >= CartaPreuD)
             {
-                Instantiate(bola4, spawnPoints[0].position, spawnPoints[0].rotation);
+                GameObject newBola = Instantiate(bola4, spawnPoints[0].position, spawnPoints[0].rotation);
                 LogsVermell.text = "";
                 coins -= CartaPreuD;
             }
@@ -390,7 +395,7 @@ public class Player : MonoBehaviour
         {
             if (coinsB >= CartaPreuA)
             {
-                Instantiate(bola5, spawnPointsB[0].position, spawnPointsB[0].rotation);
+                GameObject newBola = Instantiate(bola5, spawnPointsB[0].position, spawnPointsB[0].rotation);
                 LogsBlau.text = "";
                 coinsB -= CartaPreuA;
             }
@@ -405,7 +410,7 @@ public class Player : MonoBehaviour
         {
             if (coinsB >= CartaPreuB)
             {
-                Instantiate(bola6, spawnPointsB[0].position, spawnPointsB[0].rotation);
+                GameObject newBola = Instantiate(bola6, spawnPointsB[0].position, spawnPointsB[0].rotation);
                 LogsBlau.text = "";
                 coinsB -= CartaPreuB;
             }
@@ -422,7 +427,7 @@ public class Player : MonoBehaviour
 
             if (coinsB >= CartaPreuC)
             {
-                Instantiate(bola7, spawnPointsB[0].position, spawnPointsB[0].rotation);
+                GameObject newBola = Instantiate(bola7, spawnPointsB[0].position, spawnPointsB[0].rotation);
                 LogsBlau.text = "";
                 coinsB -= CartaPreuC;
             }
@@ -440,7 +445,7 @@ public class Player : MonoBehaviour
 
             if (coinsB >= CartaPreuD)
             {
-                Instantiate(bola8, spawnPointsB[0].position, spawnPointsB[0].rotation);
+                GameObject newBola = Instantiate(bola8, spawnPointsB[0].position, spawnPointsB[0].rotation);
                 LogsBlau.text = "";
                 coinsB -= CartaPreuD;
             }
@@ -470,7 +475,11 @@ public class Player : MonoBehaviour
 
             if (coins >= CartaPreuA)
             {
-                Instantiate(bola, spawnPoints[1].position, spawnPoints[1].rotation);
+                GameObject newBola = Instantiate(bola, spawnPoints[1].position, spawnPoints[1].rotation);
+                BasicEnemy mo = newBola.GetComponent<BasicEnemy>();
+                mo.SetHp(mo.hp + HPBoosterLevel);
+                mo.SetAtk(mo.atk + ATKBoosterLevel);
+                mo.SetSpd(mo.spd + SPDBoosterLevel);
                 LogsVermell.text = "";
                 coins -= CartaPreuA;
             }
@@ -487,7 +496,7 @@ public class Player : MonoBehaviour
 
             if (coins >= CartaPreuB)
             {
-                Instantiate(bola2, spawnPoints[1].position, spawnPoints[1].rotation);
+                GameObject newBola = Instantiate(bola2, spawnPoints[1].position, spawnPoints[1].rotation);
                 LogsVermell.text = "";
                 coins -= CartaPreuB;
             }
@@ -505,7 +514,7 @@ public class Player : MonoBehaviour
 
             if (coins >= CartaPreuC)
             {
-                Instantiate(bola3, spawnPoints[1].position, spawnPoints[1].rotation);
+                GameObject newBola = Instantiate(bola3, spawnPoints[1].position, spawnPoints[1].rotation);
                 LogsVermell.text = "";
                 coins -= CartaPreuC;
             }
@@ -523,7 +532,7 @@ public class Player : MonoBehaviour
 
             if (coins >= CartaPreuD)
             {
-                Instantiate(bola4, spawnPoints[1].position, spawnPoints[1].rotation);
+                GameObject newBola = Instantiate(bola4, spawnPoints[1].position, spawnPoints[1].rotation);
                 LogsVermell.text = "";
                 coins -= CartaPreuD;
             }
@@ -554,7 +563,7 @@ public class Player : MonoBehaviour
 
             if (coinsB >= CartaPreuA)
             {
-                Instantiate(bola5, spawnPointsB[1].position, spawnPointsB[1].rotation);
+                GameObject newBola = Instantiate(bola5, spawnPointsB[1].position, spawnPointsB[1].rotation);
                 LogsBlau.text = "";
                 coinsB -= CartaPreuA;
             }
@@ -572,7 +581,7 @@ public class Player : MonoBehaviour
 
             if (coinsB >= CartaPreuB)
             {
-                Instantiate(bola6, spawnPointsB[1].position, spawnPointsB[1].rotation);
+                GameObject newBola = Instantiate(bola6, spawnPointsB[1].position, spawnPointsB[1].rotation);
                 LogsBlau.text = "";
                 coinsB -= CartaPreuB;
             }
@@ -590,7 +599,7 @@ public class Player : MonoBehaviour
 
             if (coinsB >= CartaPreuC)
             {
-                Instantiate(bola7, spawnPointsB[1].position, spawnPointsB[1].rotation);
+                GameObject newBola = Instantiate(bola7, spawnPointsB[1].position, spawnPointsB[1].rotation);
                 LogsBlau.text = "";
                 coinsB -= CartaPreuC;
             }
@@ -608,7 +617,7 @@ public class Player : MonoBehaviour
 
             if (coinsB >= CartaPreuD)
             {
-                Instantiate(bola8, spawnPointsB[1].position, spawnPointsB[1].rotation);
+                GameObject newBola = Instantiate(bola8, spawnPointsB[1].position, spawnPointsB[1].rotation);
                 LogsBlau.text = "";
                 coinsB -= CartaPreuD;
             }
@@ -639,7 +648,11 @@ public class Player : MonoBehaviour
 
             if (coins >= CartaPreuA)
             {
-                Instantiate(bola, spawnPoints[2].position, spawnPoints[2].rotation);
+                GameObject newBola = Instantiate(bola, spawnPoints[2].position, spawnPoints[2].rotation);
+                BasicEnemy mo = newBola.GetComponent<BasicEnemy>(); ;
+                mo.SetHp(mo.hp + HPBoosterLevel);
+                mo.SetAtk(mo.atk + ATKBoosterLevel);
+                mo.SetSpd(mo.spd + SPDBoosterLevel);
                 LogsVermell.text = "";
                 coins -= CartaPreuA;
             }
@@ -657,7 +670,7 @@ public class Player : MonoBehaviour
 
             if (coins >= CartaPreuB)
             {
-                Instantiate(bola2, spawnPoints[2].position, spawnPoints[2].rotation);
+                GameObject newBola = Instantiate(bola2, spawnPoints[2].position, spawnPoints[2].rotation);
                 LogsVermell.text = "";
                 coins -= CartaPreuB;
             }
@@ -675,7 +688,7 @@ public class Player : MonoBehaviour
 
             if (coins >= CartaPreuC)
             {
-                Instantiate(bola3, spawnPoints[2].position, spawnPoints[2].rotation);
+                GameObject newBola = Instantiate(bola3, spawnPoints[2].position, spawnPoints[2].rotation);
                 LogsVermell.text = "";
                 coins -= CartaPreuC;
             }
@@ -693,7 +706,7 @@ public class Player : MonoBehaviour
 
             if (coins >= CartaPreuD)
             {
-                Instantiate(bola4, spawnPoints[2].position, spawnPoints[2].rotation);
+                GameObject newBola = Instantiate(bola4, spawnPoints[2].position, spawnPoints[2].rotation);
                 LogsVermell.text = "";
                 coins -= CartaPreuD;
             }
@@ -724,7 +737,7 @@ public class Player : MonoBehaviour
 
             if (coinsB >= CartaPreuA)
             {
-                Instantiate(bola5, spawnPointsB[2].position, spawnPointsB[2].rotation);
+                GameObject newBola = Instantiate(bola5, spawnPointsB[2].position, spawnPointsB[2].rotation);
                 LogsBlau.text = "";
                 coinsB -= CartaPreuA;
             }
@@ -742,7 +755,7 @@ public class Player : MonoBehaviour
 
             if (coinsB >= CartaPreuB)
             {
-                Instantiate(bola6, spawnPointsB[2].position, spawnPointsB[2].rotation);
+                GameObject newBola = Instantiate(bola6, spawnPointsB[2].position, spawnPointsB[2].rotation);
                 LogsBlau.text = "";
                 coinsB -= CartaPreuB;
             }
@@ -760,7 +773,7 @@ public class Player : MonoBehaviour
 
             if (coinsB >= CartaPreuC)
             {
-                Instantiate(bola7, spawnPointsB[2].position, spawnPointsB[2].rotation);
+                GameObject newBola = Instantiate(bola7, spawnPointsB[2].position, spawnPointsB[2].rotation);
                 LogsBlau.text = "";
                 coinsB -= CartaPreuC;
             }
@@ -778,7 +791,7 @@ public class Player : MonoBehaviour
 
             if (coinsB >= CartaPreuD)
             {
-                Instantiate(bola8, spawnPointsB[2].position, spawnPointsB[2].rotation);
+                GameObject newBola = Instantiate(bola8, spawnPointsB[2].position, spawnPointsB[2].rotation);
                 LogsBlau.text = "";
                 coinsB -= CartaPreuD;
             }
@@ -811,7 +824,7 @@ public class Player : MonoBehaviour
 
             if (coinsB >= CartaPreuA)
             {
-                Instantiate(bola5, spawnPointsB[3].position, spawnPointsB[3].rotation);
+                GameObject newBola = Instantiate(bola5, spawnPointsB[3].position, spawnPointsB[3].rotation);
                 LogsBlau.text = "";
                 coinsB -= CartaPreuA;
             }
@@ -829,7 +842,7 @@ public class Player : MonoBehaviour
 
             if (coinsB >= CartaPreuB)
             {
-                Instantiate(bola6, spawnPointsB[3].position, spawnPointsB[3].rotation);
+                GameObject newBola = Instantiate(bola6, spawnPointsB[3].position, spawnPointsB[3].rotation);
                 LogsBlau.text = "";
                 coinsB -= CartaPreuB;
             }
@@ -847,7 +860,7 @@ public class Player : MonoBehaviour
 
             if (coinsB >= CartaPreuC)
             {
-                Instantiate(bola7, spawnPointsB[3].position, spawnPointsB[3].rotation);
+                GameObject newBola = Instantiate(bola7, spawnPointsB[3].position, spawnPointsB[3].rotation);
                 LogsBlau.text = "";
                 coinsB -= CartaPreuC;
             }
@@ -865,7 +878,7 @@ public class Player : MonoBehaviour
 
             if (coinsB >= CartaPreuD)
             {
-                Instantiate(bola8, spawnPointsB[3].position, spawnPointsB[3].rotation);
+                GameObject newBola = Instantiate(bola8, spawnPointsB[3].position, spawnPointsB[3].rotation);
                 LogsBlau.text = "";
                 coinsB -= CartaPreuD;
             }
@@ -894,7 +907,11 @@ public class Player : MonoBehaviour
 
             if (coins >= CartaPreuA)
             {
-                Instantiate(bola, spawnPoints[3].position, spawnPoints[3].rotation);
+                GameObject newBola = Instantiate(bola, spawnPoints[3].position, spawnPoints[3].rotation);
+                BasicEnemy mo = newBola.GetComponent<BasicEnemy>(); ;
+                mo.SetHp(mo.hp + HPBoosterLevel);
+                mo.SetAtk(mo.atk + ATKBoosterLevel);
+                mo.SetSpd(mo.spd + SPDBoosterLevel);
                 LogsVermell.text = "";
                 coins -= CartaPreuA;
             }
@@ -912,7 +929,7 @@ public class Player : MonoBehaviour
 
             if (coins >= CartaPreuB)
             {
-                Instantiate(bola2, spawnPoints[3].position, spawnPoints[3].rotation);
+                GameObject newBola = Instantiate(bola2, spawnPoints[3].position, spawnPoints[3].rotation);
                 LogsVermell.text = "";
                 coins -= CartaPreuB;
             }
@@ -930,7 +947,7 @@ public class Player : MonoBehaviour
 
             if (coins >= CartaPreuC)
             {
-                Instantiate(bola3, spawnPoints[3].position, spawnPoints[3].rotation);
+                GameObject newBola = Instantiate(bola3, spawnPoints[3].position, spawnPoints[3].rotation);
                 LogsVermell.text = "";
                 coins -= CartaPreuC;
             }
@@ -948,7 +965,7 @@ public class Player : MonoBehaviour
 
             if (coins >= CartaPreuD)
             {
-                Instantiate(bola4, spawnPoints[3].position, spawnPoints[3].rotation);
+                GameObject newBola = Instantiate(bola4, spawnPoints[3].position, spawnPoints[3].rotation);
                 LogsVermell.text = "";
                 coins -= CartaPreuD;
             }

@@ -26,6 +26,14 @@ public class ExplosiveEnemy : MonoBehaviour
     private ParticleCollider ps;
 
 
+
+    [SerializeField]
+    private GameObject torre1;
+
+    [SerializeField]
+    private GameObject torre2;
+
+
     private void Awake()
     {
         hp_max = 10;
@@ -34,6 +42,30 @@ public class ExplosiveEnemy : MonoBehaviour
         spd = 3;
         rb = GetComponent<Rigidbody2D>();
         rangeDetection.OnEnter += Explode;
+
+
+        torre1 = GameObject.Find("Torre1");
+        torre2 = GameObject.Find("Torre2");
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+
+        if (transform.position.x < 0)
+        {
+
+            tower = torre2;
+            tagEnemy = "J2";
+            gameObject.tag = "J1";
+
+
+        }
+        else if (transform.position.x > 0)
+        {
+            tower = torre1;
+            tagEnemy = "J1";
+            gameObject.tag = "J2";
+        }
+
+
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

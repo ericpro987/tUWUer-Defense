@@ -28,6 +28,15 @@ public class BasicEnemy : MonoBehaviour
     private string tagEnemy;
     [SerializeField]
     List<GameObject> enemies;
+
+
+
+
+    [SerializeField]
+    private GameObject torre1;
+
+    [SerializeField]
+    private GameObject torre2;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
@@ -47,6 +56,34 @@ public class BasicEnemy : MonoBehaviour
         rangeDetection.OnExit += RemoveFromList;
         rangeDetection.OnEnter += StopMovement;
         rangeDetection.OnExit += ResumeMovement;
+
+
+
+        torre1 = GameObject.Find("Torre1");
+        torre2 = GameObject.Find("Torre2");
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+
+        if (transform.position.x < 0)
+        {
+
+            tower = torre2;
+            tagEnemy = "J2";
+            gameObject.tag = "J1";
+
+
+        }
+        else if (transform.position.x > 0)
+        {
+            tower = torre1;
+            tagEnemy = "J1";
+            gameObject.tag = "J2";
+        }
+
+
+        bullet.SetTagEnemy(tagEnemy);
+        bullet.SetAtk(atk);
+        bullet.SetTime(0);
     }
     void Start()
     {
@@ -89,44 +126,32 @@ public class BasicEnemy : MonoBehaviour
     }
     void ResumeMovement(GameObject go)
     {
-        if (enemies.Count == 0)
             isStopped = false;
-      //  else rangeDetection.OnStay.Invoke(enemies[0]);
-        // StartCoroutine(Attack2(enemies[0]));
-        // Move();
+            // Reanudar movimiento o lo que necesites hacer
     }
+
     void StopMovement(GameObject enemy)
     {
-        /*    if (enemy.CompareTag(tagEnemy))
-            {*/
-        isStopped = true;
-        rb.linearVelocity = Vector2.zero;
-        // }
+            isStopped = true;
+            rb.linearVelocity = Vector2.zero; // Detenemos el movimiento
     }
+
 
     bool cooldown = false;
     private void Attack(GameObject enemy)
     {
-        Debug.Log($"Attack llamado - cooldown: {cooldown}, bullet activa: {bullet.gameObject.activeSelf}");
-
         if (!cooldown)
         {
             cooldown = true;
-            Debug.Log("A");
-            Debug.Log(enemy.transform.tag + " " + enemy.name + " " + tagEnemy);
-            if (enemy.gameObject.tag == tagEnemy)
-            {
-                Debug.Log("B");
-                bullet.transform.position = transform.position;
-                bullet.gameObject.SetActive(true);
-                bullet.transform.parent = null;
-                Vector2 dir = (enemy.transform.position - bullet.transform.position).normalized;
-                bullet.rigidbody2d.linearVelocity = dir * 6;
-                StartCoroutine(ResetCooldown());
-            }
+            bullet.transform.position = transform.position;
+            bullet.gameObject.SetActive(true);
+            bullet.transform.parent = null;
+            Vector2 dir = (enemy.transform.position - bullet.transform.position).normalized;
+            bullet.rigidbody2d.linearVelocity = dir * 6; // Asegúrate de usar velocity
+            StartCoroutine(ResetCooldown());
         }
-
     }
+
     private IEnumerator Attack2(GameObject enemy)
     {
         while (enemies.Count > 0)

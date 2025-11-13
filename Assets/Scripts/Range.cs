@@ -16,7 +16,8 @@ public class Range : MonoBehaviour
              OnEnter?.Invoke(collision.gameObject);
         }
         else if (collision.TryGetComponent<BouncingEnemy>(out BouncingEnemy bouncingEnemy))
-        {
+        {            Debug.Log("Mi tag : " + this.transform.parent.tag+" colision tag: "+bouncingEnemy.tag);
+
             if (!this.transform.parent.gameObject.CompareTag(bouncingEnemy.tag))
                 OnEnter?.Invoke(collision.gameObject);
         }
@@ -25,9 +26,15 @@ public class Range : MonoBehaviour
             if (!this.transform.parent.gameObject.CompareTag(explosiveEnemy.tag))
                 OnEnter?.Invoke(collision.gameObject);
         }
+        else if (collision.TryGetComponent<BasicEnemy>(out BasicEnemy basicEnemy))
+        {
+            if (!this.transform.parent.gameObject.CompareTag(basicEnemy.tag))
+                OnEnter?.Invoke(collision.gameObject);
+        }
         else
         {
-            OnEnter?.Invoke(collision.gameObject);
+            if (!this.transform.parent.gameObject.CompareTag(collision.tag))
+                OnEnter?.Invoke(collision.gameObject);
         }
     }
     private void OnTriggerStay2D(Collider2D collision)
@@ -44,6 +51,10 @@ public class Range : MonoBehaviour
         }else if (collision.TryGetComponent<ExplosiveEnemy>(out ExplosiveEnemy explosiveEnemy))
         {
             if (!this.transform.parent.gameObject.CompareTag(explosiveEnemy.tag))
+                OnStay?.Invoke(collision.gameObject);
+        }else if (collision.TryGetComponent<BasicEnemy>(out BasicEnemy basicEnemy))
+        {
+            if (!this.transform.parent.gameObject.CompareTag(basicEnemy.tag))
                 OnStay?.Invoke(collision.gameObject);
         }
         else
@@ -66,6 +77,11 @@ public class Range : MonoBehaviour
         else if (collision.TryGetComponent<ExplosiveEnemy>(out ExplosiveEnemy explosiveEnemy))
         {
             if (!this.transform.parent.gameObject.CompareTag(explosiveEnemy.tag))
+                OnExit?.Invoke(collision.gameObject);
+        }
+        else if (collision.TryGetComponent<BasicEnemy>(out BasicEnemy basicEnemy))
+        {
+            if (!this.transform.parent.gameObject.CompareTag(basicEnemy.tag))
                 OnExit?.Invoke(collision.gameObject);
         }
         else

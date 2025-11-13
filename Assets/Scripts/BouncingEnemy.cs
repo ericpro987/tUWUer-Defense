@@ -26,9 +26,18 @@ public class BouncingEnemy : MonoBehaviour
     private string tagEnemy;
 
     private Rigidbody2D rb;
+    [SerializeField]
     private List<GameObject> enemies = new List<GameObject>();
     private bool isStopped = false;
     private bool cooldown = false;
+
+
+
+    [SerializeField]
+    private GameObject torre1;
+
+    [SerializeField]
+    private GameObject torre2;
 
     private void Awake()
     {
@@ -44,8 +53,36 @@ public class BouncingEnemy : MonoBehaviour
         rangeAttack.OnStay += Attack;
         rangeDetection.OnEnter += PushInList;
         rangeDetection.OnExit += RemoveFromList;
-        rangeDetection.OnEnter += StopMovement;
-        rangeDetection.OnExit += ResumeMovement;
+        rangeAttack.OnEnter += StopMovement;
+        rangeAttack.OnExit += ResumeMovement;
+
+
+
+        torre1 = GameObject.Find("Torre1");
+        torre2 = GameObject.Find("Torre2");
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+
+        if (transform.position.x < 0)
+        {
+
+            tower = torre2;
+            tagEnemy = "J2";
+            gameObject.tag = "J1";
+
+
+        }
+        else if (transform.position.x > 0)
+        {
+            tower = torre1;
+            tagEnemy = "J1";
+            gameObject.tag = "J2";
+        }
+
+
+        bullet.SetTagEnemy(tagEnemy);
+        bullet.SetAtk(atk);
+        bullet.SetTime(0);
     }
 
     private void Start()

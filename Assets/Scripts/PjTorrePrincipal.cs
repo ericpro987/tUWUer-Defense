@@ -26,7 +26,7 @@ public class PjTorrePrincipal : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
-        hp_max = 10;
+        hp_max = 50;
         hp = hp_max;
         atk = 1;
         spd = 3;
