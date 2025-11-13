@@ -1,7 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class MagoOscuro : MonoBehaviour
 {
     [SerializeField]
@@ -15,19 +15,19 @@ public class MagoOscuro : MonoBehaviour
     [SerializeField]
     public int spd { get; private set; } = 3;
     [SerializeField]
-    public Range rangeDetection { get; private set; }
+    public Range rangeDetection;
     [SerializeField]
-    public Range rangeAttack { get; private set; }
+    public Range rangeAttack;
     [SerializeField]
-    public List<GameObject> enemies { get; private set; } = new List<GameObject>();
+    public List<GameObject> enemies = new List<GameObject>();
     [SerializeField]
-    public List<Bullet> ammo { get; private set; } = new List<Bullet>();
+    public List<Bullet> ammo = new List<Bullet>();
     [SerializeField]
-    public List<Transform> pos { get; private set; }
+    public List<Transform> pos;
     [SerializeField]
-    public GameObject tower { get; private set; }
+    public GameObject tower; 
     [SerializeField]
-    public string tagEnemy { get; private set; }
+    public string tagEnemy;
 
     private Rigidbody2D rb;
     public bool isStopped = false;

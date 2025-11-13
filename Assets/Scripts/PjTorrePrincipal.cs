@@ -8,6 +8,7 @@ public class PjTorrePrincipal : MonoBehaviour
 {
     [SerializeField]
     public int hp_max { get; private set; }
+    [field: SerializeField]
     public int hp { get; private set; }
     public int atk { get; private set; }
     public int spd { get; private set; }

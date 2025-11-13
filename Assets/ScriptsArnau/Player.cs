@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
 public class Player : MonoBehaviour
 {
 
@@ -26,8 +25,11 @@ public class Player : MonoBehaviour
     [Header("Player's Coins")]
     [SerializeField]
     private int coins;
+    public int coinJ1 => coins;
     [SerializeField]
     private int coinsB;
+    public int coinJ2 => coinsB;
+
 
     [Header("Player's selected troop")]
     [SerializeField]
@@ -43,9 +45,11 @@ public class Player : MonoBehaviour
     private GameObject generatorB;
     [SerializeField]
     private int generatorLevel;
+    public int pubGeneratorLevel => generatorLevel;
+
     [SerializeField]
     private int generatorLevelB;
-
+    public int pubGeneratorLevel2 => generatorLevelB;
 
     [Header("Attack booster")]
     [SerializeField]
@@ -54,8 +58,10 @@ public class Player : MonoBehaviour
     private GameObject ATKBoosterB;
     [SerializeField]
     private int ATKBoosterLevel;
+    public int pubATKBoosterLevel => ATKBoosterLevel;
     [SerializeField]
     private int ATKBoosterLevelB;
+    public int pubATKBoosterLevel2 => ATKBoosterLevelB;
 
     [Header("Speed booster")]
     [SerializeField]
@@ -64,8 +70,10 @@ public class Player : MonoBehaviour
     private GameObject SPBoosterB;
     [SerializeField]
     private int SPDBoosterLevel;
+    public int pubSPBooster => SPDBoosterLevel;
     [SerializeField]
     private int SPDBoosterLevelB;
+    public int pubSPBooster2 => SPDBoosterLevelB;
 
 
     [Header("Health Points booster")]
@@ -75,9 +83,10 @@ public class Player : MonoBehaviour
     private GameObject HPBoosterB;
     [SerializeField]
     private int HPBoosterLevel;
+    public int pubHPBoosterLevel => HPBoosterLevel;
     [SerializeField]
     private int HPBoosterLevelB;
-
+    public int pubHPBoosterLevel2 => HPBoosterLevelB;
     [Header("Structures")]
     [SerializeField]
     private List<GameObject> Structures;
@@ -150,6 +159,47 @@ public class Player : MonoBehaviour
     private TextMeshProUGUI LogsVermell;
     [SerializeField]
     private TextMeshProUGUI LogsBlau;
+
+    public void SetCoinsJ1(int coins)
+    {
+        this.coins = coins;
+    }
+    public void SetCoinsJ2(int coins)
+    {
+        this.coinsB = coins;
+    }
+    public void SetGeneratorLvlJ1(int lvl)
+    {
+        this.generatorLevel = lvl;
+    }
+    public void SetGeneratorLvlJ2(int lvl)
+    {
+        this.generatorLevelB = lvl;
+    }
+    public void SetHPBoosterLvlJ1(int lvl)
+    {
+        this.HPBoosterLevel = lvl;
+    }
+    public void SetHPBoosterLvlJ2(int lvl)
+    {
+        this.HPBoosterLevelB = lvl;
+    }
+    public void SetSPDBoosterLvlJ1(int lvl)
+    {
+        this.SPDBoosterLevel = lvl;
+    }
+    public void SetSPDBoosterLvlJ2(int lvl)
+    {
+        this.SPDBoosterLevelB = lvl;
+    }
+    public void SetATKBoosterLvlJ1(int lvl)
+    {
+        this.ATKBoosterLevel = lvl;
+    }
+    public void SetATKBoosterLvlJ2(int lvl)
+    {
+        this.ATKBoosterLevelB = lvl;
+    }
 
     private void Awake()
     {
