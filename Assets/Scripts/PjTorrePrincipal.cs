@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PjTorrePrincipal : MonoBehaviour
 {
@@ -127,6 +128,28 @@ public class PjTorrePrincipal : MonoBehaviour
             ammo[i].available = true;
         }
         cooldown = false;
+    }
+
+    private void OnDestroy()
+    {
+        
+        if (!Application.isPlaying) return;
+
+        float x = transform.position.x;
+
+        if (x > 0f)
+        {
+            PlayerPrefs.SetString("winner", "blue");
+        }
+        else if (x < 0f)
+        {
+            PlayerPrefs.SetString("winner", "red");
+        }
+
+        PlayerPrefs.Save();
+
+        
+        SceneManager.LoadScene("Winscreen");
     }
 
 }

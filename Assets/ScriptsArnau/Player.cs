@@ -160,6 +160,13 @@ public class Player : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI LogsBlau;
 
+
+    [Header("Coins")]
+    [SerializeField]
+    public GameObject[] mejorasPrecioA;
+
+    [SerializeField]
+    public GameObject[] mejorasPrecioB;
     public void SetCoinsJ1(int coins)
     {
         this.coins = coins;
@@ -333,7 +340,10 @@ public class Player : MonoBehaviour
             if (coins >= CartaPreuB)
             {
                 GameObject newBola = Instantiate(bola2, spawnPoints[0].position, spawnPoints[0].rotation);
-                
+                MagoOscuro mo = newBola.GetComponent<MagoOscuro>();
+                mo.SetHp(mo.hp + HPBoosterLevel);
+                mo.SetAtk(mo.atk + ATKBoosterLevel);
+                mo.SetSpd(mo.spd + SPDBoosterLevel);
                 LogsVermell.text = "";
                 coins -= CartaPreuB;
             }
@@ -350,6 +360,10 @@ public class Player : MonoBehaviour
             if (coins >= CartaPreuC)
             {
                 GameObject newBola = Instantiate(bola3, spawnPoints[0].position, spawnPoints[0].rotation);
+                BouncingEnemy mo = newBola.GetComponent<BouncingEnemy>();
+                mo.SetHp(mo.hp + HPBoosterLevel);
+                mo.SetAtk(mo.atk + ATKBoosterLevel);
+                mo.SetSpd(mo.spd + SPDBoosterLevel);
                 LogsVermell.text = "";
                 coins -= CartaPreuC;
             }
@@ -365,6 +379,10 @@ public class Player : MonoBehaviour
             if (coins >= CartaPreuD)
             {
                 GameObject newBola = Instantiate(bola4, spawnPoints[0].position, spawnPoints[0].rotation);
+                ExplosiveEnemy mo = newBola.GetComponent<ExplosiveEnemy>();
+                mo.SetHp(mo.hp + HPBoosterLevel);
+                mo.SetAtk(mo.atk + ATKBoosterLevel);
+                mo.SetSpd(mo.spd + SPDBoosterLevel);
                 LogsVermell.text = "";
                 coins -= CartaPreuD;
             }
@@ -396,6 +414,10 @@ public class Player : MonoBehaviour
             if (coinsB >= CartaPreuA)
             {
                 GameObject newBola = Instantiate(bola5, spawnPointsB[0].position, spawnPointsB[0].rotation);
+                BasicEnemy mo = newBola.GetComponent<BasicEnemy>(); ;
+                mo.SetHp(mo.hp + HPBoosterLevelB);
+                mo.SetAtk(mo.atk + ATKBoosterLevelB);
+                mo.SetSpd(mo.spd + SPDBoosterLevelB);
                 LogsBlau.text = "";
                 coinsB -= CartaPreuA;
             }
@@ -411,6 +433,10 @@ public class Player : MonoBehaviour
             if (coinsB >= CartaPreuB)
             {
                 GameObject newBola = Instantiate(bola6, spawnPointsB[0].position, spawnPointsB[0].rotation);
+                MagoOscuro mo = newBola.GetComponent<MagoOscuro>();
+                mo.SetHp(mo.hp + HPBoosterLevelB);
+                mo.SetAtk(mo.atk + ATKBoosterLevelB);
+                mo.SetSpd(mo.spd + SPDBoosterLevelB);
                 LogsBlau.text = "";
                 coinsB -= CartaPreuB;
             }
@@ -428,6 +454,10 @@ public class Player : MonoBehaviour
             if (coinsB >= CartaPreuC)
             {
                 GameObject newBola = Instantiate(bola7, spawnPointsB[0].position, spawnPointsB[0].rotation);
+                BouncingEnemy mo = newBola.GetComponent<BouncingEnemy>();
+                mo.SetHp(mo.hp + HPBoosterLevelB);
+                mo.SetAtk(mo.atk + ATKBoosterLevelB);
+                mo.SetSpd(mo.spd + SPDBoosterLevelB);
                 LogsBlau.text = "";
                 coinsB -= CartaPreuC;
             }
@@ -446,6 +476,10 @@ public class Player : MonoBehaviour
             if (coinsB >= CartaPreuD)
             {
                 GameObject newBola = Instantiate(bola8, spawnPointsB[0].position, spawnPointsB[0].rotation);
+                ExplosiveEnemy mo = newBola.GetComponent<ExplosiveEnemy>();
+                mo.SetHp(mo.hp + HPBoosterLevelB);
+                mo.SetAtk(mo.atk + ATKBoosterLevelB);
+                mo.SetSpd(mo.spd + SPDBoosterLevelB);
                 LogsBlau.text = "";
                 coinsB -= CartaPreuD;
             }
@@ -497,6 +531,10 @@ public class Player : MonoBehaviour
             if (coins >= CartaPreuB)
             {
                 GameObject newBola = Instantiate(bola2, spawnPoints[1].position, spawnPoints[1].rotation);
+                MagoOscuro mo = newBola.GetComponent<MagoOscuro>();
+                mo.SetHp(mo.hp + HPBoosterLevel);
+                mo.SetAtk(mo.atk + ATKBoosterLevel);
+                mo.SetSpd(mo.spd + SPDBoosterLevel);
                 LogsVermell.text = "";
                 coins -= CartaPreuB;
             }
@@ -515,6 +553,10 @@ public class Player : MonoBehaviour
             if (coins >= CartaPreuC)
             {
                 GameObject newBola = Instantiate(bola3, spawnPoints[1].position, spawnPoints[1].rotation);
+                BouncingEnemy mo = newBola.GetComponent<BouncingEnemy>();
+                mo.SetHp(mo.hp + HPBoosterLevel);
+                mo.SetAtk(mo.atk + ATKBoosterLevel);
+                mo.SetSpd(mo.spd + SPDBoosterLevel);
                 LogsVermell.text = "";
                 coins -= CartaPreuC;
             }
@@ -533,6 +575,10 @@ public class Player : MonoBehaviour
             if (coins >= CartaPreuD)
             {
                 GameObject newBola = Instantiate(bola4, spawnPoints[1].position, spawnPoints[1].rotation);
+                ExplosiveEnemy mo = newBola.GetComponent<ExplosiveEnemy>();
+                mo.SetHp(mo.hp + HPBoosterLevel);
+                mo.SetAtk(mo.atk + ATKBoosterLevel);
+                mo.SetSpd(mo.spd + SPDBoosterLevel);
                 LogsVermell.text = "";
                 coins -= CartaPreuD;
             }
@@ -564,6 +610,10 @@ public class Player : MonoBehaviour
             if (coinsB >= CartaPreuA)
             {
                 GameObject newBola = Instantiate(bola5, spawnPointsB[1].position, spawnPointsB[1].rotation);
+                BasicEnemy mo = newBola.GetComponent<BasicEnemy>(); ;
+                mo.SetHp(mo.hp + HPBoosterLevelB);
+                mo.SetAtk(mo.atk + ATKBoosterLevelB);
+                mo.SetSpd(mo.spd + SPDBoosterLevelB);
                 LogsBlau.text = "";
                 coinsB -= CartaPreuA;
             }
@@ -582,6 +632,10 @@ public class Player : MonoBehaviour
             if (coinsB >= CartaPreuB)
             {
                 GameObject newBola = Instantiate(bola6, spawnPointsB[1].position, spawnPointsB[1].rotation);
+                MagoOscuro mo = newBola.GetComponent<MagoOscuro>();
+                mo.SetHp(mo.hp + HPBoosterLevelB);
+                mo.SetAtk(mo.atk + ATKBoosterLevelB);
+                mo.SetSpd(mo.spd + SPDBoosterLevelB);
                 LogsBlau.text = "";
                 coinsB -= CartaPreuB;
             }
@@ -600,6 +654,10 @@ public class Player : MonoBehaviour
             if (coinsB >= CartaPreuC)
             {
                 GameObject newBola = Instantiate(bola7, spawnPointsB[1].position, spawnPointsB[1].rotation);
+                BouncingEnemy mo = newBola.GetComponent<BouncingEnemy>();
+                mo.SetHp(mo.hp + HPBoosterLevelB);
+                mo.SetAtk(mo.atk + ATKBoosterLevelB);
+                mo.SetSpd(mo.spd + SPDBoosterLevelB);
                 LogsBlau.text = "";
                 coinsB -= CartaPreuC;
             }
@@ -618,6 +676,10 @@ public class Player : MonoBehaviour
             if (coinsB >= CartaPreuD)
             {
                 GameObject newBola = Instantiate(bola8, spawnPointsB[1].position, spawnPointsB[1].rotation);
+                ExplosiveEnemy mo = newBola.GetComponent<ExplosiveEnemy>();
+                mo.SetHp(mo.hp + HPBoosterLevelB);
+                mo.SetAtk(mo.atk + ATKBoosterLevelB);
+                mo.SetSpd(mo.spd + SPDBoosterLevelB);
                 LogsBlau.text = "";
                 coinsB -= CartaPreuD;
             }
@@ -671,6 +733,10 @@ public class Player : MonoBehaviour
             if (coins >= CartaPreuB)
             {
                 GameObject newBola = Instantiate(bola2, spawnPoints[2].position, spawnPoints[2].rotation);
+                MagoOscuro mo = newBola.GetComponent<MagoOscuro>();
+                mo.SetHp(mo.hp + HPBoosterLevel);
+                mo.SetAtk(mo.atk + ATKBoosterLevel);
+                mo.SetSpd(mo.spd + SPDBoosterLevel);
                 LogsVermell.text = "";
                 coins -= CartaPreuB;
             }
@@ -689,6 +755,10 @@ public class Player : MonoBehaviour
             if (coins >= CartaPreuC)
             {
                 GameObject newBola = Instantiate(bola3, spawnPoints[2].position, spawnPoints[2].rotation);
+                BouncingEnemy mo = newBola.GetComponent<BouncingEnemy>();
+                mo.SetHp(mo.hp + HPBoosterLevel);
+                mo.SetAtk(mo.atk + ATKBoosterLevel);
+                mo.SetSpd(mo.spd + SPDBoosterLevel);
                 LogsVermell.text = "";
                 coins -= CartaPreuC;
             }
@@ -707,6 +777,10 @@ public class Player : MonoBehaviour
             if (coins >= CartaPreuD)
             {
                 GameObject newBola = Instantiate(bola4, spawnPoints[2].position, spawnPoints[2].rotation);
+                ExplosiveEnemy mo = newBola.GetComponent<ExplosiveEnemy>();
+                mo.SetHp(mo.hp + HPBoosterLevel);
+                mo.SetAtk(mo.atk + ATKBoosterLevel);
+                mo.SetSpd(mo.spd + SPDBoosterLevel);
                 LogsVermell.text = "";
                 coins -= CartaPreuD;
             }
@@ -738,6 +812,10 @@ public class Player : MonoBehaviour
             if (coinsB >= CartaPreuA)
             {
                 GameObject newBola = Instantiate(bola5, spawnPointsB[2].position, spawnPointsB[2].rotation);
+                BasicEnemy mo = newBola.GetComponent<BasicEnemy>(); ;
+                mo.SetHp(mo.hp + HPBoosterLevelB);
+                mo.SetAtk(mo.atk + ATKBoosterLevelB);
+                mo.SetSpd(mo.spd + SPDBoosterLevelB);
                 LogsBlau.text = "";
                 coinsB -= CartaPreuA;
             }
@@ -756,6 +834,10 @@ public class Player : MonoBehaviour
             if (coinsB >= CartaPreuB)
             {
                 GameObject newBola = Instantiate(bola6, spawnPointsB[2].position, spawnPointsB[2].rotation);
+                MagoOscuro mo = newBola.GetComponent<MagoOscuro>();
+                mo.SetHp(mo.hp + HPBoosterLevelB);
+                mo.SetAtk(mo.atk + ATKBoosterLevelB);
+                mo.SetSpd(mo.spd + SPDBoosterLevelB);
                 LogsBlau.text = "";
                 coinsB -= CartaPreuB;
             }
@@ -774,6 +856,10 @@ public class Player : MonoBehaviour
             if (coinsB >= CartaPreuC)
             {
                 GameObject newBola = Instantiate(bola7, spawnPointsB[2].position, spawnPointsB[2].rotation);
+                BouncingEnemy mo = newBola.GetComponent<BouncingEnemy>();
+                mo.SetHp(mo.hp + HPBoosterLevelB);
+                mo.SetAtk(mo.atk + ATKBoosterLevelB);
+                mo.SetSpd(mo.spd + SPDBoosterLevelB);
                 LogsBlau.text = "";
                 coinsB -= CartaPreuC;
             }
@@ -792,6 +878,10 @@ public class Player : MonoBehaviour
             if (coinsB >= CartaPreuD)
             {
                 GameObject newBola = Instantiate(bola8, spawnPointsB[2].position, spawnPointsB[2].rotation);
+                ExplosiveEnemy mo = newBola.GetComponent<ExplosiveEnemy>();
+                mo.SetHp(mo.hp + HPBoosterLevelB);
+                mo.SetAtk(mo.atk + ATKBoosterLevelB);
+                mo.SetSpd(mo.spd + SPDBoosterLevelB);
                 LogsBlau.text = "";
                 coinsB -= CartaPreuD;
             }
@@ -825,6 +915,10 @@ public class Player : MonoBehaviour
             if (coinsB >= CartaPreuA)
             {
                 GameObject newBola = Instantiate(bola5, spawnPointsB[3].position, spawnPointsB[3].rotation);
+                BasicEnemy mo = newBola.GetComponent<BasicEnemy>(); ;
+                mo.SetHp(mo.hp + HPBoosterLevelB);
+                mo.SetAtk(mo.atk + ATKBoosterLevelB);
+                mo.SetSpd(mo.spd + SPDBoosterLevelB);
                 LogsBlau.text = "";
                 coinsB -= CartaPreuA;
             }
@@ -843,6 +937,10 @@ public class Player : MonoBehaviour
             if (coinsB >= CartaPreuB)
             {
                 GameObject newBola = Instantiate(bola6, spawnPointsB[3].position, spawnPointsB[3].rotation);
+                MagoOscuro mo = newBola.GetComponent<MagoOscuro>();
+                mo.SetHp(mo.hp + HPBoosterLevelB);
+                mo.SetAtk(mo.atk + ATKBoosterLevelB);
+                mo.SetSpd(mo.spd + SPDBoosterLevelB);
                 LogsBlau.text = "";
                 coinsB -= CartaPreuB;
             }
@@ -861,6 +959,10 @@ public class Player : MonoBehaviour
             if (coinsB >= CartaPreuC)
             {
                 GameObject newBola = Instantiate(bola7, spawnPointsB[3].position, spawnPointsB[3].rotation);
+                BouncingEnemy mo = newBola.GetComponent<BouncingEnemy>();
+                mo.SetHp(mo.hp + HPBoosterLevelB);
+                mo.SetAtk(mo.atk + ATKBoosterLevelB);
+                mo.SetSpd(mo.spd + SPDBoosterLevelB);
                 LogsBlau.text = "";
                 coinsB -= CartaPreuC;
             }
@@ -879,6 +981,10 @@ public class Player : MonoBehaviour
             if (coinsB >= CartaPreuD)
             {
                 GameObject newBola = Instantiate(bola8, spawnPointsB[3].position, spawnPointsB[3].rotation);
+                ExplosiveEnemy mo = newBola.GetComponent<ExplosiveEnemy>();
+                mo.SetHp(mo.hp + HPBoosterLevelB);
+                mo.SetAtk(mo.atk + ATKBoosterLevelB);
+                mo.SetSpd(mo.spd + SPDBoosterLevelB);
                 LogsBlau.text = "";
                 coinsB -= CartaPreuD;
             }
@@ -930,6 +1036,10 @@ public class Player : MonoBehaviour
             if (coins >= CartaPreuB)
             {
                 GameObject newBola = Instantiate(bola2, spawnPoints[3].position, spawnPoints[3].rotation);
+                MagoOscuro mo = newBola.GetComponent<MagoOscuro>();
+                mo.SetHp(mo.hp + HPBoosterLevel);
+                mo.SetAtk(mo.atk + ATKBoosterLevel);
+                mo.SetSpd(mo.spd + SPDBoosterLevel);
                 LogsVermell.text = "";
                 coins -= CartaPreuB;
             }
@@ -948,6 +1058,10 @@ public class Player : MonoBehaviour
             if (coins >= CartaPreuC)
             {
                 GameObject newBola = Instantiate(bola3, spawnPoints[3].position, spawnPoints[3].rotation);
+                BouncingEnemy mo = newBola.GetComponent<BouncingEnemy>();
+                mo.SetHp(mo.hp + HPBoosterLevel);
+                mo.SetAtk(mo.atk + ATKBoosterLevel);
+                mo.SetSpd(mo.spd + SPDBoosterLevel);
                 LogsVermell.text = "";
                 coins -= CartaPreuC;
             }
@@ -966,6 +1080,10 @@ public class Player : MonoBehaviour
             if (coins >= CartaPreuD)
             {
                 GameObject newBola = Instantiate(bola4, spawnPoints[3].position, spawnPoints[3].rotation);
+                ExplosiveEnemy mo = newBola.GetComponent<ExplosiveEnemy>();
+                mo.SetHp(mo.hp + HPBoosterLevel);
+                mo.SetAtk(mo.atk + ATKBoosterLevel);
+                mo.SetSpd(mo.spd + SPDBoosterLevel);
                 LogsVermell.text = "";
                 coins -= CartaPreuD;
             }
@@ -990,19 +1108,50 @@ public class Player : MonoBehaviour
 
     public void num5(InputAction.CallbackContext context)
     {
-        generatorLevel++;
+        
+        if (coins >= CartaPreuC)
+        {
+            generatorLevel++;
+            coins-= CartaPreuC;
+        }
+        else
+        {
+            Debug.Log("No tens suficients coins");
+            LogsVermell.text = "No tens suficients coins";
+        }
     }
 
 
     public void num5B(InputAction.CallbackContext context)
     {
-        generatorLevelB++;
+       
+
+        if (coinsB >= CartaPreuC)
+        {
+            generatorLevelB++;
+            coinsB -= CartaPreuC;
+        }
+        else
+        {
+            Debug.Log("No tens suficients coins");
+            LogsBlau.text = "No tens suficients coins";
+        }
     }
 
 
     public void num6(InputAction.CallbackContext context)
     {
-        ATKBoosterLevel++;
+        
+        if (coins >= CartaPreuC)
+        {
+            ATKBoosterLevel++;
+            coins -= CartaPreuC;
+        }
+        else
+        {
+            Debug.Log("No tens suficients coins");
+            LogsVermell.text = "No tens suficients coins";
+        }
         if (ATKBoosterLevel == 1)
         {
             Instantiate(ATKEffect, ATKBooster.transform.position, ATKBooster.transform.rotation);
@@ -1012,7 +1161,16 @@ public class Player : MonoBehaviour
 
     public void num6B(InputAction.CallbackContext context)
     {
-        ATKBoosterLevelB++;
+        if (coinsB >= CartaPreuC)
+        {
+            ATKBoosterLevelB++;
+            coinsB -= CartaPreuC;
+        }
+        else
+        {
+            Debug.Log("No tens suficients coins");
+            LogsBlau.text = "No tens suficients coins";
+        }
         if (ATKBoosterLevelB == 1)
         {
             Instantiate(ATKEffect, ATKBoosterB.transform.position, ATKBoosterB.transform.rotation);
@@ -1022,7 +1180,17 @@ public class Player : MonoBehaviour
 
     public void num7(InputAction.CallbackContext context)
     {
-       SPDBoosterLevel++;
+       
+        if (coins >= CartaPreuC)
+        {
+            SPDBoosterLevel++;
+            coins -= CartaPreuC;
+        }
+        else
+        {
+            Debug.Log("No tens suficients coins");
+            LogsVermell.text = "No tens suficients coins";
+        }
         if (SPDBoosterLevel == 1)
         {
             Instantiate(ATKEffect, SPBooster.transform.position, SPBooster.transform.rotation);
@@ -1032,7 +1200,16 @@ public class Player : MonoBehaviour
 
     public void num7B(InputAction.CallbackContext context)
     {
-        SPDBoosterLevelB++;
+        if (coinsB >= CartaPreuC)
+        {
+            SPDBoosterLevelB++;
+            coinsB -= CartaPreuC;
+        }
+        else
+        {
+            Debug.Log("No tens suficients coins");
+            LogsBlau.text = "No tens suficients coins";
+        }
         if (SPDBoosterLevelB == 1)
         {
             Instantiate(ATKEffect, SPBoosterB.transform.position, SPBoosterB.transform.rotation);
@@ -1042,7 +1219,17 @@ public class Player : MonoBehaviour
 
     public void num8(InputAction.CallbackContext context)
     {
-        HPBoosterLevel++;
+       
+        if (coins >= CartaPreuC)
+        {
+            HPBoosterLevel++;
+            coins -= CartaPreuC;
+        }
+        else
+        {
+            Debug.Log("No tens suficients coins");
+            LogsVermell.text = "No tens suficients coins";
+        }
         if (HPBoosterLevel == 1)
         {
             Instantiate(ATKEffect, HPBooster.transform.position, HPBooster.transform.rotation);
@@ -1052,7 +1239,16 @@ public class Player : MonoBehaviour
 
     public void num8B(InputAction.CallbackContext context)
     {
-        HPBoosterLevelB++;
+        if (coinsB >= CartaPreuC)
+        {
+            HPBoosterLevelB++;
+            coinsB -= CartaPreuC;
+        }
+        else
+        {
+            Debug.Log("No tens suficients coins");
+            LogsBlau.text = "No tens suficients coins";
+        }
         if (HPBoosterLevelB == 1)
         {
             Instantiate(ATKEffect, HPBoosterB.transform.position, HPBoosterB.transform.rotation);
@@ -1394,9 +1590,38 @@ public class Player : MonoBehaviour
     void Update()
     {
 
+
+        Color colorObjetos;
+
+        if (coins < CartaPreuC)
+            colorObjetos = Color.gray;
+        else
+            ColorUtility.TryParseHtmlString("#FFF400", out colorObjetos);
+
         
-            
+        foreach (GameObject obj in mejorasPrecioA)
+        {
+            SpriteRenderer sr = obj.GetComponent<SpriteRenderer>();
+            if (sr != null)
+                sr.color = colorObjetos;
+        }
+
+
+        Color colorObjetosB;
+
+        if (coinsB < 6)
+            colorObjetosB = Color.gray;
+        else
+            ColorUtility.TryParseHtmlString("#FFF400", out colorObjetosB);
+
         
+        foreach (GameObject obj in mejorasPrecioB)
+        {
+            SpriteRenderer sr = obj.GetComponent<SpriteRenderer>();
+            if (sr != null)
+                sr.color = colorObjetos;
+        }
+
 
         if (coins >= CartaPreuA)
         {

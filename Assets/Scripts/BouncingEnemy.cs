@@ -7,13 +7,13 @@ public class BouncingEnemy : MonoBehaviour
     [SerializeField]
     private GameManager gameManager;
     [SerializeField]
-    private int hp_max = 20;
+    private int hp_max = 20; 
     [SerializeField]
-    private int hp;
+    public int hp { get; private set; }
     [SerializeField]
-    private int atk = 1;
+    public int atk { get; private set; } = 1;
     [SerializeField]
-    private int spd = 3;
+    public int spd { get; private set; } = 3;
     [SerializeField]
     private Range rangeDetection;
     [SerializeField]
