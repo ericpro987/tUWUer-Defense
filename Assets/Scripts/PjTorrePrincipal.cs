@@ -23,7 +23,7 @@ public class PjTorrePrincipal : MonoBehaviour
     [SerializeField]
     private List<Bullet> ammo;
     [SerializeField]
-    private string tagEnemy;
+    public string tagEnemy;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {

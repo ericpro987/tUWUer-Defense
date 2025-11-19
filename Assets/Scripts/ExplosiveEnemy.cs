@@ -21,7 +21,7 @@ public class ExplosiveEnemy : MonoBehaviour
     [SerializeField]
     private GameObject tower;
     [SerializeField]
-    private string tagEnemy;
+    public string tagEnemy;
     [SerializeField]
     private ParticleCollider ps;
     [SerializeField]

@@ -25,7 +25,7 @@ public class BasicEnemy : MonoBehaviour
     private GameObject tower;
     private Rigidbody2D rb;
     [SerializeField]
-    private string tagEnemy;
+    public string tagEnemy;
     [SerializeField]
     List<GameObject> enemies;
     [SerializeField]

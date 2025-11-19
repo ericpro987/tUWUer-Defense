@@ -114,8 +114,12 @@ public class Save : MonoBehaviour
                 hp = explosive.hp,
                 atk = explosive.atk,
                 spd = explosive.spd,
-                position = explosive.transform.position
+                position = explosive.transform.position,
+                tagEnemy = explosive.tagEnemy,
+                tag = explosive.tag
             };
+            if (data.explosiveEnemiesData == null)
+                data.explosiveEnemiesData = new List<ExplosiveEnemyData>();
             data.explosiveEnemiesData.Add(explosiveData);
         }
         foreach (MagoOscuro mago in magosToSave)
@@ -126,8 +130,12 @@ public class Save : MonoBehaviour
                 hp = mago.hp,
                 atk = mago.atk,
                 spd = mago.spd,
-                position = mago.transform.position
+                position = mago.transform.position,
+                tagEnemy = mago.tagEnemy,
+                tag = mago.tag
             };
+            if (data.magoOscuroData == null)
+                data.magoOscuroData = new List<MagoOscuroData>();
             data.magoOscuroData.Add(magoData);
         }
         foreach (BouncingEnemy bo in bouncingToSave)
@@ -135,11 +143,15 @@ public class Save : MonoBehaviour
             BouncingEnemyData bouncingData= new BouncingEnemyData
             {
                 name = bo.name,
-                //hp = bo.hp,
-                //atk = bo.atk,
-                //spd = bo.spd,
-                position = bo.transform.position
+                hp = bo.hp,
+                atk = bo.atk,
+                spd = bo.spd,
+                position = bo.transform.position,
+                tagEnemy = bo.tagEnemy,
+                tag = bo.tag
             };
+            if (data.bouncingEnemiesData == null)
+                data.bouncingEnemiesData = new List<BouncingEnemyData>();
             data.bouncingEnemiesData.Add(bouncingData);
         }
         foreach (BasicEnemy be in basicToSave)
@@ -150,8 +162,12 @@ public class Save : MonoBehaviour
                 hp = be.hp,
                 atk = be.atk,
                 spd = be.spd,
-                position = be.transform.position
+                position = be.transform.position,
+                tagEnemy = be.tagEnemy,
+                tag = be.tag
             };
+            if (data.basicEnemiesData == null)
+                data.basicEnemiesData = new List<BasicEnemyData>();
             data.basicEnemiesData.Add(basicData);
         }
         TorreData torre1Data = new TorreData
@@ -160,6 +176,8 @@ public class Save : MonoBehaviour
             hp = pjTorreJ1.hp,
             atk = pjTorreJ1.atk,
             spd = pjTorreJ1.spd,
+            tagEnemy = pjTorreJ1.tagEnemy,
+            tag = pjTorreJ1.tag
         };
         data.torre1Data = torre1Data;
         TorreData torre2Data = new TorreData
@@ -168,6 +186,8 @@ public class Save : MonoBehaviour
             hp = pjTorreJ2.hp,
             atk = pjTorreJ2.atk,
             spd = pjTorreJ2.spd,
+            tagEnemy = pjTorreJ2.tagEnemy,
+            tag = pjTorreJ2.tag
         };
         data.torre2Data = torre2Data;
 
@@ -259,6 +279,8 @@ public class Save : MonoBehaviour
                         ex.SetAtk(explosiveData.atk);
                         ex.SetSpd(explosiveData.spd);
                         ex.transform.position = explosiveData.position;
+                        ex.transform.tag = explosiveData.tag;
+                        ex.tagEnemy = explosiveData.tagEnemy;
                     }
                 }
             }
@@ -272,9 +294,52 @@ public class Save : MonoBehaviour
                         mo.SetAtk(magoData.atk);
                         mo.SetSpd(magoData.spd);
                         mo.transform.position = magoData.position;
+                        mo.transform.tag = magoData.tag;
+                        mo.tagEnemy = magoData.tagEnemy;
                     }
                 }
             }
+            foreach (var bouncingData in data.bouncingEnemiesData)
+            {
+                foreach (BouncingEnemy bo in bouncingToSave)
+                {
+                    if (bo.name == bouncingData.name)
+                    {
+                        bo.SetHp(bouncingData.hp);
+                        bo.SetAtk(bouncingData.atk);
+                        bo.SetSpd(bouncingData.spd);
+                        bo.transform.position = bouncingData.position;
+                        bo.transform.tag = bouncingData.tag;
+                        bo.tagEnemy = bouncingData.tagEnemy;
+                    }
+                }
+            }
+            foreach (var basicData in data.basicEnemiesData)
+            {
+                foreach (BasicEnemy be in basicToSave)
+                {
+                    if (be.name == basicData.name)
+                    {
+                        be.SetHp(basicData.hp);
+                        be.SetAtk(basicData.atk);
+                        be.SetSpd(basicData.spd);
+                        be.transform.position = basicData.position;
+                        be.transform.tag = basicData.tag;
+                        be.tagEnemy = basicData.tagEnemy;
+                    }
+                }
+            }
+            pjTorreJ1.SetHp(data.torre1Data.hp);
+            pjTorreJ1.SetAtk(data.torre1Data.atk);
+            pjTorreJ1.SetSpd(data.torre1Data.spd);
+            pjTorreJ1.transform.tag = data.torre1Data.tag;
+            pjTorreJ1.tagEnemy = data.torre1Data.tagEnemy;
+            pjTorreJ2.SetHp(data.torre2Data.hp);
+            pjTorreJ2.SetAtk(data.torre2Data.atk);
+            pjTorreJ2.SetSpd(data.torre2Data.spd);
+            pjTorreJ2.transform.tag = data.torre2Data.tag;
+            pjTorreJ2.tagEnemy = data.torre2Data.tagEnemy;
+
         }
         catch(Exception ex)
         {
@@ -309,6 +374,8 @@ public class Save : MonoBehaviour
         public int atk;
         public int spd;
         public Vector3 position;
+        public string tagEnemy;
+        public string tag;
     }
     [Serializable]
     struct MagoOscuroData
@@ -318,6 +385,8 @@ public class Save : MonoBehaviour
         public int atk;
         public int spd;
         public Vector3 position;
+        public string tagEnemy;
+        public string tag;
     }
     [Serializable]
     struct BouncingEnemyData
@@ -327,6 +396,8 @@ public class Save : MonoBehaviour
         public int atk;
         public int spd;
         public Vector3 position;
+        public string tagEnemy;
+        public string tag;
     }
     [Serializable]
     struct BasicEnemyData
@@ -336,6 +407,8 @@ public class Save : MonoBehaviour
         public int atk;
         public int spd;
         public Vector3 position;
+        public string tagEnemy;
+        public string tag;
     }
     struct TorreData
     {
@@ -343,6 +416,8 @@ public class Save : MonoBehaviour
         public int hp;
         public int atk;
         public int spd;
+        public string tagEnemy;
+        public string tag;
     }
     private static byte[] DeriveKey(string password, byte[] salt, int iterations = 10000)
     {

@@ -10516,7 +10516,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 892567398}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2012099596}
+        m_TargetAssemblyTypeName: Save, Assembly-CSharp
+        m_MethodName: LoadGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &892567398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11257,6 +11269,7 @@ MonoBehaviour:
   - {fileID: 2117076093}
   - {fileID: 381163998}
   - {fileID: 1453614151}
+  sv: {fileID: 2012099596}
 --- !u!4 &1013417562
 Transform:
   m_ObjectHideFlags: 0
@@ -13054,7 +13067,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1419200041}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2012099596}
+        m_TargetAssemblyTypeName: Save, Assembly-CSharp
+        m_MethodName: SaveGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1419200041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21001,6 +21026,57 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2012099595
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2012099597}
+  - component: {fileID: 2012099596}
+  m_Layer: 6
+  m_Name: Save
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2012099596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012099595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ff7c228d2ae4b44d9618c382c0297b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManagerMalo: {fileID: 1013417561}
+  explosiveToSave: []
+  magosToSave: []
+  bouncingToSave: []
+  basicToSave: []
+  pjTorreJ1: {fileID: 1891456345}
+  pjTorreJ2: {fileID: 1167366476}
+--- !u!4 &2012099597
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012099595}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -7.0854, y: -2.8503, z: -0.9262}
+  m_LocalScale: {x: 0.64910066, y: 1.5705581, z: 0.8129}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2040095248
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22194,6 +22270,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1825112197}
+  - {fileID: 2012099597}
   - {fileID: 1891456342}
   - {fileID: 1167366473}
   - {fileID: 957528831}
