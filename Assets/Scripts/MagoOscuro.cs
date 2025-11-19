@@ -28,6 +28,8 @@ public class MagoOscuro : MonoBehaviour
     public GameObject tower; 
     [SerializeField]
     public string tagEnemy;
+    [SerializeField]
+    private Save save;
 
     private Rigidbody2D rb;
     public bool isStopped = false;
@@ -88,6 +90,7 @@ public class MagoOscuro : MonoBehaviour
 
     private void Start()
     {
+        save.AddMago(this);
         gameManager.AddIntoList(this.gameObject);
     }
 
@@ -115,6 +118,10 @@ public class MagoOscuro : MonoBehaviour
             bullet.SetAtk(atk);
             bullet.SetTime(0);
         }
+    }
+    public void SetSave(Save sv)
+    {
+        save = sv;
     }
     public void SetHp(int hp)
     {
@@ -270,5 +277,9 @@ public class MagoOscuro : MonoBehaviour
     private void OnDisable()
     {
         gameManager.RemoveOfList(this.gameObject);
+    }
+    private void OnDestroy()
+    {
+        save.RemoveMago(this);
     }
 }

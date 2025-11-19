@@ -24,6 +24,8 @@ public class BouncingEnemy : MonoBehaviour
     private GameObject tower;
     [SerializeField]
     private string tagEnemy;
+    [SerializeField]
+    private Save save;
 
     private Rigidbody2D rb;
     [SerializeField]
@@ -87,6 +89,7 @@ public class BouncingEnemy : MonoBehaviour
 
     private void Start()
     {
+        save.AddBouncing(this);
         gameManager.AddIntoList(this.gameObject);
     }
 
@@ -209,5 +212,14 @@ public class BouncingEnemy : MonoBehaviour
     public void SetAtk(int atk)
     {
         this.atk = atk;
+    }
+    public void SetSave(Save sv)
+    {
+        save = sv;
+    }
+    private void OnDestroy()
+    {
+        save.RemoveBouncing(this);
+        gameManager.RemoveOfList(this.gameObject);
     }
 }

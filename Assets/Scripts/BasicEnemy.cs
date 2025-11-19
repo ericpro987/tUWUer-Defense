@@ -28,7 +28,8 @@ public class BasicEnemy : MonoBehaviour
     private string tagEnemy;
     [SerializeField]
     List<GameObject> enemies;
-
+    [SerializeField]
+    private Save save;
 
 
 
@@ -87,6 +88,7 @@ public class BasicEnemy : MonoBehaviour
     }
     void Start()
     {
+        save.AddBasic(this);
         gameManager.AddIntoList(this.gameObject);
 
     }
@@ -118,6 +120,10 @@ public class BasicEnemy : MonoBehaviour
     public void SetAtk(int atk)
     {
         this.atk = atk;
+    }
+    public void SetSave(Save sv)
+    {
+        save = sv;
     }
     void Move()
     {
@@ -190,6 +196,7 @@ public class BasicEnemy : MonoBehaviour
     }
     private void OnDestroy()
     {
+        save.RemoveBasic(this);
         gameManager.RemoveOfList(this.gameObject);
     }
 

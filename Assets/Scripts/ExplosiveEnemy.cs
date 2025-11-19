@@ -24,7 +24,8 @@ public class ExplosiveEnemy : MonoBehaviour
     private string tagEnemy;
     [SerializeField]
     private ParticleCollider ps;
-
+    [SerializeField]
+    private Save save;
 
 
     [SerializeField]
@@ -70,7 +71,8 @@ public class ExplosiveEnemy : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-            gameManager.AddIntoList(this.gameObject);
+        save.AddExplosive(this);
+        gameManager.AddIntoList(this.gameObject);
 
     }
     // Update is called once per frame
@@ -80,6 +82,10 @@ public class ExplosiveEnemy : MonoBehaviour
     {
         if (!isStopped)
             Move();
+    }
+    public void SetSave(Save sv)
+    {
+        save = sv;
     }
     public void SetHp(int hp)
     {
@@ -114,6 +120,7 @@ public class ExplosiveEnemy : MonoBehaviour
     }
     private void OnDestroy()
     {
+        save.RemoveExplosive(this);
         gameManager.RemoveOfList(this.gameObject);
     }
 }

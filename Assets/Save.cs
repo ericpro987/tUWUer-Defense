@@ -27,9 +27,10 @@ public class Save : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //  explosiveToSave = new List<ExplosiveEnemy>();
-        // magosToSave = new List<MagoOscuro>();
-        // objectsToSave = gameManager.GetAllGameObjects(); // Hypothetical method to get all relevant game objects
+         explosiveToSave = new List<ExplosiveEnemy>();
+         magosToSave = new List<MagoOscuro>();
+         bouncingToSave = new List<BouncingEnemy>();
+         basicToSave = new List<BasicEnemy>();
     }
 
     // Update is called once per frame
@@ -37,6 +38,42 @@ public class Save : MonoBehaviour
     {
 
     }
+
+
+    public void AddExplosive(ExplosiveEnemy explosive)
+    {
+        explosiveToSave.Add(explosive);
+    }
+    public void AddMago(MagoOscuro mago)
+    {
+        magosToSave.Add(mago);
+    }
+    public void AddBouncing(BouncingEnemy bouncing)
+    {
+        bouncingToSave.Add(bouncing);
+    }
+    public void AddBasic(BasicEnemy basic)
+    {
+        basicToSave.Add(basic);
+    }
+
+    public void RemoveExplosive(ExplosiveEnemy explosive)
+    {
+        explosiveToSave.Remove(explosive);
+    }
+    public void RemoveMago(MagoOscuro mago)
+    {
+        magosToSave.Remove(mago);
+    }
+    public void RemoveBouncing(BouncingEnemy bouncing)
+    {
+        bouncingToSave.Remove(bouncing);
+    }
+    public void RemoveBasic(BasicEnemy basic)
+    {
+        basicToSave.Remove(basic);
+    }
+
     public void SaveGame()
     {
 #if UNITY_EDITOR

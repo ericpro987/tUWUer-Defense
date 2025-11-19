@@ -167,6 +167,8 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     public GameObject[] mejorasPrecioB;
+    [SerializeField]
+    Save sv;
     public void SetCoinsJ1(int coins)
     {
         this.coins = coins;
@@ -326,6 +328,7 @@ public class Player : MonoBehaviour
                 mo.SetHp(mo.hp+HPBoosterLevel);
                 mo.SetAtk(mo.atk+ATKBoosterLevel);
                 mo.SetSpd(mo.spd+SPDBoosterLevel);
+                
                 LogsVermell.text = "";
                 coins -= CartaPreuA;
             }
@@ -344,6 +347,7 @@ public class Player : MonoBehaviour
                 mo.SetHp(mo.hp + HPBoosterLevel);
                 mo.SetAtk(mo.atk + ATKBoosterLevel);
                 mo.SetSpd(mo.spd + SPDBoosterLevel);
+                mo.SetSave(sv);
                 LogsVermell.text = "";
                 coins -= CartaPreuB;
             }
@@ -364,6 +368,7 @@ public class Player : MonoBehaviour
                 mo.SetHp(mo.hp + HPBoosterLevel);
                 mo.SetAtk(mo.atk + ATKBoosterLevel);
                 mo.SetSpd(mo.spd + SPDBoosterLevel);
+                mo.SetSave(sv);
                 LogsVermell.text = "";
                 coins -= CartaPreuC;
             }
@@ -383,6 +388,7 @@ public class Player : MonoBehaviour
                 mo.SetHp(mo.hp + HPBoosterLevel);
                 mo.SetAtk(mo.atk + ATKBoosterLevel);
                 mo.SetSpd(mo.spd + SPDBoosterLevel);
+                mo.SetSave(sv);
                 LogsVermell.text = "";
                 coins -= CartaPreuD;
             }
@@ -418,6 +424,7 @@ public class Player : MonoBehaviour
                 mo.SetHp(mo.hp + HPBoosterLevelB);
                 mo.SetAtk(mo.atk + ATKBoosterLevelB);
                 mo.SetSpd(mo.spd + SPDBoosterLevelB);
+                mo.SetSave(sv);
                 LogsBlau.text = "";
                 coinsB -= CartaPreuA;
             }
@@ -437,6 +444,7 @@ public class Player : MonoBehaviour
                 mo.SetHp(mo.hp + HPBoosterLevelB);
                 mo.SetAtk(mo.atk + ATKBoosterLevelB);
                 mo.SetSpd(mo.spd + SPDBoosterLevelB);
+                mo.SetSave(sv);
                 LogsBlau.text = "";
                 coinsB -= CartaPreuB;
             }
@@ -458,6 +466,7 @@ public class Player : MonoBehaviour
                 mo.SetHp(mo.hp + HPBoosterLevelB);
                 mo.SetAtk(mo.atk + ATKBoosterLevelB);
                 mo.SetSpd(mo.spd + SPDBoosterLevelB);
+                mo.SetSave(sv);
                 LogsBlau.text = "";
                 coinsB -= CartaPreuC;
             }
@@ -480,6 +489,7 @@ public class Player : MonoBehaviour
                 mo.SetHp(mo.hp + HPBoosterLevelB);
                 mo.SetAtk(mo.atk + ATKBoosterLevelB);
                 mo.SetSpd(mo.spd + SPDBoosterLevelB);
+                mo.SetSave(sv);
                 LogsBlau.text = "";
                 coinsB -= CartaPreuD;
             }
@@ -514,6 +524,7 @@ public class Player : MonoBehaviour
                 mo.SetHp(mo.hp + HPBoosterLevel);
                 mo.SetAtk(mo.atk + ATKBoosterLevel);
                 mo.SetSpd(mo.spd + SPDBoosterLevel);
+                mo.SetSave(sv);
                 LogsVermell.text = "";
                 coins -= CartaPreuA;
             }
@@ -535,6 +546,7 @@ public class Player : MonoBehaviour
                 mo.SetHp(mo.hp + HPBoosterLevel);
                 mo.SetAtk(mo.atk + ATKBoosterLevel);
                 mo.SetSpd(mo.spd + SPDBoosterLevel);
+                mo.SetSave(sv);
                 LogsVermell.text = "";
                 coins -= CartaPreuB;
             }
@@ -557,6 +569,7 @@ public class Player : MonoBehaviour
                 mo.SetHp(mo.hp + HPBoosterLevel);
                 mo.SetAtk(mo.atk + ATKBoosterLevel);
                 mo.SetSpd(mo.spd + SPDBoosterLevel);
+                mo.SetSave(sv);
                 LogsVermell.text = "";
                 coins -= CartaPreuC;
             }
@@ -579,6 +592,7 @@ public class Player : MonoBehaviour
                 mo.SetHp(mo.hp + HPBoosterLevel);
                 mo.SetAtk(mo.atk + ATKBoosterLevel);
                 mo.SetSpd(mo.spd + SPDBoosterLevel);
+                mo.SetSave(sv);
                 LogsVermell.text = "";
                 coins -= CartaPreuD;
             }
@@ -614,6 +628,7 @@ public class Player : MonoBehaviour
                 mo.SetHp(mo.hp + HPBoosterLevelB);
                 mo.SetAtk(mo.atk + ATKBoosterLevelB);
                 mo.SetSpd(mo.spd + SPDBoosterLevelB);
+                mo.SetSave(sv);
                 LogsBlau.text = "";
                 coinsB -= CartaPreuA;
             }
@@ -636,6 +651,7 @@ public class Player : MonoBehaviour
                 mo.SetHp(mo.hp + HPBoosterLevelB);
                 mo.SetAtk(mo.atk + ATKBoosterLevelB);
                 mo.SetSpd(mo.spd + SPDBoosterLevelB);
+                mo.SetSave(sv);
                 LogsBlau.text = "";
                 coinsB -= CartaPreuB;
             }
@@ -658,6 +674,7 @@ public class Player : MonoBehaviour
                 mo.SetHp(mo.hp + HPBoosterLevelB);
                 mo.SetAtk(mo.atk + ATKBoosterLevelB);
                 mo.SetSpd(mo.spd + SPDBoosterLevelB);
+                mo.SetSave(sv);
                 LogsBlau.text = "";
                 coinsB -= CartaPreuC;
             }
@@ -680,6 +697,7 @@ public class Player : MonoBehaviour
                 mo.SetHp(mo.hp + HPBoosterLevelB);
                 mo.SetAtk(mo.atk + ATKBoosterLevelB);
                 mo.SetSpd(mo.spd + SPDBoosterLevelB);
+                mo.SetSave(sv);
                 LogsBlau.text = "";
                 coinsB -= CartaPreuD;
             }
@@ -715,6 +733,7 @@ public class Player : MonoBehaviour
                 mo.SetHp(mo.hp + HPBoosterLevel);
                 mo.SetAtk(mo.atk + ATKBoosterLevel);
                 mo.SetSpd(mo.spd + SPDBoosterLevel);
+                mo.SetSave(sv);
                 LogsVermell.text = "";
                 coins -= CartaPreuA;
             }
@@ -737,6 +756,7 @@ public class Player : MonoBehaviour
                 mo.SetHp(mo.hp + HPBoosterLevel);
                 mo.SetAtk(mo.atk + ATKBoosterLevel);
                 mo.SetSpd(mo.spd + SPDBoosterLevel);
+                mo.SetSave(sv);
                 LogsVermell.text = "";
                 coins -= CartaPreuB;
             }
@@ -759,6 +779,7 @@ public class Player : MonoBehaviour
                 mo.SetHp(mo.hp + HPBoosterLevel);
                 mo.SetAtk(mo.atk + ATKBoosterLevel);
                 mo.SetSpd(mo.spd + SPDBoosterLevel);
+                mo.SetSave(sv);
                 LogsVermell.text = "";
                 coins -= CartaPreuC;
             }
@@ -781,6 +802,7 @@ public class Player : MonoBehaviour
                 mo.SetHp(mo.hp + HPBoosterLevel);
                 mo.SetAtk(mo.atk + ATKBoosterLevel);
                 mo.SetSpd(mo.spd + SPDBoosterLevel);
+                mo.SetSave(sv);
                 LogsVermell.text = "";
                 coins -= CartaPreuD;
             }
@@ -816,6 +838,7 @@ public class Player : MonoBehaviour
                 mo.SetHp(mo.hp + HPBoosterLevelB);
                 mo.SetAtk(mo.atk + ATKBoosterLevelB);
                 mo.SetSpd(mo.spd + SPDBoosterLevelB);
+                mo.SetSave(sv);
                 LogsBlau.text = "";
                 coinsB -= CartaPreuA;
             }
@@ -838,6 +861,7 @@ public class Player : MonoBehaviour
                 mo.SetHp(mo.hp + HPBoosterLevelB);
                 mo.SetAtk(mo.atk + ATKBoosterLevelB);
                 mo.SetSpd(mo.spd + SPDBoosterLevelB);
+                mo.SetSave(sv);
                 LogsBlau.text = "";
                 coinsB -= CartaPreuB;
             }
@@ -860,6 +884,7 @@ public class Player : MonoBehaviour
                 mo.SetHp(mo.hp + HPBoosterLevelB);
                 mo.SetAtk(mo.atk + ATKBoosterLevelB);
                 mo.SetSpd(mo.spd + SPDBoosterLevelB);
+                mo.SetSave(sv);
                 LogsBlau.text = "";
                 coinsB -= CartaPreuC;
             }
@@ -882,6 +907,7 @@ public class Player : MonoBehaviour
                 mo.SetHp(mo.hp + HPBoosterLevelB);
                 mo.SetAtk(mo.atk + ATKBoosterLevelB);
                 mo.SetSpd(mo.spd + SPDBoosterLevelB);
+                mo.SetSave(sv);
                 LogsBlau.text = "";
                 coinsB -= CartaPreuD;
             }
@@ -919,6 +945,7 @@ public class Player : MonoBehaviour
                 mo.SetHp(mo.hp + HPBoosterLevelB);
                 mo.SetAtk(mo.atk + ATKBoosterLevelB);
                 mo.SetSpd(mo.spd + SPDBoosterLevelB);
+                mo.SetSave(sv);
                 LogsBlau.text = "";
                 coinsB -= CartaPreuA;
             }
@@ -941,6 +968,7 @@ public class Player : MonoBehaviour
                 mo.SetHp(mo.hp + HPBoosterLevelB);
                 mo.SetAtk(mo.atk + ATKBoosterLevelB);
                 mo.SetSpd(mo.spd + SPDBoosterLevelB);
+                mo.SetSave(sv);
                 LogsBlau.text = "";
                 coinsB -= CartaPreuB;
             }
@@ -963,6 +991,7 @@ public class Player : MonoBehaviour
                 mo.SetHp(mo.hp + HPBoosterLevelB);
                 mo.SetAtk(mo.atk + ATKBoosterLevelB);
                 mo.SetSpd(mo.spd + SPDBoosterLevelB);
+                mo.SetSave(sv);
                 LogsBlau.text = "";
                 coinsB -= CartaPreuC;
             }
@@ -985,6 +1014,7 @@ public class Player : MonoBehaviour
                 mo.SetHp(mo.hp + HPBoosterLevelB);
                 mo.SetAtk(mo.atk + ATKBoosterLevelB);
                 mo.SetSpd(mo.spd + SPDBoosterLevelB);
+                mo.SetSave(sv);
                 LogsBlau.text = "";
                 coinsB -= CartaPreuD;
             }
@@ -1018,6 +1048,7 @@ public class Player : MonoBehaviour
                 mo.SetHp(mo.hp + HPBoosterLevel);
                 mo.SetAtk(mo.atk + ATKBoosterLevel);
                 mo.SetSpd(mo.spd + SPDBoosterLevel);
+                mo.SetSave(sv);
                 LogsVermell.text = "";
                 coins -= CartaPreuA;
             }
@@ -1040,6 +1071,7 @@ public class Player : MonoBehaviour
                 mo.SetHp(mo.hp + HPBoosterLevel);
                 mo.SetAtk(mo.atk + ATKBoosterLevel);
                 mo.SetSpd(mo.spd + SPDBoosterLevel);
+                mo.SetSave(sv);
                 LogsVermell.text = "";
                 coins -= CartaPreuB;
             }
@@ -1062,6 +1094,7 @@ public class Player : MonoBehaviour
                 mo.SetHp(mo.hp + HPBoosterLevel);
                 mo.SetAtk(mo.atk + ATKBoosterLevel);
                 mo.SetSpd(mo.spd + SPDBoosterLevel);
+                mo.SetSave(sv);
                 LogsVermell.text = "";
                 coins -= CartaPreuC;
             }
@@ -1084,6 +1117,7 @@ public class Player : MonoBehaviour
                 mo.SetHp(mo.hp + HPBoosterLevel);
                 mo.SetAtk(mo.atk + ATKBoosterLevel);
                 mo.SetSpd(mo.spd + SPDBoosterLevel);
+                mo.SetSave(sv);
                 LogsVermell.text = "";
                 coins -= CartaPreuD;
             }
