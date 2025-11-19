@@ -8,7 +8,7 @@ using UnityEngine;
 
 public class Save : MonoBehaviour
 {
-    private const string filePath = "savefile.";
+    private const string filePath = "savefile.sav";
     [SerializeField]
     Player gameManagerMalo;
     GameManager gameManager;
@@ -116,7 +116,7 @@ public class Save : MonoBehaviour
                 spd = explosive.spd,
                 position = explosive.transform.position,
                 tagEnemy = explosive.tagEnemy,
-                tag = explosive.tag
+                tag = explosive.transform.tag
             };
             if (data.explosiveEnemiesData == null)
                 data.explosiveEnemiesData = new List<ExplosiveEnemyData>();
@@ -132,7 +132,7 @@ public class Save : MonoBehaviour
                 spd = mago.spd,
                 position = mago.transform.position,
                 tagEnemy = mago.tagEnemy,
-                tag = mago.tag
+                tag = mago.transform.tag
             };
             if (data.magoOscuroData == null)
                 data.magoOscuroData = new List<MagoOscuroData>();
@@ -148,7 +148,7 @@ public class Save : MonoBehaviour
                 spd = bo.spd,
                 position = bo.transform.position,
                 tagEnemy = bo.tagEnemy,
-                tag = bo.tag
+                tag = bo.transform.tag
             };
             if (data.bouncingEnemiesData == null)
                 data.bouncingEnemiesData = new List<BouncingEnemyData>();
@@ -164,7 +164,7 @@ public class Save : MonoBehaviour
                 spd = be.spd,
                 position = be.transform.position,
                 tagEnemy = be.tagEnemy,
-                tag = be.tag
+                tag = be.transform.tag
             };
             if (data.basicEnemiesData == null)
                 data.basicEnemiesData = new List<BasicEnemyData>();
@@ -177,7 +177,7 @@ public class Save : MonoBehaviour
             atk = pjTorreJ1.atk,
             spd = pjTorreJ1.spd,
             tagEnemy = pjTorreJ1.tagEnemy,
-            tag = pjTorreJ1.tag
+            tag = pjTorreJ1.transform.tag
         };
         data.torre1Data = torre1Data;
         TorreData torre2Data = new TorreData
@@ -187,7 +187,7 @@ public class Save : MonoBehaviour
             atk = pjTorreJ2.atk,
             spd = pjTorreJ2.spd,
             tagEnemy = pjTorreJ2.tagEnemy,
-            tag = pjTorreJ2.tag
+            tag = pjTorreJ2.transform.tag
         };
         data.torre2Data = torre2Data;
 

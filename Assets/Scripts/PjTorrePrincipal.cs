@@ -15,6 +15,9 @@ public class PjTorrePrincipal : MonoBehaviour
     public int spd { get; private set; }
 
     [SerializeField]
+    private Winner winner;
+
+    [SerializeField]
     private Range rangeDetection;
     [SerializeField]
     private Range rangeAttack;
@@ -139,14 +142,12 @@ public class PjTorrePrincipal : MonoBehaviour
 
         if (x > 0f)
         {
-            PlayerPrefs.SetString("winner", "blue");
-        }
+            winner.winner = "blue";        
+                }
         else if (x < 0f)
         {
-            PlayerPrefs.SetString("winner", "red");
+            winner.winner = "red";
         }
-
-        PlayerPrefs.Save();
 
         
         SceneManager.LoadScene("Winscreen");

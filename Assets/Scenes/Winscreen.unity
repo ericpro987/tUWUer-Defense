@@ -422,6 +422,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winnerText: {fileID: 348324397}
   playAgainButton: {fileID: 840711966}
+  winner: {fileID: 11400000, guid: 503144f496e1302428adcf74720b4a16, type: 2}
 --- !u!1 &1164735158
 GameObject:
   m_ObjectHideFlags: 0

@@ -328,7 +328,8 @@ public class Player : MonoBehaviour
                 mo.SetHp(mo.hp+HPBoosterLevel);
                 mo.SetAtk(mo.atk+ATKBoosterLevel);
                 mo.SetSpd(mo.spd+SPDBoosterLevel);
-                
+                mo.SetSave(sv);
+
                 LogsVermell.text = "";
                 coins -= CartaPreuA;
             }

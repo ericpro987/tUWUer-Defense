@@ -11,9 +11,12 @@ public class MenuWinscreen : MonoBehaviour
     [SerializeField]
     private Button playAgainButton;
 
+    [SerializeField]
+    private Winner winner;
+
     void Start()
     {
-        string winner = PlayerPrefs.GetString("winner", "red");
+        string winner = this.winner.winner;
 
         if (winner == "red")
         {
