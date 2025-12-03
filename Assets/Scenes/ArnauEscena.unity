@@ -9725,7 +9725,7 @@ GameObject:
   - component: {fileID: 738474088}
   - component: {fileID: 738474087}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: SPDBOOSTER
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9901,7 +9901,7 @@ GameObject:
   - component: {fileID: 817749829}
   - component: {fileID: 817749828}
   m_Layer: 0
-  m_Name: Hexagon Flat Top (1)
+  m_Name: ATKBOOSTERB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10817,7 +10817,7 @@ GameObject:
   - component: {fileID: 949948275}
   - component: {fileID: 949948274}
   m_Layer: 0
-  m_Name: Isometric Diamond
+  m_Name: GENERATOR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11168,6 +11168,7 @@ GameObject:
   - component: {fileID: 1013417562}
   - component: {fileID: 1013417561}
   - component: {fileID: 1013417563}
+  - component: {fileID: 1013417564}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -11229,24 +11230,12 @@ MonoBehaviour:
   bola6: {fileID: 2859265765312947926, guid: df24cd1ab270f964c83f05cbd0dd38dc, type: 3}
   bola7: {fileID: 2678549186074130728, guid: bdc577d704531974491e88c500156489, type: 3}
   bola8: {fileID: 3410360449317770817, guid: 62dc4de4c1ec291408c50f0c9f7c941c, type: 3}
-  carta1: {fileID: 1737267599}
-  carta2: {fileID: 1729723195}
-  carta3: {fileID: 1336598521}
-  carta4: {fileID: 1155624013}
-  carta5: {fileID: 1390849987}
-  carta6: {fileID: 1515746050}
-  carta7: {fileID: 676723064}
-  carta8: {fileID: 2126562489}
   CartaPreuA: 0
   CartaPreuB: 0
   CartaPreuC: 0
   CartaPreuD: 0
-  MONEDES: {fileID: 1420083229}
-  MONEDESB: {fileID: 697135991}
   coinEffect: {fileID: 2040095249}
   ATKEffect: {fileID: 2142922805}
-  LogsVermell: {fileID: 680793155}
-  LogsBlau: {fileID: 1627280033}
   mejorasPrecioA:
   - {fileID: 1902285719}
   - {fileID: 845972037}
@@ -11284,6 +11273,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccc3bd47f6abf464c958705ab3af0fba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1013417564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013417560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e786b3438364c5a4caf4be38c05e630b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monedasJ1: {fileID: 1420083229}
+  monedasJ2: {fileID: 697135991}
+  logsJ1: {fileID: 680793155}
+  logsJ2: {fileID: 1627280033}
+  carta1: {fileID: 1737267599}
+  carta2: {fileID: 1729723195}
+  carta3: {fileID: 1336598521}
+  carta4: {fileID: 1155624013}
+  carta5: {fileID: 1390849987}
+  carta6: {fileID: 1515746050}
+  carta7: {fileID: 676723064}
+  carta8: {fileID: 2126562489}
+  mejorasA:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  mejorasB:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  genJ1: {fileID: 949948273}
+  atkJ1: {fileID: 1031210554}
+  spdJ1: {fileID: 1899202841}
+  hpJ1: {fileID: 738474086}
+  genJ2: {fileID: 1426665352}
+  atkJ2: {fileID: 817749827}
+  spdJ2: {fileID: 1415022644}
+  hpJ2: {fileID: 1664372587}
+  preciosMejorasA: 02000000040000000600000008000000
+  preciosMejorasB: 02000000040000000600000008000000
 --- !u!1 &1015186735
 GameObject:
   m_ObjectHideFlags: 0
@@ -11584,7 +11617,7 @@ GameObject:
   - component: {fileID: 1031210556}
   - component: {fileID: 1031210555}
   m_Layer: 0
-  m_Name: Hexagon Flat Top
+  m_Name: ATKBOOSTER
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12894,7 +12927,7 @@ GameObject:
   - component: {fileID: 1415022646}
   - component: {fileID: 1415022645}
   m_Layer: 0
-  m_Name: Hexagon Point Top (1)
+  m_Name: HPBOOSTERB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13240,7 +13273,7 @@ GameObject:
   - component: {fileID: 1426665354}
   - component: {fileID: 1426665353}
   m_Layer: 0
-  m_Name: Isometric Diamond (1)
+  m_Name: GENERATORB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18963,7 +18996,7 @@ GameObject:
   - component: {fileID: 1664372589}
   - component: {fileID: 1664372588}
   m_Layer: 0
-  m_Name: Capsule (1)
+  m_Name: SPDBOOSTERB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20601,7 +20634,7 @@ GameObject:
   - component: {fileID: 1899202843}
   - component: {fileID: 1899202842}
   m_Layer: 0
-  m_Name: Hexagon Point Top
+  m_Name: HPBOOSTER
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
