@@ -264,11 +264,11 @@ public class Player : MonoBehaviour
 
     public void num5(InputAction.CallbackContext context)
     {
-        
-        if (coins >= CartaPreuC)
+
+        if (coins >= CartaPreuC && generatorLevel < 3)
         {
             generatorLevel++;
-            coins-= CartaPreuC;
+            coins -= CartaPreuC;
             OnGeneratorLevelChangedJ1?.Invoke(generatorLevel);
         }
         else
@@ -279,16 +279,18 @@ public class Player : MonoBehaviour
         }
     }
 
+    //generatorLevel = Mathf.Clamp(generatorLevel, 1, 3); (para el futuro futuroso del proyecto)
+    //generatorLevelB = Mathf.Clamp(generatorLevelB, 1, 3);
 
     public void num5B(InputAction.CallbackContext context)
     {
-       
 
-        if (coinsB >= CartaPreuC)
+
+        if (coinsB >= CartaPreuC && generatorLevelB < 3)
         {
             generatorLevelB++;
-            OnGeneratorLevelChangedJ2?.Invoke(generatorLevelB);
             coinsB -= CartaPreuC;
+            OnGeneratorLevelChangedJ2?.Invoke(generatorLevelB);
         }
         else
         {
@@ -637,7 +639,7 @@ public class Player : MonoBehaviour
         while (true)
         {
             coins++;
-            Debug.Log("Coins: " + coins);
+           // Debug.Log("Coins: " + coins);
             Instantiate(coinEffect, generator.transform.position, generator.transform.rotation);
 
             if (generatorLevel == 1)
@@ -655,6 +657,7 @@ public class Player : MonoBehaviour
             else
             {
                 Debug.Log("you hacker");
+                yield return new WaitForSeconds(1);
             }
 OnCoinsChangedJ1?.Invoke(coins);
         }
@@ -667,7 +670,7 @@ OnCoinsChangedJ1?.Invoke(coins);
         while (true)
         {
             coinsB++;
-            Debug.Log("Coins: " + coinsB);
+          //  Debug.Log("Coins: " + coinsB);
             Instantiate(coinEffect, generatorB.transform.position, generatorB.transform.rotation);
 
             if (generatorLevelB == 1)
@@ -685,6 +688,7 @@ OnCoinsChangedJ1?.Invoke(coins);
             else
             {
                 Debug.Log("you hacker");
+                yield return new WaitForSeconds(1);
             }
 OnCoinsChangedJ2?.Invoke(coinsB);
         }
